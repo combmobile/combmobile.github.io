@@ -67,6 +67,8 @@ $(function() {
           console.log(data);
           console.log("yay");
           router.navigate('main', {trigger: true});
+          // added initialize to view
+          initialize();
         }
       });
       // console.log(userCredentials);
