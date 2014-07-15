@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+        <!-- Stylesheets -->
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+
+        <!-- Libraries -->
+     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script type="text/javascript" src='javascripts/libraries/jquery.js'></script>
+    <script type="text/javascript" src='javascripts/libraries/underscore.js'></script>
+    <script type="text/javascript" src='javascripts/libraries/backbone.js'></script>
+
+        <!-- Templates -->
+
+        <script type="text/template" id="logInTemplate">
+            <div class="welcome-block">
+                <form class="login-form">
+                    <input name="email" type="text" placeholder='your email'>
+                    <input name="password" type="text" placeholder='password'>
+                    <input name="submit" type="submit" value="login">
+                </form>
+                <a href="#/sign_up" class='signup-link'>Sign Up</a>
+            </div>
+        </script>
+
+        <script type="text/template" id="signUpTemplate">
+            <div class="welcome-block">
+                <form class="signup-form">
+                    <input name="email" type="text" placeholder='your email'>
+                    <input name="password" type="text" placeholder='password'>
+                    <input name="password_confirmation" type="text" placeholder='password confirmation'>
+                    <input name="submit" type="submit" value="Sign Up">
+                </form>
+                <a href="#" class='login-link'>Log In</a>
+            </div>
+        </script>
+
+        <!-- App -->
+    <script type="text/javascript" src='javascripts/backbone/app.js'></script>
+
+        <!-- Models -->
+    <script type="text/javascript" src='javascripts/backbone/models/Map.js'></script>
+    <script type="text/javascript" src='javascripts/backbone/models/Pin.js'></script>
+
+    <!-- Collections -->
+    <script type="text/javascript" src='javascripts/backbone/collections/MapCollection.js'></script>
+    <script type="text/javascript" src='javascripts/backbone/collections/PinCollection.js'></script>
+
+    <!-- Views -->
+    <script type="text/javascript" src='javascripts/backbone/views/maps/MapView.js'></script>
+    <script type="text/javascript" src='javascripts/backbone/views/maps/MapListView.js'></script>
+    <script type="text/javascript" src='javascripts/backbone/views/pins/PinView.js'></script>
+    <script type="text/javascript" src='javascripts/backbone/views/pins/PinListView.js'></script>
+
+  </head>
+
+  <body>
+    <div class='container'>
+        <h1> HEJINFDOAJFNI</h1>
+        <a href="#nav" class="menu">Menu</a>
+        <div class="main">
+        </div>
+        <div class="bottom-nav">
+            <div class="section group center">
+                <div class="col span_4_of_12 test">
+                    <div class="test-two">TEST</div>
+                </div>
+                <div class="col span_4_of_12">
+                    <div class="test-two">TEST</div>
+                </div>
+                <div class="col span_4_of_12">
+                    <div class="test-two">TEST</div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+
+</html>
