@@ -69,33 +69,41 @@ body {
 
 .welcome-block, .menu{
     margin: 1.5em;
-    background-color: whitesmoke;
-    border: 1px solid gainsboro;
-    text-align: center;
-    color: silver;
+}
+.welcome-block{
+  background-color: whitesmoke;
+  border: 1px solid gainsboro;
+  text-align: center;
+  color: silver;
+}
+
+.menu, .bottom-nav{
+  position: absolute;
+  margin: 0;
+  right: 0;
+  color: steelblue;
+  background-color: gainsboro;
+  width: 100%;
+
 }
 
 .menu {
-    position: absolute;
-    margin: 0;
     top: 0;
-    right: 0;
-    background-color: gainsboro;
-    padding: 1.1em;
-    color: steelblue;
-    width: 100%;
+    padding: .1em 0;
 }
 
+.menu .logo{
+  padding-left: 1.5em;
+}
+
+.menu .logo p{
+  font-family: 'apercubold';
+}
+
+
 .bottom-nav {
-    position: absolute;
-    margin: 0;
     bottom: 0;
-    right: 0;
-    background-color: gainsboro;
-    /*padding: 0.5em;*/
     padding: 1.3em 0;
-    color: steelblue;
-    width: 100%;
 }
 
 input[type=text] {
@@ -141,6 +149,8 @@ background: #d5645a;
 .center{
     text-align: center;
 }
+
+
 
 
 @media only screen and (max-width: 480px) {
