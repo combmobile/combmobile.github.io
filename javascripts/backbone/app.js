@@ -1,40 +1,49 @@
 var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
-// Haystack.initialize = function() {
-//   var collection = new Haystack.Collections.MapCollection();
+Comb.initialize = function() {
 
-//   collection.fetch({success: function(){
-//     console.log(collection.models[0].attributes.pins[0]);
-//   }})
+  var combView = new Comb.Views.MapView();
+  // var collection = new Comb.Collections.MapCollection();
 
-//   var listView = new Haystack.Views.MapListView({
+  // collection.fetch({success: function(){
+  //   console.log(collection.models[0].attributes.pins[0]);
+  // }})
+
+//   var listView = new Comb.Views.MapListView({
 //     collection: collection,
 //     el: $('.map_list_ul')
 //   });
 
-// $(".new_map_form").on("submit", function(e){
-//   e.preventDefault();
-//   var map_name= $(".new_map_form").find('input').val();
-//   console.log(map_name);
-//   map_view = new Haystack.Views.MapView({
+// // $(".new_map_form").on("submit", function(e){
+// //   e.preventDefault();
+// //   var map_name= $(".new_map_form").find('input').val();
+// //   console.log(map_name);
+
+//   map_view = new Comb.Views.MapView({
 //       el: $('#map-canvas')[0],
 //       new_map_name: map_name
 //   });
-//     map_view.renderCurrentLocation(map_name);
+
+//   map_view.renderCurrentLocation(map_name);
 //     $(".new_map_form").find('input').val("");
 //   });
 
-// }
-
-var map;
-function initialize() {
-  var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(-34.397, 150.644)
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
 }
+
+
+
+
+
+/* SANDBOX DEFAULT CODE */
+// var map;
+// function initialize() {
+//   var mapOptions = {
+//     zoom: 8,
+//     center: new google.maps.LatLng(-34.397, 150.644)
+//   };
+//   map = new google.maps.Map(document.getElementById('map-canvas'),
+//       mapOptions);
+// }
 
 
 
