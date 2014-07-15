@@ -77,19 +77,26 @@ body {
   color: silver;
 }
 
+.welcome-block {
+  padding: 1em;
+  margin-top: 5em;
+  height: 100%;
+}
+
+
 .menu, .bottom-nav{
   position: absolute;
   margin: 0;
   right: 0;
   color: steelblue;
-  background-color: gainsboro;
+  background-color: rgb(45,55,63);
   width: 100%;
-
+  display: block;
 }
 
 .menu {
     top: 0;
-    padding: .1em 0;
+    padding: .15% 0;
 }
 
 .menu .logo{
@@ -103,7 +110,7 @@ body {
 
 .bottom-nav {
     bottom: 0;
-    padding: 1.3em 0;
+    padding: 2% 0;
 }
 
 input[type=text] {
@@ -140,17 +147,18 @@ input[type=submit]:hover{
 background: #d5645a;
 }
 
-.welcome-block {
-  padding: 1em;
-  margin-top: 5em;
-  height: 100%;
-}
-
 .center{
     text-align: center;
 }
 
-
+/*#map-canvas {
+  height: 400px;
+  width: 400px;
+  margin: 0 auto;
+  padding: 0px;
+  border: none;
+  border-radius: 20px;
+}*/
 
 
 @media only screen and (max-width: 480px) {
@@ -452,4 +460,3 @@ background: #d5645a;
   @media only screen and (min-width : 1200px) {
 
   }
->>>>>>> fba41e3689830fcfdee09952a7d73117c14b84b5

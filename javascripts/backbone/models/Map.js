@@ -1,15 +1,15 @@
-var Haystack = Haystack || { Models: {}, Collections: {}, Views: {} };
+var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
-Haystack.Models.Map = Backbone.Model.extend({
+Comb.Models.Map = Backbone.Model.extend({
   urlRoot : '/maps',
   initialize: function(){
     console.log("You've created a new Map");
-    // this.set('pins', new Haystack.Collections.PinCollection());
+    // this.set('pins', new Comb.Collections.PinCollection());
   },
   defaults:{
     name:'',
     creator_id:'',
-    owner_id:'',
+    user_id:'',
     map_lat:'',
     map_long:'',
     pins:''
