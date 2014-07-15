@@ -1,0 +1,229 @@
+/*.signup-link{
+  cursor: pointer;
+}*/
+
+/*        #map-canvas {
+        height: 500px;
+        width: 500px;
+        margin: 0 auto;
+        padding: 0px;
+        border: none;
+        border-radius: 20px;
+        display: none;
+      }
+
+        #map_display_canvas {
+        height: 500px;
+        width: 500px;
+        margin: 0 auto;
+        padding: 0px;
+        border: none;
+        border-radius: 20px;
+        display: visible;
+      }
+
+      .panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+
+     li {
+      list-style-type: none;
+      text-align: center;
+      margin: 0px 0px 0px -40px;
+      padding: 0;
+     }
+
+     .map_list_ul {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .map_list_div {
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+    }
+
+    .new_map_form {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    }
+*/
+
+body {
+  font-family: 'apercuregular';
+}
+
+.main{
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-block, .menu{
+    margin: 1.5em;
+    background-color: whitesmoke;
+    border: 1px solid gainsboro;
+    text-align: center;
+    color: silver;
+}
+
+.menu {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    right: 0;
+    background-color: gainsboro;
+    padding: 1.1em;
+    color: steelblue;
+    width: 100%;
+}
+
+.bottom-nav {
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    right: 0;
+    background-color: gainsboro;
+    /*padding: 0.5em;*/
+    padding: 1.3em 0;
+    color: steelblue;
+    width: 100%;
+}
+
+input[type=text] {
+border: 1px solid #dadfe1;
+background: white;
+}
+
+input {
+border: none;
+outline: none;
+background: white;
+font-size: 14px;
+font-weight: 500;
+color: #3e474c;
+line-height: 1em;
+padding: 1em 1.1em;
+-webkit-border-radius: 0.25em;
+-moz-border-radius: 0.25em;
+-ms-border-radius: 0.25em;
+-o-border-radius: 0.25em;
+border-radius: 0.25em;
+display: block;
+margin: 0 auto;
+}
+
+input[type=submit] {
+width: 100%;
+background: #e96e57;
+margin: 10px auto 0 auto;
+display: block;
+}
+
+input[type=submit]:hover{
+background: #d5645a;
+}
+
+.welcome-block {
+  padding: 1em;
+  margin-top: 5em;
+  height: 100%;
+}
+
+.center{
+    text-align: center;
+}
+
+@media only screen and (max-width: 480px) {
+
+  /*  GRID OF TWELVE   ============================================================================= */
+
+  .span_12_of_12 {
+    width: 100%;
+  }
+
+  .span_11_of_12 {
+    width: 91.53%;
+  }
+
+  .span_10_of_12 {
+    width: 83.06%;
+  }
+
+  .span_9_of_12 {
+    width: 74.6%;
+  }
+
+  .span_8_of_12 {
+    width: 66.13%;
+  }
+
+  .span_7_of_12 {
+    width: 57.66%;
+  }
+
+  .span_6_of_12 {
+    width: 49.2%;
+  }
+
+  .span_5_of_12 {
+    width: 40.73%;
+  }
+
+  .span_4_of_12 {
+    width: 32.26%;
+  }
+
+  .span_3_of_12 {
+    width: 23.8%;
+  }
+
+  .span_2_of_12 {
+    width: 15.33%;
+  }
+
+  .span_1_of_12 {
+    width: 6.86%;
+  }
+
+}
+
+
+
+/*  SECTIONS  */
+.section {
+  clear: both;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+  display: block;
+  float:left;
+  margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+
+/*  GROUPING  */
+.group:before,
+.group:after {
+  content:"";
+  display:table;
+}
+.group:after {
+  clear:both;
+}
+.group {
+    zoom:1; /* For IE 6/7 */
+}
+
