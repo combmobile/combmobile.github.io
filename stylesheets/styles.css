@@ -69,33 +69,48 @@ body {
 
 .welcome-block, .menu{
     margin: 1.5em;
-    background-color: whitesmoke;
-    border: 1px solid gainsboro;
-    text-align: center;
-    color: silver;
+}
+.welcome-block{
+  background-color: whitesmoke;
+  border: 1px solid gainsboro;
+  text-align: center;
+  color: silver;
+}
+
+.welcome-block {
+  padding: 1em;
+  margin-top: 5em;
+  height: 100%;
+}
+
+
+.menu, .bottom-nav{
+  position: absolute;
+  margin: 0;
+  right: 0;
+  color: steelblue;
+  background-color: rgb(45,55,63);
+  width: 100%;
+  display: block;
 }
 
 .menu {
-    position: absolute;
-    margin: 0;
     top: 0;
-    right: 0;
-    background-color: gainsboro;
-    padding: 1.1em;
-    color: steelblue;
-    width: 100%;
+    padding: .15% 0;
 }
 
+.menu .logo{
+  padding-left: 1.5em;
+}
+
+.menu .logo p{
+  font-family: 'apercubold';
+}
+
+
 .bottom-nav {
-    position: absolute;
-    margin: 0;
     bottom: 0;
-    right: 0;
-    background-color: gainsboro;
-    /*padding: 0.5em;*/
-    padding: 1.3em 0;
-    color: steelblue;
-    width: 100%;
+    padding: 2% 0;
 }
 
 input[type=text] {
@@ -132,15 +147,18 @@ input[type=submit]:hover{
 background: #d5645a;
 }
 
-.welcome-block {
-  padding: 1em;
-  margin-top: 5em;
-  height: 100%;
-}
-
 .center{
     text-align: center;
 }
+
+/*#map-canvas {
+  height: 400px;
+  width: 400px;
+  margin: 0 auto;
+  padding: 0px;
+  border: none;
+  border-radius: 20px;
+}*/
 
 
 @media only screen and (max-width: 480px) {
@@ -442,6 +460,7 @@ background: #d5645a;
   @media only screen and (min-width : 1200px) {
 
   }
+
 
 img {
   padding: 0;
