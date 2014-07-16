@@ -105,12 +105,8 @@ body {
     top: 0;
 }
 
-<<<<<<< HEAD
-.menu .logo{
 
-=======
 .menu .logo, .menu .back{
->>>>>>> 3fcf0731b4955107a2cc3481322edf619d4a4956
   padding-left: 1.5em;
 }
 
