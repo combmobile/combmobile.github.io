@@ -1,13 +1,25 @@
 var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
-Comb.initialize = function() {
+Comb.initialize = function(userId) {
   console.log("I'm inside comb initialize")
 
-  // var collection = new Comb.Collections.MapCollection();
+  var collection = new Comb.Collections.MapCollection();
 
-  // collection.fetch({success: function(){
-  //   console.log(collection.models[0].attributes.pins[0]);
-  // }})
+
+  $.ajax({
+    url:'/maps/'+ userId,
+    type:'get',
+    dataType:"jsonp",
+    success:function (data) {
+      console.log(data);
+      console.log("made it back from maps");
+    }
+  });
+
+//
+  ({success: function(){
+    console.log(collection.models[0].attributes.pins[0]);
+  }})
 
 //   var listView = new Comb.Views.MapListView({
 //     collection: collection,
@@ -84,9 +96,9 @@ $(function() {
         success:function (data) {
           console.log(data);
           console.log("yay");
+          var user = data["user_id"];
           router.navigate('main', {trigger: true});
-          Comb.initialize();
-
+          Comb.initialize(user);
         }
       });
       // console.log(userCredentials);
@@ -124,31 +136,31 @@ $(function() {
       // });
       var template = _.template($('#mapTemplate').html());
       this.$el.append(template);
-      },
-    events: {
-      'submit .login-form': 'attemptLogin',
-      'click .signup-link' : 'signUpPage'
-    },
-    attemptLogin: function(ev){
-      var userCredentials = $(ev.currentTarget).serializeObject();
-      console.log(userCredentials);
-      $.ajax({
-        url:'/sessions',
-        type:'POST',
-        dataType:"jsonp",
-        data: userCredentials,
-        success:function (data) {
-          console.log(data);
-          console.log("yay");
-          router.navigate('main', {trigger: true});
-          Comb.initialize();
-        }
-      });
-      return false;
-    },
-    signUpPage: function(ev){
-      router.navigate('sign_up', {trigger: true});
-    }
+      }
+    // events: {
+    //   'submit .login-form': 'attemptLogin',
+    //   'click .signup-link' : 'signUpPage'
+    // },
+    // attemptLogin: function(ev){
+    //   var userCredentials = $(ev.currentTarget).serializeObject();
+    //   console.log(userCredentials);
+    //   $.ajax({
+    //     url:'/sessions',
+    //     type:'POST',
+    //     dataType:"jsonp",
+    //     data: userCredentials,
+    //     success:function (data) {
+    //       console.log(data);
+    //       console.log("yay");
+    //       router.navigate('main', {trigger: true});
+    //       //Comb.initialize();
+    //     }
+    //   });
+    //   return false;
+    // },
+    // signUpPage: function(ev){
+    //   router.navigate('sign_up', {trigger: true});
+    // }
   });
 
 
