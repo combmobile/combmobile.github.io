@@ -8,7 +8,8 @@ Comb.Views.MapView = Backbone.View.extend({
     var self = this;
 
     var mapOptions = {
-    zoom: 10
+    zoom: 10,
+    center: new google.maps.LatLng(-34.397, 150.644)
 //     disableDefaultUI: true,
 
 //     styles:
@@ -49,23 +50,22 @@ Comb.Views.MapView = Backbone.View.extend({
 
 
 
-  var map = new google.maps.Map(this.el,
-      mapOptions);
-  console.log(map);
-  var mapModel = new Comb.Models.Map();
+  var map = new google.maps.Map(this.el, mapOptions);
+  // console.log(map);
+  // var mapModel = new Comb.Models.Map();
 
-  // Try HTML5 geolocation
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
-      map.setCenter(pos);
-      // this.model.save({ map_lat: pos.lat(), map_long: pos.lng()})
+  // // Try HTML5 geolocation
+  //   navigator.geolocation.getCurrentPosition(function(position) {
+  //     var pos = new google.maps.LatLng(position.coords.latitude,
+  //                                      position.coords.longitude);
+  //     map.setCenter(pos);
+  //     // this.model.save({ map_lat: pos.lat(), map_long: pos.lng()})
 
-      // mapModel.save( { name: "New York", creator_id: 1, owner_id: 1, map_lat: pos.lat(), map_long: pos.lng() } )
+  //     // mapModel.save( { name: "New York", creator_id: 1, owner_id: 1, map_lat: pos.lat(), map_long: pos.lng() } )
 
-      console.log(pos.lng());
-      console.log(mapModel);
-    });
+  //     console.log(pos.lng());
+  //     console.log(mapModel);
+  //   });
 
     //  var image = new google.maps.MarkerImage('images/pin_teal.png',
     //     // This marker is 129 pixels wide by 42 pixels tall.
