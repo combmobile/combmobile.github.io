@@ -1,25 +1,26 @@
 var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
 Comb.initialize = function(userId) {
-  console.log("I'm inside comb initialize")
+  var mapCollection = new Comb.Collections.MapCollection();
 
-  var collection = new Comb.Collections.MapCollection();
+  // mapCollection.fetch({dataType: "jsonp"},{ data: $.param({ id: userId}) });
+
+  mapCollection.fetch({ data: { id: userId }, dataType: "jsonp", success: function(){
+    console.log(mapCollection.models);
+  }});
 
 
-  $.ajax({
-    url:'/maps/'+ userId,
-    type:'get',
-    dataType:"jsonp",
-    success:function (data) {
-      console.log(data);
-      console.log("made it back from maps");
-    }
-  });
 
-//
-  ({success: function(){
-    console.log(collection.models[0].attributes.pins[0]);
-  }})
+  // $.ajax({
+  //   url:'/maps/'+ userId,
+  //   type:'get',
+  //   dataType:"jsonp",
+  //   success:function (data) {
+  //     console.log(data);
+  //     console.log("made it back from maps");
+  //   }
+  // });
+
 
 //   var listView = new Comb.Views.MapListView({
 //     collection: collection,
