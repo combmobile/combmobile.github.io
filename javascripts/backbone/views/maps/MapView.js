@@ -69,6 +69,11 @@ Comb.Views.MapView = Backbone.View.extend({
 
     });
 
+    // var getCen = map.getCenter();
+    // google.maps.event.addDomListener(window, 'resize', function() {
+    // map.setCenter(getCen);
+    // });
+
     //  var image = new google.maps.MarkerImage('images/pin_teal.png',
     //     // This marker is 129 pixels wide by 42 pixels tall.
     //     new google.maps.Size(129, 42),
