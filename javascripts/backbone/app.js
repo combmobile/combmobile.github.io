@@ -124,31 +124,31 @@ $(function() {
       // });
       var template = _.template($('#mapTemplate').html());
       this.$el.append(template);
-      }
-    // events: {
-    //   'submit .login-form': 'attemptLogin',
-    //   'click .signup-link' : 'signUpPage'
-    // },
-    // attemptLogin: function(ev){
-    //   var userCredentials = $(ev.currentTarget).serializeObject();
-    //   console.log(userCredentials);
-    //   $.ajax({
-    //     url:'/sessions',
-    //     type:'POST',
-    //     dataType:"jsonp",
-    //     data: userCredentials,
-    //     success:function (data) {
-    //       console.log(data);
-    //       console.log("yay");
-    //       router.navigate('main', {trigger: true});
-    //       Comb.initialize();
-    //     }
-    //   });
-    //   return false;
-    // },
-    // signUpPage: function(ev){
-    //   router.navigate('sign_up', {trigger: true});
-    // }
+      },
+    events: {
+      'submit .login-form': 'attemptLogin',
+      'click .signup-link' : 'signUpPage'
+    },
+    attemptLogin: function(ev){
+      var userCredentials = $(ev.currentTarget).serializeObject();
+      console.log(userCredentials);
+      $.ajax({
+        url:'/sessions',
+        type:'POST',
+        dataType:"jsonp",
+        data: userCredentials,
+        success:function (data) {
+          console.log(data);
+          console.log("yay");
+          router.navigate('main', {trigger: true});
+          Comb.initialize();
+        }
+      });
+      return false;
+    },
+    signUpPage: function(ev){
+      router.navigate('sign_up', {trigger: true});
+    }
   });
 
 
