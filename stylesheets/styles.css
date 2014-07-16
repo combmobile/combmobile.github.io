@@ -120,7 +120,7 @@ body {
     padding: 2% 0;
 }
 
-input[type=text] {
+input[type=email], input[type=password] {
 border: 1px solid #dadfe1;
 background: white;
 }
