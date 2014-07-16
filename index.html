@@ -42,9 +42,17 @@
         </script>
 
         <script type="text/template" id="mapTemplate">
-        <div class='welcome-block'>
-        <div id="map-canvas"></div>
+        <div class='map-holder'>
+            <div id="map-canvas"></div>
         </div>
+        </script>
+
+        <script type="text/template" id="singleMapItemTemplate">
+            <div class="map_list_container">
+                <h2 class="map_name"><%= name %></h2>
+                <button class="edit_map_name">edit</button>
+                <button class="delete_map" data-action="destroy" name="delete_map">X</button>
+            </div>
         </script>
         <!-- App -->
     <script type="text/javascript" src='javascripts/backbone/app.js'></script>
@@ -85,7 +93,7 @@
                     <div class="test-two"><img src="images/globe_teal.png"></div>
                 </div>
                 <div class="col span_4_of_12">
-                    <div class="test-two"><img src="images/map_teal.png"></div>
+                    <div class="test-two"><a href="#/maps"><img src="images/map_teal.png"></a></div>
                 </div>
             </div>
         </div>

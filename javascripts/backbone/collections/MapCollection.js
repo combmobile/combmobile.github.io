@@ -1,6 +1,6 @@
-var Haystack = Haystack || { Models: {}, Collections: {}, Views: {} };
+var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
-Haystack.Collections.MapCollection = Backbone.Collection.extend({
-  model: Haystack.Models.Map,
+Comb.Collections.MapCollection = Backbone.Collection.extend({
+  model: Comb.Models.Map,
   url: '/maps'
 });
