@@ -8,8 +8,8 @@ Comb.Views.MapView = Backbone.View.extend({
     var self = this;
 
     var mapOptions = {
-    zoom: 10
-//     disableDefaultUI: true,
+    zoom: 10,
+    disableDefaultUI: true,
 
 //     styles:
 //     [

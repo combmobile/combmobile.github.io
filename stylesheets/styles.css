@@ -160,6 +160,12 @@ background: #d5645a;
 
 
 @media only screen and (max-width: 480px) {
+  #map-canvas {
+        height: 400px;
+        width: 400px;
+        margin: 0px;
+        padding: 0px
+}
 
   /*  GRID OF TWELVE   ============================================================================= */
 
@@ -352,7 +358,12 @@ background: #d5645a;
   /* Small Devices, Tablets */
   @media only screen and (min-width : 768px) {
     /*  GRID OF TWELVE   ============================================================================= */
-
+    #map-canvas {
+        height: 700px;
+        width: 700px;
+        margin: 0px;
+        padding: 0px
+}
     .span_12_of_12 {
       width: 100%;
     }
@@ -404,6 +415,12 @@ background: #d5645a;
 
   /* Medium Devices, Desktops */
   @media only screen and (min-width : 992px) {
+    #map-canvas {
+        height: 800px;
+        width: 800px;
+        margin: 0px;
+        padding: 0px
+}
       .span_12_of_12 {
       width: 100%;
     }
