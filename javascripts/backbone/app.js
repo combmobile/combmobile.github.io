@@ -242,6 +242,8 @@ $(function() {
     $(".main").html("<ul class='map_list_ul welcome-block'></ul>");
     combInitializedData.mapListView.elFunction();
     $(".bottom-nav").show();
+    $( ".logo" ).hide();
+    $( ".back" ).show();
   });
 
   router.on('route:create_map', function() {
@@ -250,6 +252,21 @@ $(function() {
     createMap.render();
     $(".bottom-nav").show();
   });
+
+  // Click Listeners //
+
+  $(".back").on( "click", function() {
+      $( ".back" ).hide();
+      $( ".logo" ).show();
+    });
+    $(".create-map").on( "click", function() {
+      $( ".back" ).hide();
+      $( ".logo" ).show();
+    });
+    $(".map-list").on( "click", function() {
+      $( ".back" ).show();
+      $( ".logo" ).hide();
+    });
 
   Backbone.history.start();
 });
