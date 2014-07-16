@@ -8,43 +8,43 @@ Comb.Views.MapView = Backbone.View.extend({
     var self = this;
 
     var mapOptions = {
-    zoom: 10,
-    disableDefaultUI: true,
+    zoom: 10
+//     disableDefaultUI: true,
 
-    styles:
-    [
-    {
-        "stylers": [
-            {
-                "hue": "#2c3e50"
-            },
-            {
-                "saturation": 250
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "lightness": 50
-            },
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "labels",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    }
-]
+//     styles:
+//     [
+//     {
+//         "stylers": [
+//             {
+//                 "hue": "#2c3e50"
+//             },
+//             {
+//                 "saturation": 250
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "road",
+//         "elementType": "geometry",
+//         "stylers": [
+//             {
+//                 "lightness": 50
+//             },
+//             {
+//                 "visibility": "simplified"
+//             }
+//         ]
+//     },
+//     {
+//         "featureType": "road",
+//         "elementType": "labels",
+//         "stylers": [
+//             {
+//                 "visibility": "off"
+//             }
+//         ]
+//     }
+// ]
   };
 
 
@@ -77,20 +77,20 @@ Comb.Views.MapView = Backbone.View.extend({
     // );
 
 
-    function createMarker(location) {
-      var marker = new google.maps.Marker({
-      position: location,
-      map: map
-    });
-      console.log(marker);
-      console.log(location.lat());
-      // var pinModel = new Comb.Models.Pin();
-      // pinModel.save({ name: "pin", pin_lat: location.lat(), pin_long: location.lng(), map_id: 1 })
-    }
+    // function createMarker(location) {
+    //   var marker = new google.maps.Marker({
+    //   position: location,
+    //   map: map
+    // });
+    //   console.log(marker);
+    //   console.log(location.lat());
+    //   // var pinModel = new Comb.Models.Pin();
+    //   // pinModel.save({ name: "pin", pin_lat: location.lat(), pin_long: location.lng(), map_id: 1 })
+    // }
 
-    google.maps.event.addListener(map, 'click', function(event) {
-      createMarker(event.latLng);
-    });
+    // google.maps.event.addListener(map, 'click', function(event) {
+    //   createMarker(event.latLng);
+    // });
 
     return this;
 

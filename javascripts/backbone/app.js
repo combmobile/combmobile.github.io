@@ -1,8 +1,8 @@
 var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
 Comb.initialize = function() {
+  console.log("I'm inside comb initialize")
 
-  var combView = new Comb.Views.MapView();
   // var collection = new Comb.Collections.MapCollection();
 
   // collection.fetch({success: function(){
@@ -19,10 +19,9 @@ Comb.initialize = function() {
 // //   var map_name= $(".new_map_form").find('input').val();
 // //   console.log(map_name);
 
-//   map_view = new Comb.Views.MapView({
-//       el: $('#map-canvas')[0],
-//       new_map_name: map_name
-//   });
+  mapView = new Comb.Views.MapView({
+      el: $('#map-canvas')[0]
+  });
 
 //   map_view.renderCurrentLocation(map_name);
 //     $(".new_map_form").find('input').val("");
@@ -87,7 +86,7 @@ $(function() {
           console.log("yay");
           router.navigate('main', {trigger: true});
           // added initialize to view
-          initialize();
+          Comb.initialize();
         }
       });
       // console.log(userCredentials);
