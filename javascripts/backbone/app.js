@@ -1,17 +1,29 @@
 var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
 Comb.initialize = function(userId) {
+
+  // var self = this;
   var mapCollection = new Comb.Collections.MapCollection();
 
   mapCollection.fetch({ data: { id: userId }, dataType: "jsonp", success: function(){
-    console.log("yaniv thing", mapCollection.models);
+    console.log("map collection.fetch models", mapCollection.models);
   }});
 
-    // var mapListView = new Comb.Views.MapListView({
-    //   collection: mapCollection,
-    //   el: $('.map_list_ul')
-    // });
+    var mapListView = new Comb.Views.MapListView({
+      collection: mapCollection,
+      el: $('.map_list_ul')
+      // el: this.elFunction();
+      // el: elFunction();
+    });
+
     // mapListView.render();
+    return {
+      mapCollection: mapCollection,
+      mapListView: mapListView
+    }
+    // return {
+    //   mapCollection: mapCollection
+    // }
 
 //   var listView = new Comb.Views.MapListView({
 //     collection: collection,
@@ -52,11 +64,18 @@ var Router = Backbone.Router.extend({
         '' : 'home',
         'sign_up' : 'sign_up',
         'main': 'main',
-        'maps': 'maps'
+        'maps': 'maps',
+        'create_map': 'create_map'
       }
     });
 
+
+
+// var combInitializedData;
+
 $(function() {
+  // This will make the initialize available as a variable within the document ready. You can then access all of the initialized attributes.
+  var combInitializedData;
 
   $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
     options.url = 'https://serene-dawn-6520.herokuapp.com' + options.url;
@@ -88,11 +107,9 @@ $(function() {
           console.log("yay");
           var user = data["user_id"];
           router.navigate('main', {trigger: true});
-          mapView = new Comb.Views.MapView({
-            el: $('#map-canvas')[0]
-          });
-          mapView.renderCurrentLocation();
-          Comb.initialize(user);
+
+          combInitializedData = Comb.initialize(user);
+
         }
       });
       // console.log(userCredentials);
@@ -101,7 +118,9 @@ $(function() {
     signUpPage: function(ev){
       router.navigate('sign_up', {trigger: true});
     }
+
   });
+
 
   /// Sign Up View ///
   var signUpView = Backbone.View.extend({
@@ -130,7 +149,48 @@ $(function() {
       // });
       var template = _.template($('#mapTemplate').html());
       this.$el.append(template);
+      mapView = new Comb.Views.MapView({
+        el: $('#map-canvas')[0]
+      });
+      mapView.renderCurrentLocation();
       }
+  });
+
+  /// Create Map view ///
+
+  var createMapView = Backbone.View.extend({
+    el: '.main',
+    render: function(){
+      this.$el.empty();
+      var template = _.template($('#map_create_template').html());
+      this.$el.append(template);
+      },
+    events: {
+      'submit .map_create_form' : 'createMap'
+    },
+    createMap: function(ev){
+      var mapInput = $(ev.currentTarget).serializeObject();
+      var mapName = mapInput.map_name;
+      console.log("createMap name:", mapName);
+      var Map = new Comb.Models.Map({
+      // var Map = ({
+        name: mapName,
+        creator_id: combInitializedData.mapCollection.models[0].attributes.user_id,
+        user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
+        map_lat:'',
+        map_long:'',
+        pins:''
+      });
+      console.log(Map);
+
+      mapCreateView = new Comb.Views.MapView({
+        el: $('#map-canvas')[0],
+        model: Map
+        // user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
+        // map_name: mapName
+      });
+      mapCreateView.createMap();
+    }
   });
 
 
@@ -176,13 +236,16 @@ $(function() {
   router.on('route:maps', function() {
     console.log("you are on maps");
     $(".main").empty();
-    $(".main").html("<ul class='map_list_ul'></ul>");
+    $(".main").html("<ul class='map_list_ul welcome-block'></ul>");
+    combInitializedData.mapListView.elFunction();
+  });
+
+  router.on('route:create_map', function() {
+    console.log("you are on maps create");
+    var createMap = new createMapView();
+    createMap.render();
   });
 
   Backbone.history.start();
 });
 
-//   var listView = new Comb.Views.MapListView({
-//     collection: collection,
-//     el: $('.map_list_ul')
-//   });
