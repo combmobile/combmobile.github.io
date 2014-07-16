@@ -2,8 +2,13 @@ var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
 Comb.Views.MapView = Backbone.View.extend({
     initialize: function(){
-      this.renderCurrentLocation();
   },
+  tagName: "li",
+  template: _.template( $("#singleMapItemTemplate").html() ),
+  renderMapList: function(){
+      this.$el.html( this.template(this.model.attributes) );
+      return this
+    },
    renderCurrentLocation: function(){
     var self = this;
 
@@ -95,22 +100,10 @@ Comb.Views.MapView = Backbone.View.extend({
 });
 
 
-//   initialize: function(){
-//     // this.listenTo( this.model, "change", this.render );
-//     // this.listenTo( this.model, "destroy", this.remove );
-//     console.log(this.model.attributes.pins[0].pin_lat);
-//   },
-
-
-//     tagName: "li",
-//     template: _.template( $("#map_list_template").html() ),
-//     displayTemplate: _.template( $(".map_list_display_template").html() ),
-//     editMapNameTemplate: _.template( $(".edit_map_template").html() ),
-//     render: function(){
-//       this.$el.empty();
-//       this.$el.html( this.template(this.model.attributes) );
-//       return this
-//     },
+    // tagName: "li",
+    // template: _.template( $("#map_list_template").html() ),
+    // displayTemplate: _.template( $(".map_list_display_template").html() ),
+    // editMapNameTemplate: _.template( $(".edit_map_template").html() ),
 
 //     events: {
 //       "click .map_name" : "displayListMap",

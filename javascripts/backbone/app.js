@@ -3,24 +3,9 @@ var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 Comb.initialize = function(userId) {
   var mapCollection = new Comb.Collections.MapCollection();
 
-  // mapCollection.fetch({dataType: "jsonp"},{ data: $.param({ id: userId}) });
-
   mapCollection.fetch({ data: { id: userId }, dataType: "jsonp", success: function(){
     console.log(mapCollection.models);
   }});
-
-
-
-  // $.ajax({
-  //   url:'/maps/'+ userId,
-  //   type:'get',
-  //   dataType:"jsonp",
-  //   success:function (data) {
-  //     console.log(data);
-  //     console.log("made it back from maps");
-  //   }
-  // });
-
 
 //   var listView = new Comb.Views.MapListView({
 //     collection: collection,
@@ -36,9 +21,11 @@ Comb.initialize = function(userId) {
       el: $('#map-canvas')[0]
   });
 
-//   map_view.renderCurrentLocation(map_name);
-//     $(".new_map_form").find('input').val("");
-//   });
+  mapView.renderCurrentLocation();
+}
+
+Comb.collectionInitialize = function(userId){
+
 
 }
 
@@ -63,7 +50,8 @@ var Router = Backbone.Router.extend({
       routes:{
         '' : 'home',
         'sign_up' : 'sign_up',
-        'main': 'main'
+        'main': 'main',
+        'maps': 'maps'
       }
     });
 
@@ -138,30 +126,6 @@ $(function() {
       var template = _.template($('#mapTemplate').html());
       this.$el.append(template);
       }
-    // events: {
-    //   'submit .login-form': 'attemptLogin',
-    //   'click .signup-link' : 'signUpPage'
-    // },
-    // attemptLogin: function(ev){
-    //   var userCredentials = $(ev.currentTarget).serializeObject();
-    //   console.log(userCredentials);
-    //   $.ajax({
-    //     url:'/sessions',
-    //     type:'POST',
-    //     dataType:"jsonp",
-    //     data: userCredentials,
-    //     success:function (data) {
-    //       console.log(data);
-    //       console.log("yay");
-    //       router.navigate('main', {trigger: true});
-    //       //Comb.initialize();
-    //     }
-    //   });
-    //   return false;
-    // },
-    // signUpPage: function(ev){
-    //   router.navigate('sign_up', {trigger: true});
-    // }
   });
 
 
@@ -204,5 +168,28 @@ $(function() {
     mainPage.render();
   });
 
+  router.on('route:maps', function() {
+    console.log("you are on maps");
+    $(".main").empty();
+    $(".main").html("<ul class='map_list_ul'></ul>");
+
+    var mapCollection = new Comb.Collections.MapCollection();
+    console.log(mapCollection.models);
+    // mapCollection.fetch({ data: { id: userId }, dataType: "jsonp", success: function(){
+    //   console.log(mapCollection.models);
+    // }});
+
+    // var mapListView = new Comb.Views.MapListView({
+    //   collection: mapCollection,
+    //   el: $('.map_list_ul')
+    // });
+    // mapListView.render();
+  });
+
   Backbone.history.start();
 });
+
+//   var listView = new Comb.Views.MapListView({
+//     collection: collection,
+//     el: $('.map_list_ul')
+//   });
