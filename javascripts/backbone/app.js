@@ -86,7 +86,6 @@ $(function() {
           console.log("yay");
           router.navigate('main', {trigger: true});
           // added initialize to view
-          Comb.initialize();
         }
       });
       // console.log(userCredentials);
@@ -141,9 +140,9 @@ $(function() {
           console.log(data);
           console.log("yay");
           router.navigate('main', {trigger: true});
+          Comb.initialize();
         }
       });
-      // console.log(userCredentials);
       return false;
     },
     signUpPage: function(ev){

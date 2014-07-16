@@ -83,6 +83,13 @@ body {
   height: 100%;
 }
 
+.map-holder{
+  text-align: center;
+  padding: 0px;
+  margin: 5em 0px 0px 0px;
+  height: 100%;
+}
+
 
 .menu, .bottom-nav{
   position: absolute;
@@ -153,7 +160,7 @@ background: #d5645a;
 
 #map-canvas {
         height: 400px;
-        width: 400px;
+        width: 500px;
         margin: 0px;
         padding: 0px
 }
@@ -247,6 +254,15 @@ background: #d5645a;
 
 /* Custom, iPhone Retina */
   @media only screen and (min-width : 320px) {
+
+    #map-canvas {
+        height: 400px;
+        width: 330px;
+        margin: 0px;
+        padding: 0px
+    }
+
+
      .span_12_of_12 {
       width: 100%;
     }
@@ -299,6 +315,13 @@ background: #d5645a;
   /* Extra Small Devices, Phones */
   @media only screen and (min-width : 480px) {
     /*  GRID OF TWELVE   ============================================================================= */
+
+    #map-canvas {
+        height: 400px;
+        width: 485px;
+        margin: 0px;
+        padding: 0px
+    }
 
     .span_12_of_12 {
       width: 100%;
