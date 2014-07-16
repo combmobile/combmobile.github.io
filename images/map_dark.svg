@@ -21,19 +21,19 @@
 		<line display="inline" fill="none" stroke="#F97742" stroke-miterlimit="10" x1="26.032" y1="14.226" x2="26.032" y2="36.514"/>
 		<line display="inline" fill="none" stroke="#F97742" stroke-miterlimit="10" x1="16.822" y1="11.565" x2="16.822" y2="33.363"/>
 	</g>
-	<g id="map_copy_6">
-		<polygon fill="none" stroke="#00BCA7" stroke-miterlimit="10" points="40.477,36.563 32.959,32.21 26.125,36.351 16.822,33.317 
-			9.822,37.48 9.822,15.246 16.822,11.083 26.125,14.116 32.959,9.976 40.477,14.329 		"/>
-		<line fill="none" stroke="#00BCA7" stroke-miterlimit="10" x1="32.865" y1="9.976" x2="32.865" y2="32.149"/>
-		<line fill="none" stroke="#00BCA7" stroke-miterlimit="10" x1="26.032" y1="14.226" x2="26.032" y2="36.514"/>
-		<line fill="none" stroke="#00BCA7" stroke-miterlimit="10" x1="16.822" y1="11.565" x2="16.822" y2="33.363"/>
-	</g>
-	<g id="map_copy_7" display="none">
-		<polygon display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" points="40.477,36.563 32.959,32.21 
+	<g id="map_copy_6" display="none">
+		<polygon display="inline" fill="none" stroke="#00BCA7" stroke-miterlimit="10" points="40.477,36.563 32.959,32.21 
 			26.125,36.351 16.822,33.317 9.822,37.48 9.822,15.246 16.822,11.083 26.125,14.116 32.959,9.976 40.477,14.329 		"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="32.865" y1="9.976" x2="32.865" y2="32.149"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="26.032" y1="14.226" x2="26.032" y2="36.514"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="16.822" y1="11.565" x2="16.822" y2="33.363"/>
+		<line display="inline" fill="none" stroke="#00BCA7" stroke-miterlimit="10" x1="32.865" y1="9.976" x2="32.865" y2="32.149"/>
+		<line display="inline" fill="none" stroke="#00BCA7" stroke-miterlimit="10" x1="26.032" y1="14.226" x2="26.032" y2="36.514"/>
+		<line display="inline" fill="none" stroke="#00BCA7" stroke-miterlimit="10" x1="16.822" y1="11.565" x2="16.822" y2="33.363"/>
+	</g>
+	<g id="map_copy_7">
+		<polygon fill="none" stroke="#313A44" stroke-miterlimit="10" points="40.477,36.563 32.959,32.21 26.125,36.351 16.822,33.317 
+			9.822,37.48 9.822,15.246 16.822,11.083 26.125,14.116 32.959,9.976 40.477,14.329 		"/>
+		<line fill="none" stroke="#313A44" stroke-miterlimit="10" x1="32.865" y1="9.976" x2="32.865" y2="32.149"/>
+		<line fill="none" stroke="#313A44" stroke-miterlimit="10" x1="26.032" y1="14.226" x2="26.032" y2="36.514"/>
+		<line fill="none" stroke="#313A44" stroke-miterlimit="10" x1="16.822" y1="11.565" x2="16.822" y2="33.363"/>
 	</g>
 	<g id="map_copy_8" display="none">
 		<polygon display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" points="40.477,36.563 32.959,32.21 

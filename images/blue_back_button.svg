@@ -6,44 +6,16 @@
 <g id="Layer_7" display="none">
 	<rect x="-2" display="inline" fill-rule="evenodd" clip-rule="evenodd" fill="#333333" width="53" height="51"/>
 </g>
-<g id="blue">
-	<g id="map" display="none">
-		<polygon display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" points="40.477,36.563 32.959,32.21 
-			26.125,36.351 16.822,33.317 9.822,37.48 9.822,15.246 16.822,11.083 26.125,14.116 32.959,9.976 40.477,14.329 		"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="32.865" y1="9.976" x2="32.865" y2="32.149"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="26.032" y1="14.226" x2="26.032" y2="36.514"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="16.822" y1="11.565" x2="16.822" y2="33.363"/>
-	</g>
-	<g id="map_copy_5" display="none">
-		<polygon display="inline" fill="none" stroke="#F97742" stroke-miterlimit="10" points="40.477,36.563 32.959,32.21 
-			26.125,36.351 16.822,33.317 9.822,37.48 9.822,15.246 16.822,11.083 26.125,14.116 32.959,9.976 40.477,14.329 		"/>
-		<line display="inline" fill="none" stroke="#F97742" stroke-miterlimit="10" x1="32.865" y1="9.976" x2="32.865" y2="32.149"/>
-		<line display="inline" fill="none" stroke="#F97742" stroke-miterlimit="10" x1="26.032" y1="14.226" x2="26.032" y2="36.514"/>
-		<line display="inline" fill="none" stroke="#F97742" stroke-miterlimit="10" x1="16.822" y1="11.565" x2="16.822" y2="33.363"/>
-	</g>
-	<g id="map_copy_6">
-		<polygon fill="none" stroke="#00BCA7" stroke-miterlimit="10" points="40.477,36.563 32.959,32.21 26.125,36.351 16.822,33.317 
+<g id="blue" display="none">
+	<g id="map" display="inline">
+		<polygon fill="none" stroke="#00B0CE" stroke-miterlimit="10" points="40.477,36.563 32.959,32.21 26.125,36.351 16.822,33.317 
 			9.822,37.48 9.822,15.246 16.822,11.083 26.125,14.116 32.959,9.976 40.477,14.329 		"/>
-		<line fill="none" stroke="#00BCA7" stroke-miterlimit="10" x1="32.865" y1="9.976" x2="32.865" y2="32.149"/>
-		<line fill="none" stroke="#00BCA7" stroke-miterlimit="10" x1="26.032" y1="14.226" x2="26.032" y2="36.514"/>
-		<line fill="none" stroke="#00BCA7" stroke-miterlimit="10" x1="16.822" y1="11.565" x2="16.822" y2="33.363"/>
+		<line fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="33.959" y1="14.589" x2="33.959" y2="28.861"/>
+		<line fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="25.125" y1="17.589" x2="25.125" y2="31.86"/>
+		<line fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="16.822" y1="15.588" x2="16.822" y2="29.861"/>
 	</g>
-	<g id="map_copy_7" display="none">
-		<polygon display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" points="40.477,36.563 32.959,32.21 
-			26.125,36.351 16.822,33.317 9.822,37.48 9.822,15.246 16.822,11.083 26.125,14.116 32.959,9.976 40.477,14.329 		"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="32.865" y1="9.976" x2="32.865" y2="32.149"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="26.032" y1="14.226" x2="26.032" y2="36.514"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="16.822" y1="11.565" x2="16.822" y2="33.363"/>
-	</g>
-	<g id="map_copy_8" display="none">
-		<polygon display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" points="40.477,36.563 32.959,32.21 
-			26.125,36.351 16.822,33.317 9.822,37.48 9.822,15.246 16.822,11.083 26.125,14.116 32.959,9.976 40.477,14.329 		"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="32.865" y1="9.976" x2="32.865" y2="32.149"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="26.032" y1="14.226" x2="26.032" y2="36.514"/>
-		<line display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" x1="16.822" y1="11.565" x2="16.822" y2="33.363"/>
-	</g>
-	<g id="globe" display="none">
-		<g display="inline">
+	<g id="globe" display="inline">
+		<g>
 			<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="M24.842,35.517
 				c-6.352,0-11.5-5.148-11.5-11.5c0-6.353,5.148-11.5,11.5-11.5s11.5,5.147,11.5,11.5C36.342,30.368,31.193,35.517,24.842,35.517"
 				/>
@@ -56,34 +28,32 @@
 			</g>
 		</g>
 	</g>
-	<g id="pin_x5F_bottom" display="none">
-		<path display="inline" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="M21,36.469"/>
-		<path display="inline" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="
-			M32.649,35.491h-6.122c2.353-2.734,8.622-10.418,8.622-14.625c0-5.177-4.254-9.375-9.5-9.375s-9.5,4.198-9.5,9.375
-			c0,4.207,6.269,11.891,8.621,14.625h-6.121c-0.275,0-0.5,0.223-0.5,0.5c0,0.275,0.225,0.5,0.5,0.5h6.998h0.002l0,0h7
-			c0.275,0,0.5-0.225,0.5-0.5C33.149,35.714,32.925,35.491,32.649,35.491"/>
+	<g id="pin_x5F_bottom" display="inline">
+		<path fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="M21,36.469"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="M32.649,35.491h-6.122
+			c2.353-2.734,8.622-10.418,8.622-14.625c0-5.177-4.254-9.375-9.5-9.375s-9.5,4.198-9.5,9.375c0,4.207,6.269,11.891,8.621,14.625
+			h-6.121c-0.275,0-0.5,0.223-0.5,0.5c0,0.275,0.225,0.5,0.5,0.5h6.998h0.002l0,0h7c0.275,0,0.5-0.225,0.5-0.5
+			C33.149,35.714,32.925,35.491,32.649,35.491"/>
 	</g>
-	<g id="pin" display="none">
-		<path display="inline" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="
-			M16.557,21.356c0-4.619,3.812-8.375,8.5-8.375s8.5,3.756,8.5,8.375c0,3.592-5.582,10.758-8.5,14.117
-			C22.138,32.114,16.557,24.951,16.557,21.356"/>
-		<path display="inline" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="
-			M25.057,24.228c-1.934,0-3.5-1.565-3.5-3.498c0-1.935,1.566-3.502,3.5-3.502s3.5,1.567,3.5,3.502
-			C28.557,22.662,26.99,24.228,25.057,24.228"/>
+	<g id="pin" display="inline">
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="M16.557,21.356
+			c0-4.619,3.812-8.375,8.5-8.375s8.5,3.756,8.5,8.375c0,3.592-5.582,10.758-8.5,14.117C22.138,32.114,16.557,24.951,16.557,21.356"
+			/>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="M25.057,24.228
+			c-1.934,0-3.5-1.565-3.5-3.498c0-1.935,1.566-3.502,3.5-3.502s3.5,1.567,3.5,3.502C28.557,22.662,26.99,24.228,25.057,24.228"/>
 	</g>
-	<g id="pin_x5F_group" display="none">
-		<path display="inline" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="
-			M16.557,21.356c0-4.619,3.812-8.375,8.5-8.375s8.5,3.756,8.5,8.375c0,3.592-5.582,10.758-8.5,14.117
-			C22.138,32.114,16.557,24.951,16.557,21.356"/>
-		<g display="inline">
+	<g id="pin_x5F_group" display="inline">
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="M16.557,21.356
+			c0-4.619,3.812-8.375,8.5-8.375s8.5,3.756,8.5,8.375c0,3.592-5.582,10.758-8.5,14.117C22.138,32.114,16.557,24.951,16.557,21.356"
+			/>
+		<g>
 			<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="M32.9,14.519
 				c4.054,0,7.352,3.248,7.352,7.244c0,3.106-4.828,9.305-7.352,12.21c-0.657-0.757-1.47-1.736-2.312-2.824"/>
 			<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="M19.526,31.148
 				c-0.843,1.088-1.655,2.067-2.313,2.824c-2.523-2.905-7.352-9.104-7.352-12.21c0-3.996,3.297-7.244,7.352-7.244"/>
 		</g>
-		<path display="inline" fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="
-			M25.057,24.228c-1.934,0-3.5-1.565-3.5-3.498c0-1.935,1.566-3.502,3.5-3.502s3.5,1.567,3.5,3.502
-			C28.557,22.662,26.99,24.228,25.057,24.228"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#00B0CE" stroke-miterlimit="10" d="M25.057,24.228
+			c-1.934,0-3.5-1.565-3.5-3.498c0-1.935,1.566-3.502,3.5-3.502s3.5,1.567,3.5,3.502C28.557,22.662,26.99,24.228,25.057,24.228"/>
 	</g>
 </g>
 <g id="orange" display="none">
@@ -919,10 +889,10 @@
 		c-0.099,0.099-0.141,0.23-0.136,0.36c-0.004,0.128,0.039,0.257,0.138,0.354c0.045,0.046,0.099,0.079,0.154,0.103l5.912,5.412
 		c0.186,0.187,0.488,0.187,0.676,0s0.188-0.488,0-0.676L22.694,25z"/>
 </g>
-<g id="back-button-blue" display="none">
-	<path display="inline" fill-rule="evenodd" clip-rule="evenodd" fill="#00B0CE" d="M22.694,25l5.675-5.196
-		c0.188-0.187,0.188-0.489,0-0.676c-0.186-0.186-0.488-0.186-0.676,0l-5.908,5.409c-0.058,0.023-0.113,0.059-0.16,0.105
-		c-0.099,0.099-0.141,0.23-0.136,0.36c-0.004,0.128,0.039,0.257,0.138,0.354c0.045,0.046,0.099,0.079,0.154,0.103l5.912,5.412
-		c0.186,0.187,0.488,0.187,0.676,0s0.188-0.488,0-0.676L22.694,25z"/>
+<g id="back-button-blue">
+	<path fill-rule="evenodd" clip-rule="evenodd" fill="#00B0CE" d="M22.694,25l5.675-5.196c0.188-0.187,0.188-0.489,0-0.676
+		c-0.186-0.186-0.488-0.186-0.676,0l-5.908,5.409c-0.058,0.023-0.113,0.059-0.16,0.105c-0.099,0.099-0.141,0.23-0.136,0.36
+		c-0.004,0.128,0.039,0.257,0.138,0.354c0.045,0.046,0.099,0.079,0.154,0.103l5.912,5.412c0.186,0.187,0.488,0.187,0.676,0
+		s0.188-0.488,0-0.676L22.694,25z"/>
 </g>
 </svg>
