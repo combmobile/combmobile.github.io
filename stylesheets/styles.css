@@ -103,11 +103,14 @@ body {
 
 .menu {
     top: 0;
-    padding: .15% 0;
 }
 
+<<<<<<< HEAD
 .menu .logo{
 
+=======
+.menu .logo, .menu .back{
+>>>>>>> 3fcf0731b4955107a2cc3481322edf619d4a4956
   padding-left: 1.5em;
 }
 
@@ -121,7 +124,7 @@ body {
     padding: 2% 0;
 }
 
-input[type=text] {
+input[type=email], input[type=password] {
 border: 1px solid #dadfe1;
 background: white;
 }
@@ -134,7 +137,7 @@ font-size: 14px;
 font-weight: 500;
 color: #3e474c;
 line-height: 1em;
-padding: 1em 1.1em;
+padding: .5em 1.1em;
 -webkit-border-radius: 0.25em;
 -moz-border-radius: 0.25em;
 -ms-border-radius: 0.25em;
@@ -142,17 +145,20 @@ padding: 1em 1.1em;
 border-radius: 0.25em;
 display: block;
 margin: 0 auto;
+width: 100%;
 }
 
 input[type=submit] {
-width: 100%;
-background: #e96e57;
+color: #e96e57;
+border: 1px solid #e96e57;
+text-transform:capitalize;
 margin: 10px auto 0 auto;
 display: block;
 }
 
 input[type=submit]:hover{
-background: #d5645a;
+background: #e96e57;
+color: #FFF;
 }
 
 .center{
@@ -164,6 +170,11 @@ background: #d5645a;
         width: 500px;
         margin: 0px;
         padding: 0px
+}
+
+.back{
+  display:none;
+  background-size: 5px;
 }
 
 

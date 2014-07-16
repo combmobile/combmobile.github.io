@@ -20,21 +20,25 @@
 
         <script type="text/template" id="logInTemplate">
             <div class="welcome-block">
-                <form class="login-form">
-                    <input name="email" type="text" placeholder='your email'>
-                    <input name="password" type="text" placeholder='password'>
-                    <input name="submit" type="submit" value="login">
-                </form>
-                <a href="#/sign_up" class='signup-link'>Sign Up</a>
+
+                    <form class="login-form">
+                    <div class='span_2_of_12 feature'>
+                        <input name="email" type="email" placeholder='your email'>
+                        <input name="password" type="password" placeholder='password'>
+                        <input name="submit" type="submit" value="login">
+                    </form>
+                    </div>
+                    <a href="#/sign_up" class='signup-link'>Sign Up</a>
+
             </div>
         </script>
 
         <script type="text/template" id="signUpTemplate">
             <div class="welcome-block">
                 <form class="signup-form">
-                    <input name="email" type="text" placeholder='your email'>
-                    <input name="password" type="text" placeholder='password'>
-                    <input name="password_confirmation" type="text" placeholder='password confirmation'>
+                    <input name="email" type="email" placeholder='your email'>
+                    <input name="password" type="password" placeholder='password'>
+                    <input name="password_confirmation" type="password" placeholder='password confirmation'>
                     <input name="submit" type="submit" value="Sign Up">
                 </form>
                 <a href="#" class='login-link'>Log In</a>
@@ -91,21 +95,23 @@
             <div class="section group">
                 <div class="col span_1_of_12">
                     <div class="logo"><img src="images/logo_blue_5_straight.svg"></div>
+                    <div class="logo"><p>Comb</p></div>
+                    <div class="back"><a href="#/main"><img src="images/back_button_white_48pt.svg"></a></div>
                 </div>
             </div>
         </div>
         <div class="main">
         </div>
-       <div class="bottom-nav">
+        <div class="bottom-nav">
             <div class="section group center">
                 <div class="col span_4_of_12 test">
                     <div class="test-two"><img src="images/pin_group_teal.svg"></div>
                 </div>
                 <div class="col span_4_of_12">
-                    <div class="test-two"><a href="#/create_map"><img src="images/globe_teal.svg"></div>
+                    <div class="create-map"><a href="#/create_map"><img src="images/globe_teal.svg"></div>
                 </div>
                 <div class="col span_4_of_12">
-                    <div class="test-two"><a href="#/maps"><img src="images/map_teal.svg"></a></div>
+                    <div class="map-list"><a href="#/maps"><img src="images/map_teal.svg"></a></div>
                 </div>
             </div>
         </div>

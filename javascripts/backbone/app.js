@@ -219,18 +219,21 @@ $(function() {
     console.log("you are home!");
     var logIn = new logInView();
     logIn.render();
+    $(".bottom-nav").hide();
   });
 
   router.on('route:sign_up', function() {
     console.log("you are at sign up!");
     var signUp = new signUpView();
     signUp.render();
+    $(".bottom-nav").hide();
   });
 
   router.on('route:main', function() {
     console.log("you are at the main page");
     var mainPage = new mainPageView();
     mainPage.render();
+    $(".bottom-nav").show();
   });
 
   router.on('route:maps', function() {
@@ -238,13 +241,32 @@ $(function() {
     $(".main").empty();
     $(".main").html("<ul class='map_list_ul welcome-block'></ul>");
     combInitializedData.mapListView.elFunction();
+    $(".bottom-nav").show();
+    $( ".logo" ).hide();
+    $( ".back" ).show();
   });
 
   router.on('route:create_map', function() {
     console.log("you are on maps create");
     var createMap = new createMapView();
     createMap.render();
+    $(".bottom-nav").show();
   });
+
+  // Click Listeners //
+
+  $(".back").on( "click", function() {
+      $( ".back" ).hide();
+      $( ".logo" ).show();
+    });
+    $(".create-map").on( "click", function() {
+      $( ".back" ).hide();
+      $( ".logo" ).show();
+    });
+    $(".map-list").on( "click", function() {
+      $( ".back" ).show();
+      $( ".logo" ).hide();
+    });
 
   Backbone.history.start();
 });
