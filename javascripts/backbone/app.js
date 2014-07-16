@@ -4,8 +4,14 @@ Comb.initialize = function(userId) {
   var mapCollection = new Comb.Collections.MapCollection();
 
   mapCollection.fetch({ data: { id: userId }, dataType: "jsonp", success: function(){
-    console.log(mapCollection.models);
+    console.log("yaniv thing", mapCollection.models);
   }});
+
+    // var mapListView = new Comb.Views.MapListView({
+    //   collection: mapCollection,
+    //   el: $('.map_list_ul')
+    // });
+    // mapListView.render();
 
 //   var listView = new Comb.Views.MapListView({
 //     collection: collection,
@@ -17,17 +23,12 @@ Comb.initialize = function(userId) {
 // //   var map_name= $(".new_map_form").find('input').val();
 // //   console.log(map_name);
 
-  mapView = new Comb.Views.MapView({
-      el: $('#map-canvas')[0]
-  });
-
-  mapView.renderCurrentLocation();
 }
 
-Comb.collectionInitialize = function(userId){
+// Comb.collectionInitialize = function(userId){
 
 
-}
+// }
 
 
 
@@ -87,6 +88,10 @@ $(function() {
           console.log("yay");
           var user = data["user_id"];
           router.navigate('main', {trigger: true});
+          mapView = new Comb.Views.MapView({
+            el: $('#map-canvas')[0]
+          });
+          mapView.renderCurrentLocation();
           Comb.initialize(user);
         }
       });
@@ -172,18 +177,6 @@ $(function() {
     console.log("you are on maps");
     $(".main").empty();
     $(".main").html("<ul class='map_list_ul'></ul>");
-
-    var mapCollection = new Comb.Collections.MapCollection();
-    console.log(mapCollection.models);
-    // mapCollection.fetch({ data: { id: userId }, dataType: "jsonp", success: function(){
-    //   console.log(mapCollection.models);
-    // }});
-
-    // var mapListView = new Comb.Views.MapListView({
-    //   collection: mapCollection,
-    //   el: $('.map_list_ul')
-    // });
-    // mapListView.render();
   });
 
   Backbone.history.start();
