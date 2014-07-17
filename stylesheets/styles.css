@@ -149,6 +149,13 @@ color: #FFF;
         padding: 0px
 }
 
+.map_display_canvas {
+        height: 400px;
+        width: 500px;
+        margin: 0px;
+        padding: 0px
+}
+
 .back{
   display:none;
   background-size: 5px;

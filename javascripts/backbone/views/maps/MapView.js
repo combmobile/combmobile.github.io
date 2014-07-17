@@ -5,10 +5,32 @@ Comb.Views.MapView = Backbone.View.extend({
   },
   tagName: "li",
   template: _.template( $("#singleMapItemTemplate").html() ),
+  singleMapTemplate: _.template( $("#singleMapTemplate").html() ),
+    events: {
+      "click .map_name" : "displayMapView"
+      // "click .edit_map_name" : "editMapName",
+      // 'click [data-action="destroy"]': 'removeMap'
+    },
   renderMapList: function(){
       this.$el.html( this.template(this.model.attributes) );
       return this
     },
+
+  displayMapView: function(){
+    var self = this;
+    $('.main').empty();
+    var canvas = $(".main");
+    canvas.html( this.singleMapTemplate( this.model.attributes ) );
+    var lat = parseFloat(this.model.attributes.map_lat);
+    var lng = parseFloat(this.model.attributes.map_long);
+    var latlng = new google.maps.LatLng(lat, lng);
+     console.log("these are the coordinates", latlng);
+    var mapOptions = {
+      zoom: 10,
+      center: latlng
+    };
+    var map = new google.maps.Map($(".map_display_canvas")[0], mapOptions);
+  },
    renderCurrentLocation: function(){
     var self = this;
 
