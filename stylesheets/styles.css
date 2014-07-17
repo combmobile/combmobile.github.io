@@ -152,7 +152,7 @@ margin: 10px auto 0 auto;
 display: block;
 }
 
-input[type=submit]:hover{
+input[type=submit]:active{
 background: #e96e57;
 color: #FFF;
 }

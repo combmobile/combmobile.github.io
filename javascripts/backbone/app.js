@@ -76,6 +76,7 @@ var Router = Backbone.Router.extend({
 $(function() {
   // This will make the initialize available as a variable within the document ready. You can then access all of the initialized attributes.
   var combInitializedData;
+  var responseUserId;
 
   $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
     options.url = 'https://serene-dawn-6520.herokuapp.com' + options.url;
@@ -105,10 +106,10 @@ $(function() {
         success:function (data) {
           console.log(data);
           console.log("yay");
-          var user = data["user_id"];
+          responseUserId = data["user_id"];
           router.navigate('main', {trigger: true});
 
-          combInitializedData = Comb.initialize(user);
+          combInitializedData = Comb.initialize(responseUserId);
 
         }
       });
@@ -131,10 +132,27 @@ $(function() {
       this.$el.append(template);
     },
     events: {
-      'click .login-link' : 'logInPage'
+      'click .login-link' : 'logInPage',
+      'submit .signup-form': 'attemptSignUp',
     },
     logInPage: function(ev){
       router.navigate('home', {trigger: true});
+    },
+    attemptSignUp: function(ev){
+      var newUserCredentials = $(ev.currentTarget).serializeObject();
+      console.log(newUserCredentials);
+      $.ajax({
+        url:'/users',
+        type:'POST',
+        dataType:"jsonp",
+        data: {"user": newUserCredentials},
+        success:function (data) {
+          console.log(data);
+          responseUserId = data["id"];
+          router.navigate('main', {trigger: true});
+        }
+      });
+      return false;
     }
   })
 
@@ -175,13 +193,13 @@ $(function() {
       var Map = new Comb.Models.Map({
       // var Map = ({
         name: mapName,
-        creator_id: combInitializedData.mapCollection.models[0].attributes.user_id,
-        user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
+        creator_id: responseUserId,
+        user_id: responseUserId,
         map_lat:'',
         map_long:'',
         pins:''
       });
-      console.log(Map);
+      console.log("map data", Map);
 
       mapCreateView = new Comb.Views.MapView({
         el: $('#map-canvas')[0],
@@ -190,6 +208,7 @@ $(function() {
         // map_name: mapName
       });
       mapCreateView.createMap();
+      return false;
     }
   });
 
