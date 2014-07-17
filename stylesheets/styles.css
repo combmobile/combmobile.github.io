@@ -31,19 +31,20 @@ body {
 .map-holder{
   text-align: center;
   padding: 0px;
-  margin: 5em 0px 0px 0px;
+  margin: 4.92em 0px 0px 0px;
   height: 100%;
 }
 
 
 .menu, .bottom-nav{
-  position: absolute;
+  position: fixed;
   margin: 0;
   right: 0;
   color: steelblue;
   background-color: rgb(45,55,63);
   width: 100%;
   display: block;
+  /*pointer-events:none;*/
 }
 
 .menu {
@@ -55,8 +56,9 @@ body {
   padding-left: 1.5em;
 }
 
-.menu .logo p{
+.menu .logo h2{
   font-family: 'apercubold';
+  color: #1EBBA6;
 }
 
 
@@ -76,7 +78,7 @@ outline: none;
 background: white;
 font-weight: 500;
 color: #3e474c;
-line-height: 1em;
+line-height: 1.4em;
 padding: .5em 1.1em;
 display: inline-block;
 margin: 0 auto;
@@ -159,6 +161,14 @@ color: #FFF;
 .back{
   display:none;
   background-size: 5px;
+}
+
+.map_list_ul li{
+  list-style: none;
+}
+
+.map_list_container {
+  overflow: auto;
 }
 
 

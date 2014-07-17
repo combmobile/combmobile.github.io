@@ -6,9 +6,10 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 
         <!-- Stylesheets -->
+    <link rel="stylesheet" href="stylesheets/normalize.css">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
-    <link rel="stylesheet" href="stylesheets/normalize.css">
+
 
         <!-- Libraries -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
@@ -68,7 +69,7 @@
             <div class="map_list_container">
                 <h2 class="map_name"><%= name %></h2>
                 <button class="edit_map_name">edit</button>
-                <button class="delete_map" data-action="destroy" name="delete_map">X</button>
+                <button class="delete_map" data-id=<%= id %> data-action="destroy" name="delete_map">X</button>
             </div>
         </script>
 
@@ -86,6 +87,7 @@
         <!-- Single Map View -->
 
         <script type="text/template" id="singleMapTemplate">
+
             <div class='map-holder'>
                 <div class="map_display_canvas"></div>
             </div>
@@ -115,7 +117,7 @@
         <div class="menu">
             <div class="section group">
                 <div class="col span_1_of_12">
-                    <div class="logo"><img src="images/logo_blue_5_straight.svg"></div>
+                    <div class="logo"><h2>Comb</h2></div>
                     <div class="back"><a href="#/main"><img src="images/back_button_white_48pt.svg"></a></div>
                 </div>
             </div>

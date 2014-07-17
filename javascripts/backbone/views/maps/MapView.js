@@ -8,15 +8,20 @@ Comb.Views.MapView = Backbone.View.extend({
   template: _.template( $("#singleMapItemTemplate").html() ),
   singleMapTemplate: _.template( $("#singleMapTemplate").html() ),
     events: {
-      "click .map_name" : "displayMapView"
+      "click .map_name" : "displayMapView",
       // "click .edit_map_name" : "editMapName",
-      // 'click [data-action="destroy"]': 'removeMap'
+      "click [data-action='destroy']": "removeMap"
     },
+  removeMap: function(e){
+      console.log("dis works");
+      e.preventDefault();
+      this.model.destroy();
+      return this
+  },
   renderMapList: function(){
       this.$el.html( this.template(this.model.attributes) );
       return this
     },
-
   displayMapView: function(){
     var self = this;
     $('.main').empty();
