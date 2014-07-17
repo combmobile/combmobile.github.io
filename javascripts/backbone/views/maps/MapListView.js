@@ -12,7 +12,7 @@ Comb.Views.MapListView = Backbone.View.extend({
     var self = this;
     _.each(this.collection.models, function(map){
     var mapItemView = new Comb.Views.MapView( {model: map} )
-    ul.append( mapItemView.renderMapList().el );
+    ul.prepend( mapItemView.renderMapList().el );
     })
   }
 

@@ -2,6 +2,7 @@ var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
 Comb.Views.MapView = Backbone.View.extend({
     initialize: function(){
+
   },
   tagName: "li",
   template: _.template( $("#singleMapItemTemplate").html() ),
@@ -36,60 +37,34 @@ Comb.Views.MapView = Backbone.View.extend({
 
     var mapOptions = {
     zoom: 10
-    // disableDefaultUI: true,
-
-//     styles:
-//     [
-//     {
-//         "stylers": [
-//             {
-//                 "hue": "#2c3e50"
-//             },
-//             {
-//                 "saturation": 250
-//             }
-//         ]
-//     },
-//     {
-//         "featureType": "road",
-//         "elementType": "geometry",
-//         "stylers": [
-//             {
-//                 "lightness": 50
-//             },
-//             {
-//                 "visibility": "simplified"
-//             }
-//         ]
-//     },
-//     {
-//         "featureType": "road",
-//         "elementType": "labels",
-//         "stylers": [
-//             {
-//                 "visibility": "off"
-//             }
-//         ]
-//     }
-// ]
-  };
-
+    };
 
 
   var map = new google.maps.Map(this.el, mapOptions);
+
+
   // console.log(map);
   // var mapModel = new Comb.Models.Map();
 
+      // Try HTML5 geolocation
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = new google.maps.LatLng(position.coords.latitude,
+                                           position.coords.longitude);
+          map.setCenter(pos);
+        });
+
+        // ATTEMPT AT PASSING IN A VARIABLE SET INITIALLY FROM THE LOGIN
   // Try HTML5 geolocation
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
-      map.setCenter(pos);
+      // var pos = new google.maps.LatLng(coordinates.latitude,
+      //                                  coordinates.longitude);
+      // map.setCenter(pos);
+
+
+
+      // map.setCenter(pos);
       // this.model.save({ map_lat: pos.lat(), map_long: pos.lng()})
 
       // mapModel.save( { name: "New York", creator_id: 1, owner_id: 1, map_lat: pos.lat(), map_long: pos.lng() } )
-
-    });
 
     // var getCen = map.getCenter();
     // google.maps.event.addDomListener(window, 'resize', function() {
@@ -125,31 +100,46 @@ Comb.Views.MapView = Backbone.View.extend({
 
     },
 
-    createMap: function(){
+    createMap: function(currentCollection){
     var self = this;
     console.log(this.model);
-    console.log("name:", this.model.attributes.name, "creator_id:", this.model.attributes.user_id, "user_id:", this.model.attributes.user_id);
-  //   var mapOptions = {
-  //   zoom: 10
-  //   // disableDefaultUI: true
-  //   };
+    console.log("this is the createMap","name:", this.model.attributes.name, "creator_id:", this.model.attributes.user_id, "user_id:", this.model.attributes.user_id);
+
+    var mapOptions = {
+    zoom: 10
+    // disableDefaultUI: true
+    };
+
+    var mapDetails = { name: this.model.attributes.name, creator_id: this.model.attributes.user_id, user_id: this.model.attributes.user_id, map_lat: '', map_long: '' };
+
+    var map = new google.maps.Map(this.el, mapOptions);
+
+  // Try HTML5 geolocation
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+      map.setCenter(pos);
+
+      // mapModel.save( { name: "New York", creator_id: 1, owner_id: 1, map_lat: pos.lat(), map_long: pos.lng() } )
+      console.log("mapcreate geolocate latitude:", pos.lat() );
+
+      mapDetails['map_lat'] = pos.lat();
+      mapDetails['map_long'] = pos.lng();
+      $.ajax({
+        url:'/maps',
+        type:'POST',
+        dataType:"jsonp",
+        data: {"map": mapDetails},
+        success:function (data) {
+          currentCollection.create(data);
+          console.log("shit works", data);
+        }
+      });
+
+    });
 
 
-
-  //   var map = new google.maps.Map(this.el, mapOptions);
-
-  //   var mapModel = new Comb.Models.Map();
-
-  // // Try HTML5 geolocation
-  //   navigator.geolocation.getCurrentPosition(function(position) {
-  //     var pos = new google.maps.LatLng(position.coords.latitude,
-  //                                      position.coords.longitude);
-  //     map.setCenter(pos);
-  //     // this.model.save({ map_lat: pos.lat(), map_long: pos.lng()})
-
-  //   mapModel.save( { name: this.map_name, creator_id: this.user_id, user_id: this.user_id, map_lat: pos.lat(), map_long: pos.lng() } )
-
-    // });
 
 
   //  UNCOMMENT FROM HERE ON UP FOR THE FUNCTION TO WORK

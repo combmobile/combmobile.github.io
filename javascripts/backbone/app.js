@@ -42,10 +42,6 @@ Comb.initialize = function(userId) {
 
 // }
 
-
-
-
-
 /* SANDBOX DEFAULT CODE */
 // var map;
 // function initialize() {
@@ -77,6 +73,22 @@ $(function() {
   // This will make the initialize available as a variable within the document ready. You can then access all of the initialized attributes.
   var combInitializedData;
   var responseUserId;
+  var currentPosition;
+
+  // function getCoordinates() {
+
+  //   var promise = new core.event.Promise();
+
+  //   navigator.geolocation.getCurrentPosition(function(position) {
+  //           currentPosition = position.coords;
+  //           console.log("this is position",position.coords);
+  //           promise.fulfill(currentPosition);
+  //   });
+
+  //   return promise;
+
+  // };
+
 
   $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
     options.url = 'https://serene-dawn-6520.herokuapp.com' + options.url;
@@ -108,13 +120,11 @@ $(function() {
           console.log("yay");
           responseUserId = data["user_id"];
           router.navigate('main', {trigger: true});
-
           combInitializedData = Comb.initialize(responseUserId);
-
         }
       });
-      // console.log(userCredentials);
       return false;
+
     },
     signUpPage: function(ev){
       router.navigate('sign_up', {trigger: true});
@@ -170,7 +180,9 @@ $(function() {
       mapView = new Comb.Views.MapView({
         el: $('#map-canvas')[0]
       });
-      mapView.renderCurrentLocation();
+      // ATTEMPT TO INTRODUCE PROMISE STATEMENT
+      // getCoordinates().then(mapView.renderCurrentLocation(currentPosition));
+       mapView.renderCurrentLocation();
       }
   });
 
@@ -207,7 +219,8 @@ $(function() {
         // user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
         // map_name: mapName
       });
-      mapCreateView.createMap();
+
+      mapCreateView.createMap(combInitializedData.mapCollection);
       return false;
     }
   });
