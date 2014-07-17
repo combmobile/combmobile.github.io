@@ -1,5 +1,6 @@
 body {
   font-family: 'apercuregular';
+  background-color: #bdc3c7;
 }
 
 *{
@@ -15,10 +16,10 @@ body {
     margin: 1.5em;
 }
 .welcome-block{
-  background-color: whitesmoke;
-  border: 1px solid gainsboro;
+  background-color: #bdc3c7;
+  /*border: 1px solid gainsboro;*/
   text-align: center;
-  color: silver;
+  color: black;
 }
 
 .welcome-block {
@@ -66,6 +67,7 @@ body {
 
 .feature a{
   font-size: 1em;
+  color: #FFF;
 }
 
 input {
@@ -81,7 +83,7 @@ margin: 0 auto;
 width: 100%;
 }
 
-.top-email{
+.top-email, .standard-input{
   -webkit-border-top-left-radius: 0.25em;
   -moz-border-top-left-radius: 0.25em;
   -ms-border-top-left-radius: 0.25em;
@@ -94,7 +96,7 @@ width: 100%;
   border-top-right-radius: 0.25em;
 }
 
-.bottom-pw{
+.bottom-pw, .standard-input{
   -webkit-border-bottom-right-radius: 0.25em;
   -moz-border-bottom-right-radius: 0.25em;
   -ms-border-bottom-right-radius: 0.25em;
@@ -133,7 +135,7 @@ color: #FFF;
 
 .feature a{
   float: left;
-  text-decoration: none;
+  /*text-decoration: none;*/
 }
 
 .center{
