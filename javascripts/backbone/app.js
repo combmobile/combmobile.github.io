@@ -124,7 +124,6 @@ $(function() {
         }
       });
       return false;
-
     },
     signUpPage: function(ev){
       router.navigate('sign_up', {trigger: true});
@@ -265,6 +264,7 @@ $(function() {
     console.log("you are at the main page");
     var mainPage = new mainPageView();
     mainPage.render();
+    console.log('fucking work');
     $(".bottom-nav").show();
   });
 
