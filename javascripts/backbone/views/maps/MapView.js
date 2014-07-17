@@ -45,7 +45,7 @@ Comb.Views.MapView = Backbone.View.extend({
     };
 
 
-  var map = new google.maps.Map(this.el, mapOptions);
+    var map = new google.maps.Map(this.el, mapOptions);
 
 
   // console.log(map);
@@ -58,48 +58,6 @@ Comb.Views.MapView = Backbone.View.extend({
           map.setCenter(pos);
         });
 
-        // ATTEMPT AT PASSING IN A VARIABLE SET INITIALLY FROM THE LOGIN
-  // Try HTML5 geolocation
-      // var pos = new google.maps.LatLng(coordinates.latitude,
-      //                                  coordinates.longitude);
-      // map.setCenter(pos);
-
-
-
-      // map.setCenter(pos);
-      // this.model.save({ map_lat: pos.lat(), map_long: pos.lng()})
-
-      // mapModel.save( { name: "New York", creator_id: 1, owner_id: 1, map_lat: pos.lat(), map_long: pos.lng() } )
-
-    // var getCen = map.getCenter();
-    // google.maps.event.addDomListener(window, 'resize', function() {
-    // map.setCenter(getCen);
-    // });
-
-    //  var image = new google.maps.MarkerImage('images/pin_teal.png',
-    //     // This marker is 129 pixels wide by 42 pixels tall.
-    //     new google.maps.Size(129, 42),
-    //     // The origin for this image is 0,0.
-    //     new google.maps.Point(0,0),
-    //     // The anchor for this image is the base of the flagpole at 18,42.
-    //     new google.maps.Point(18, 42)
-    // );
-
-
-    // function createMarker(location) {
-    //   var marker = new google.maps.Marker({
-    //   position: location,
-    //   map: map
-    // });
-    //   console.log(marker);
-    //   console.log(location.lat());
-    //   // var pinModel = new Comb.Models.Pin();
-    //   // pinModel.save({ name: "pin", pin_lat: location.lat(), pin_long: location.lng(), map_id: 1 })
-    // }
-
-    // google.maps.event.addListener(map, 'click', function(event) {
-    //   createMarker(event.latLng);
-    // });
 
     return this;
 
@@ -148,7 +106,6 @@ Comb.Views.MapView = Backbone.View.extend({
         data: {"map": mapDetails},
         success:function (data) {
           currentCollection.create(data);
-          console.log("shit works", data);
         }
       });
 

@@ -264,12 +264,12 @@ $(function() {
     console.log("you are at the main page");
     var mainPage = new mainPageView();
     mainPage.render();
-    console.log('fucking work');
     $(".bottom-nav").show();
   });
 
   router.on('route:maps', function() {
     console.log("you are on maps");
+    $('body').css("background","white");
     $(".main").empty();
     $(".main").html("<ul class='map_list_ul welcome-block'></ul>");
     combInitializedData.mapListView.elFunction();
@@ -280,6 +280,7 @@ $(function() {
 
   router.on('route:create_map', function() {
     console.log("you are on maps create");
+    $('body').css("background","#bdc3c7");
     var createMap = new createMapView();
     createMap.render();
     $(".bottom-nav").show();
@@ -296,8 +297,13 @@ $(function() {
       $( ".logo" ).show();
     });
     $(".map-list").on( "click", function() {
+      $('.welcome-block').css("background","#FFF");
       $( ".back" ).show();
       $( ".logo" ).hide();
+      $(".main").empty();
+      $(".main").html("<ul class='map_list_ul welcome-block'></ul>");
+      combInitializedData.mapListView.elFunction();
+      $(".bottom-nav").show();
     });
 
   Backbone.history.start();

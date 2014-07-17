@@ -16,7 +16,7 @@ body {
     margin: 1.5em;
 }
 .welcome-block{
-  background-color: #bdc3c7;
+  background-color: transparent;
   /*border: 1px solid gainsboro;*/
   text-align: center;
   color: black;
@@ -37,7 +37,7 @@ body {
 
 
 .menu, .bottom-nav{
-  position: fixed;
+  position: absolute;
   margin: 0;
   right: 0;
   color: steelblue;
@@ -167,8 +167,8 @@ color: #FFF;
   list-style: none;
 }
 
-.map_list_container {
-  overflow: auto;
+.map_list_container h2{
+  color: #1EBBA6;
 }
 
 
