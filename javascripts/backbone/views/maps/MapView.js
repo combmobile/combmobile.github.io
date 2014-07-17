@@ -121,6 +121,16 @@ Comb.Views.MapView = Backbone.View.extend({
                                        position.coords.longitude);
       map.setCenter(pos);
 
+      // function createMarker(location) {
+      //   var marker = new google.maps.Marker({
+      //   position: location,
+      //   map: map
+      // });
+
+      // google.maps.event.addListener(map, 'click', function(event) {
+      //   createMarker(event.latLng);
+      // });
+
       // mapModel.save( { name: "New York", creator_id: 1, owner_id: 1, map_lat: pos.lat(), map_long: pos.lng() } )
       console.log("mapcreate geolocate latitude:", pos.lat() );
 
@@ -136,6 +146,9 @@ Comb.Views.MapView = Backbone.View.extend({
           console.log("shit works", data);
         }
       });
+
+
+
 
     });
 
