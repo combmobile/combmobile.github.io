@@ -1,65 +1,10 @@
-/*.signup-link{
-  cursor: pointer;
-}*/
-
-/*        #map-canvas {
-        height: 500px;
-        width: 500px;
-        margin: 0 auto;
-        padding: 0px;
-        border: none;
-        border-radius: 20px;
-        display: none;
-      }
-
-        #map_display_canvas {
-        height: 500px;
-        width: 500px;
-        margin: 0 auto;
-        padding: 0px;
-        border: none;
-        border-radius: 20px;
-        display: visible;
-      }
-
-      .panel {
-        position: absolute;
-        top: 5px;
-        left: 50%;
-        margin-left: -180px;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-      }
-
-     li {
-      list-style-type: none;
-      text-align: center;
-      margin: 0px 0px 0px -40px;
-      padding: 0;
-     }
-
-     .map_list_ul {
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .map_list_div {
-        margin: 0 auto;
-        text-align: center;
-        position: relative;
-    }
-
-    .new_map_form {
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
-    }
-*/
-
 body {
   font-family: 'apercuregular';
+  background-color: #bdc3c7;
+}
+
+*{
+  box-sizing: border-box;
 }
 
 .main{
@@ -71,10 +16,10 @@ body {
     margin: 1.5em;
 }
 .welcome-block{
-  background-color: whitesmoke;
-  border: 1px solid gainsboro;
+  background-color: #bdc3c7;
+  /*border: 1px solid gainsboro;*/
   text-align: center;
-  color: silver;
+  color: black;
 }
 
 .welcome-block {
@@ -120,41 +65,77 @@ body {
     padding: 2% 0;
 }
 
-input[type=email], input[type=password] {
-border: 1px solid #dadfe1;
-background: white;
+.feature a{
+  font-size: 1em;
+  color: #FFF;
 }
 
 input {
-border: none;
+border: 1px solid #dadfe1;
 outline: none;
 background: white;
-font-size: 14px;
 font-weight: 500;
 color: #3e474c;
 line-height: 1em;
 padding: .5em 1.1em;
+display: inline-block;
+margin: 0 auto;
+width: 100%;
+}
+
+.top-email, .standard-input{
+  -webkit-border-top-left-radius: 0.25em;
+  -moz-border-top-left-radius: 0.25em;
+  -ms-border-top-left-radius: 0.25em;
+  -o-border-top-left-radius: 0.25em;
+  border-top-left-radius: 0.25em;
+  -webkit-border-top-right-radius: 0.25em;
+  -moz-border-top-right-radius: 0.25em;
+  -ms-border-top-right-radius: 0.25em;
+  -o-border-top-right-radius: 0.25em;
+  border-top-right-radius: 0.25em;
+}
+
+.bottom-pw, .standard-input{
+  -webkit-border-bottom-right-radius: 0.25em;
+  -moz-border-bottom-right-radius: 0.25em;
+  -ms-border-bottom-right-radius: 0.25em;
+  -o-border-bottom-right-radius: 0.25em;
+  border-bottom-right-radius:0.25em;
+  -webkit-border-bottom-left-radius: 0.25em;
+  -moz-border-bottom-left-radius: 0.25em;
+  -ms-border-bottom-left-radius: 0.25em;
+  -o-border-bottom-left-radius: 0.25em;
+  border-bottom-left-radius:0.25em;
+  border-bottom-left-radius:0.25em;
+}
+
+input[type=submit] {
+margin: 10px 0;
+background-color: #e96e57;
+color: #FFF;
+border: 1px solid #e96e57;
+text-transform:capitalize;
+display: inline-block;
 -webkit-border-radius: 0.25em;
 -moz-border-radius: 0.25em;
 -ms-border-radius: 0.25em;
 -o-border-radius: 0.25em;
 border-radius: 0.25em;
-display: block;
-margin: 0 auto;
-width: 100%;
-}
-
-input[type=submit] {
-color: #e96e57;
-border: 1px solid #e96e57;
-text-transform:capitalize;
-margin: 10px auto 0 auto;
-display: block;
 }
 
 input[type=submit]:active{
 background: #e96e57;
 color: #FFF;
+}
+
+.feature{
+  margin: 0px;
+}
+
+.feature a{
+  float: left;
+  /*text-decoration: none;*/
 }
 
 .center{
