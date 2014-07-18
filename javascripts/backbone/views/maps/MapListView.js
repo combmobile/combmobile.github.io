@@ -2,6 +2,7 @@ var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
 Comb.Views.MapListView = Backbone.View.extend({
   initialize: function(){
+    this.listenTo(this.collection, "change", this.render);
     this.listenTo(this.collection, "all", this.render)
   },
     elFunction: function(){
@@ -15,5 +16,4 @@ Comb.Views.MapListView = Backbone.View.extend({
     ul.prepend( mapItemView.renderMapList().el );
     })
   }
-
 })
