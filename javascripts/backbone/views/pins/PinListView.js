@@ -1,6 +1,6 @@
-var Haystack = Haystack || { Models: {}, Collections: {}, Views: {} };
+var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
-Haystack.Views.PinListView = Backbone.View.extend({
+Comb.Views.PinListView = Backbone.View.extend({
   initialize: function(){
     this.listenTo(this.collection, "all", this.render)
   }
