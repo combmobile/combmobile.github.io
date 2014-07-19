@@ -123,7 +123,7 @@ Comb.Views.MapView = Backbone.View.extend({
             //Edit form to be displayed with new marker
 
             var EditForm = '<p><div class="marker-edit">'+
-            '<form action="ajax-save.php" method="POST" name="SaveMarker" id="SaveMarker">'+
+            '<form action="submit" method="POST" name="SaveMarker" id="SaveMarker">'+
             '<label for="pName"><span>Place Name :</span><input type="text" name="pName" class="save-name" placeholder="Enter Title" maxlength="40" /></label>'+
             '<label for="pDesc"><span>Description :</span><textarea name="pDesc" class="save-desc" placeholder="Enter Address" maxlength="150"></textarea></label>'+
             '</form>'+
@@ -131,6 +131,7 @@ Comb.Views.MapView = Backbone.View.extend({
 
             //call create_marker() function
             create_marker(event.latLng, 'New Marker', EditForm, true, true, true);
+            map.panTo(event.latLng);
         });
 
 //############### Remove Marker Function ##############
@@ -222,7 +223,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
     //Content structure of info Window for the Markers
     var contentString = $('<div class="marker-info-win">'+
     '<div class="marker-inner-win"><span class="info-content">'+
-    '<h1 class="marker-heading">'+MapTitle+'</h1>'+
+    '<h2 class="marker-heading">'+MapTitle+'</h2>'+
     MapDesc+
     '</span><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>'+
     '</div></div>');
@@ -269,6 +270,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
     //add click listner to save marker button
     google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map,marker); // click on marker opens info window
+            map.panTo(marker.getPosition());
     });
 
     if(InfoOpenDefault) //whether info window should be open by default

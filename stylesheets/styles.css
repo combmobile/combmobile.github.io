@@ -510,3 +510,23 @@ img {
   padding: 0;
   margin: 0;
 }
+
+.marker-info-win {
+  background-color: RGBA(30, 187, 166, .5);
+  width: 100px;
+  height: 50px;
+  border-radius: 200px;
+}
+
+.marker-edit {
+  color: #1EBBA6;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.marker-heading {
+  color: #1EBBA6;
+  width: 20%;
+  height: 20%;
+}
