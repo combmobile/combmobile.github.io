@@ -10,10 +10,14 @@ body {
 .main{
   margin: 0;
   padding: 0;
+  height: 100%;
+  text-align: center;
+  width: 100%;
 }
 
 .welcome-block, .menu{
     margin: 1.5em;
+    z-index: 3;
 }
 .welcome-block{
   background-color: transparent;
@@ -29,36 +33,47 @@ body {
 }
 
 .map-holder{
-  text-align: center;
+    padding: 0;
+    position : absolute !important;
+    top : 40px !important;
+    right : 0;
+    bottom : 40px !important;
+    left : 0 !important;
+/*  text-align: center;
   padding: 0px;
   margin: 4.9em 0px 0px 0px;
   height: 100%;
+  width: 100%;*/
 }
 
 
 .menu, .bottom-nav{
-  position: absolute;
+  position: fixed;
   margin: 0;
   right: 0;
   color: steelblue;
   background-color: rgb(45,55,63);
   width: 100%;
   display: block;
+  z-index: 3;
   /*pointer-events:none;*/
 }
 
 .menu {
     top: 0;
+    z-index: 3;
 }
 
 
 .menu .logo, .menu .back{
   padding-left: 1.5em;
+  z-index: 3;
 }
 
 .menu .logo h2{
   font-family: 'apercubold';
   color: #1EBBA6;
+  z-index: 3;
 }
 
 
@@ -145,15 +160,16 @@ color: #FFF;
 }
 
 #map-canvas {
-        height: 400px;
-        width: 500px;
+        height: 100%;
+/*        width: 100%;*/
         margin: 0px;
         padding: 0px
 }
 
 .map_display_canvas {
-        height: 400px;
-        width: 500px;
+ /*       height: 400px;
+        width: 500px;*/
+        height: 100%;
         margin: 0px;
         padding: 0px
 }
@@ -165,6 +181,7 @@ color: #FFF;
 
 .map_list_ul li{
   list-style: none;
+  overflow: scroll;
 }
 
 .map_list_container h2{
@@ -173,12 +190,12 @@ color: #FFF;
 
 
 @media only screen and (max-width: 480px) {
-  #map-canvas {
+/*  #map-canvas {
         height: 400px;
         width: 400px;
         margin: 0px;
         padding: 0px
-}
+}*/
 
   /*  GRID OF TWELVE   ============================================================================= */
 
@@ -267,12 +284,12 @@ color: #FFF;
 /* Custom, iPhone Retina */
   @media only screen and (min-width : 320px) {
 
-    #map-canvas {
+/*    #map-canvas {
         height: 400px;
         width: 330px;
         margin: 0px;
         padding: 0px
-    }
+    }*/
 
 
      .span_12_of_12 {
@@ -328,12 +345,12 @@ color: #FFF;
   @media only screen and (min-width : 480px) {
     /*  GRID OF TWELVE   ============================================================================= */
 
-    #map-canvas {
+/*    #map-canvas {
         height: 400px;
         width: 485px;
         margin: 0px;
         padding: 0px
-    }
+    }*/
 
     .span_12_of_12 {
       width: 100%;
@@ -387,12 +404,12 @@ color: #FFF;
   /* Small Devices, Tablets */
   @media only screen and (min-width : 768px) {
     /*  GRID OF TWELVE   ============================================================================= */
-    #map-canvas {
+/*    #map-canvas {
         height: 700px;
         width: 700px;
         margin: 0px;
         padding: 0px
-}
+}*/
     .span_12_of_12 {
       width: 100%;
     }
@@ -444,12 +461,12 @@ color: #FFF;
 
   /* Medium Devices, Desktops */
   @media only screen and (min-width : 992px) {
-    #map-canvas {
+/*    #map-canvas {
         height: 800px;
         width: 800px;
         margin: 0px;
         padding: 0px
-}
+}*/
       .span_12_of_12 {
       width: 100%;
     }
