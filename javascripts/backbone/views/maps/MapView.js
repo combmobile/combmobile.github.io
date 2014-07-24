@@ -184,8 +184,6 @@ var mapStyles = [
     }
   ];
 
-// New
-
     var mapOptions = {
       zoom: 10,
       center: latlng,
@@ -205,7 +203,9 @@ var mapStyles = [
             '<label for="pName"><span>Place Name :</span><input type="text" name="pName" class="save-name" placeholder="Enter Title" maxlength="40" /></label>'+
             '<label for="pDesc"><span>Description :</span><textarea name="pDesc" class="save-desc" placeholder="Enter Address" maxlength="150"></textarea></label>'+
             '</form>'+
-            '</div></p><button name="save-marker" class="save-marker">Save Marker Details</button>';
+            '</p><button name="save-marker" class="save-marker">Save Marker Details</button>'+
+              '</span><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>'+
+            '</div>';
 
             //call create_marker() function
             create_marker(event.latLng, 'New Marker', EditForm, true, true, true);
@@ -300,61 +300,96 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
 
     //Content structure of info Window for the Markers
-    var contentString = $('<div class="marker-info-win">'+
+    var contentString = '<div class="marker-info-win">'+
     '<div class="marker-inner-win"><span class="info-content">'+
     '<h2 class="marker-heading">'+MapTitle+'</h2>'+
-    MapDesc+
-    '</span><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>'+
-    '</div></div>');
+    MapDesc;
+
+    var boxText = document.createElement('div');
+    // The following controls the css for the contentString. Investigate integrating this into styles.css
+    boxText.style.cssText = "width: 300px; height: 200px; border: 5px solid RGBA(30, 187, 166, .5); border-radius: 20px; margin-top: 8px; background: RGBA(255, 255, 255, 1); color: RGBA(30, 187, 166, 1); font-family: 'apercuregular'; padding: 0;";
+    boxText.innerHTML = contentString;
+    console.log("create marker map title", MapTitle, "create marker map description", MapDesc);
+  var myOptions = {
+     content: boxText
+    ,disableAutoPan: false
+    ,maxWidth: 0
+    ,pixelOffset: new google.maps.Size(-140, 0)
+    ,zIndex: null
+    ,boxStyle: {
+      background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat"
+      // The following opacity setting controls the background box opacity
+      ,opacity: 1
+      ,width: "290px"
+     }
+    ,closeBoxMargin: "10px 2px 2px 2px"
+    ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+    ,infoBoxClearance: new google.maps.Size(1, 1)
+    ,isHidden: false
+    ,pane: "floatPane"
+    ,enableEventPropagation: false
+  };
+
+  var ib = new InfoBox(myOptions);
+  // ib.open(map, marker);
 
 
-    //Create an infoWindow
-    var infowindow = new google.maps.InfoWindow();
-    //set the content of infoWindow
-    infowindow.setContent(contentString[0]);
 
-    //Find remove button in infoWindow
-    var removeBtn = contentString.find('button.remove-marker')[0];
-    console.log(removeBtn);
+// Uncomment the following to bring back the infowindow:
 
-   //Find save button in infoWindow
-    var saveBtn = contentString.find('button.save-marker')[0];
+   //  //Create an infoWindow
+   //  var infowindow = new google.maps.InfoWindow();
+   //  //set the content of infoWindow
+   //  infowindow.setContent(contentString[0]);
 
-    // add click listner to remove marker button
-    google.maps.event.addDomListener(removeBtn, "click", function(event) {
-        //call remove_marker function to remove the marker from the map\
-        console.log("working");
-        console.log("remove button click marker, this", this);
-        remove_marker(marker);
-    });
+   //  //Find remove button in infoWindow
+   //  var removeBtn = contentString.find('button.remove-marker')[0];
+   //  console.log(removeBtn);
 
-    if(typeof saveBtn !== 'undefined') //continue only when save button is present
-    {
-        //add click listner to save marker button
-        google.maps.event.addDomListener(saveBtn, "click", function(event) {
-            var mReplace = contentString.find('span.info-content'); //html to be replaced after success
-            var mName = contentString.find('input.save-name')[0].value; //name input field value
-            var mDesc  = contentString.find('textarea.save-desc')[0].value; //description input field value
+   // //Find save button in infoWindow
+   //  var saveBtn = contentString.find('button.save-marker')[0];
 
-            if(mName =='' || mDesc =='')
-            {
-                alert("Please enter Name and Description!");
-            }else{
-                //call save_marker function and save the marker details
-                save_marker(marker, mName, mDesc, mReplace);
-            }
-        });
-    }
+   //  // add click listner to remove marker button
+   //  google.maps.event.addDomListener(removeBtn, "click", function(event) {
+   //      //call remove_marker function to remove the marker from the map\
+   //      console.log("working");
+   //      console.log("remove button click marker, this", this);
+   //      remove_marker(marker);
+   //  });
+
+   //  if(typeof saveBtn !== 'undefined') //continue only when save button is present
+   //  {
+   //      //add click listner to save marker button
+   //      google.maps.event.addDomListener(saveBtn, "click", function(event) {
+   //          var mReplace = contentString.find('span.info-content'); //html to be replaced after success
+   //          var mName = contentString.find('input.save-name')[0].value; //name input field value
+   //          var mDesc  = contentString.find('textarea.save-desc')[0].value; //description input field value
+
+   //          if(mName =='' || mDesc =='')
+   //          {
+   //              alert("Please enter Name and Description!");
+   //          }else{
+   //              //call save_marker function and save the marker details
+   //              save_marker(marker, mName, mDesc, mReplace);
+   //          }
+   //      });
+   //  }
+
+   // Uncomment from here up to bring back infowindow
 
     //add click listner to save marker button
     google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker); // click on marker opens info window
+             ib.open(map, marker);
+             // Uncomment below to make the infowindow work again:
+            // infowindow.open(map,marker); // click on marker opens info window
             map.panTo(marker.getPosition());
     });
 
     if(InfoOpenDefault) //whether info window should be open by default
     {
-      infowindow.open(map,marker);
+        ib.open(map, marker);
+             // Uncomment below to make the infowindow work again:
+      // infowindow.open(map,marker);
     }
 }
 
