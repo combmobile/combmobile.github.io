@@ -260,6 +260,7 @@ function save_marker(Marker, mName, mAddress, mReplace)
     console.log("this is the map", this.model.attributes.id);
     var myData = {name : mName, address : mAddress, pin_lat : lat, pin_long : lng, map_id : mapId}; //post variables
     console.log("this is myData in save_marker", myData);
+    console.log("this is save_marker, and here's mReplace", mReplace)
     var pinModel = new Comb.Models.Pin();
     pinModel.save(myData)
     newContentString = $(
@@ -300,19 +301,18 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
 
     //Content structure of info Window for the Markers
-    var contentString = '<div class="marker-info-win">'+
+    var contentString = $('<div class="marker-info-win">'+
     '<div class="marker-inner-win"><span class="info-content">'+
     '<h2 class="marker-heading">'+MapTitle+'</h2>'+
-    MapDesc;
+    MapDesc+'</div></div>');
 
-    var boxText = document.createElement('div');
+    // var boxText = document.createElement('div');
     // The following controls the css for the contentString. Investigate integrating this into styles.css
-    boxText.style.cssText = "width: 300px; height: 200px; border: 5px solid RGBA(30, 187, 166, .5); border-radius: 20px; margin-top: 8px; background: RGBA(255, 255, 255, 1); color: RGBA(30, 187, 166, 1); font-family: 'apercuregular'; padding: 0;";
-    boxText.innerHTML = contentString;
+    // boxText.style.cssText = "width: 300px; height: 200px; border: 5px solid RGBA(30, 187, 166, .5); border-radius: 20px; margin-top: 8px; background: RGBA(255, 255, 255, 1); color: RGBA(30, 187, 166, 1); font-family: 'apercuregular'; padding: 0;";
+    // boxText.innerHTML = contentString;
     console.log("create marker map title", MapTitle, "create marker map description", MapDesc);
   var myOptions = {
-     content: boxText
-    ,disableAutoPan: false
+    disableAutoPan: false
     ,maxWidth: 0
     ,pixelOffset: new google.maps.Size(-140, 0)
     ,zIndex: null
@@ -333,21 +333,29 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
   var ib = new InfoBox(myOptions);
   // ib.open(map, marker);
 
+  ib.setContent(contentString[0]);
 
 
-// Uncomment the following to bring back the infowindow:
+   // Uncomment the following to bring back the infowindow:
 
    //  //Create an infoWindow
    //  var infowindow = new google.maps.InfoWindow();
    //  //set the content of infoWindow
    //  infowindow.setContent(contentString[0]);
 
+   // Uncomment from here up to bring back infowindow
+
    //  //Find remove button in infoWindow
    //  var removeBtn = contentString.find('button.remove-marker')[0];
    //  console.log(removeBtn);
 
-   // //Find save button in infoWindow
-   //  var saveBtn = contentString.find('button.save-marker')[0];
+   //Find save button in infoWindow
+   var saveBtn = contentString.find('button.save-marker')[0];
+
+    // var saveBtn = boxText.innerHTML.find('button.save-marker');
+    // var saveBtn = contentString.find('button.save-marker');
+    // var saveBtn = $(".save-marker");
+
 
    //  // add click listner to remove marker button
    //  google.maps.event.addDomListener(removeBtn, "click", function(event) {
@@ -357,25 +365,26 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
    //      remove_marker(marker);
    //  });
 
-   //  if(typeof saveBtn !== 'undefined') //continue only when save button is present
-   //  {
-   //      //add click listner to save marker button
-   //      google.maps.event.addDomListener(saveBtn, "click", function(event) {
-   //          var mReplace = contentString.find('span.info-content'); //html to be replaced after success
-   //          var mName = contentString.find('input.save-name')[0].value; //name input field value
-   //          var mDesc  = contentString.find('textarea.save-desc')[0].value; //description input field value
+    if(typeof saveBtn !== 'undefined') //continue only when save button is present
+    {
+        //add click listner to save marker button
+        google.maps.event.addDomListener(saveBtn, "click", function(event) {
+          console.log("save button working");
+            var mReplace = contentString.find('span.info-content'); //html to be replaced after success
+            var mName = contentString.find('input.save-name')[0].value; //name input field value
+            var mDesc  = contentString.find('textarea.save-desc')[0].value; //description input field value
 
-   //          if(mName =='' || mDesc =='')
-   //          {
-   //              alert("Please enter Name and Description!");
-   //          }else{
-   //              //call save_marker function and save the marker details
-   //              save_marker(marker, mName, mDesc, mReplace);
-   //          }
-   //      });
-   //  }
 
-   // Uncomment from here up to bring back infowindow
+            if(mName =='' || mDesc =='')
+            {
+                alert("Please enter Name and Description!");
+            }else{
+                //call save_marker function and save the marker details
+                save_marker(marker, mName, mDesc, mReplace);
+            }
+        });
+    }
+
 
     //add click listner to save marker button
     google.maps.event.addListener(marker, 'click', function() {

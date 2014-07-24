@@ -532,8 +532,14 @@ img {
 .marker-info-win {
   width: 300px;
   height: 200px;
-  border-radius: 50px;
+  border-radius: 20px;
   text-align: center;
+  border: 5px solid RGBA(30, 187, 166, .5);
+  margin-top: 8px;
+  background: RGBA(255, 255, 255, 1);
+  color: RGBA(30, 187, 166, 1);
+  font-family: 'apercuregular';
+  padding: 0;
 }
 
 .marker-edit {
