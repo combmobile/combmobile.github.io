@@ -229,8 +229,9 @@ function remove_marker(Marker)
     {
         //Remove saved marker from DB and map using jQuery Ajax
         var mLatLang = Marker.getPosition().toUrlValue(); //get marker position
-        console.log("removew marker else called");
-        Marker.destroy();
+        console.log("removew marker else called (Pin.destroy)");
+        // The below backbone code will ultimately remove the pin from the database
+        // Pin.destroy();
         // var myData = {del : 'true', latlang : mLatLang}; //post variables
         // $.ajax({
         //   type: "POST",
@@ -336,6 +337,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
   ib.setContent(contentString[0]);
 
 
+
    // Uncomment the following to bring back the infowindow:
 
    //  //Create an infoWindow
@@ -345,25 +347,24 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
    // Uncomment from here up to bring back infowindow
 
-   //  //Find remove button in infoWindow
-   //  var removeBtn = contentString.find('button.remove-marker')[0];
-   //  console.log(removeBtn);
+    //Find remove button in infoBox
+    var removeBtn = contentString.find('button.remove-marker')[0];
+    console.log(removeBtn);
 
-   //Find save button in infoWindow
+   //Find save button in infoBox
    var saveBtn = contentString.find('button.save-marker')[0];
 
-    // var saveBtn = boxText.innerHTML.find('button.save-marker');
-    // var saveBtn = contentString.find('button.save-marker');
-    // var saveBtn = $(".save-marker");
-
-
-   //  // add click listner to remove marker button
-   //  google.maps.event.addDomListener(removeBtn, "click", function(event) {
-   //      //call remove_marker function to remove the marker from the map\
-   //      console.log("working");
-   //      console.log("remove button click marker, this", this);
-   //      remove_marker(marker);
-   //  });
+    // add click listner to remove marker button
+    google.maps.event.addDomListener(removeBtn, "click", function(event) {
+        //call remove_marker function to remove the marker from the map\
+        console.log("working");
+        console.log("remove button click marker, this", this);
+        remove_marker(marker);
+        // Will toggle the visibility of the infobox, but it'll still be on the page. Still working on getting the thing to close with Google's in-built .close(); function.
+        $(".marker-info-win").css({"display":"none"});
+        console.log("content string", contentString);
+        // ib.close();
+    });
 
     if(typeof saveBtn !== 'undefined') //continue only when save button is present
     {

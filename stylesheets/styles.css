@@ -540,6 +540,7 @@ img {
   color: RGBA(30, 187, 166, 1);
   font-family: 'apercuregular';
   padding: 0;
+  display: visible;
 }
 
 .marker-edit {
