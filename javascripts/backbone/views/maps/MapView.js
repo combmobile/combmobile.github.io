@@ -27,6 +27,7 @@ Comb.Views.MapView = Backbone.View.extend({
     $('.main').empty();
     var canvas = $(".main");
     canvas.html( this.singleMapTemplate( this.model.attributes ) );
+    console.log("this is the model's pins", this.model.attributes.pins[0]);
     var lat = parseFloat(this.model.attributes.map_lat);
     var lng = parseFloat(this.model.attributes.map_long);
     var latlng = new google.maps.LatLng(lat, lng);
@@ -202,6 +203,25 @@ var mapStyles = [
       // disableDefaultUI: true
     };
     var map = new google.maps.Map($(".map_display_canvas")[0], mapOptions);
+
+    console.log("these are the model's pins where I want to call them", this.model.attributes.pins);
+
+    // Add in a conditional to check if there are pins on the map. If there are, then drop them.
+
+    // Figure out the .each function for the below:
+
+    // this.model.attributes.pins.each(function (pin) {
+
+    // var name = pin.name;
+    // var address = '<p>'+ pin.description +'</p>';
+    // var pinLat = parseFloat(pin.pin_lat);
+    // var pinLong = parseFloat(pin.pin_long);
+    // var point = new google.maps.LatLng(pinLat, pinLong);
+
+    // //call create_marker() function for xml loaded maker
+    // create_marker(point, name, address, false, false, false);
+
+    // });
 
 
     google.maps.event.addListener(map, 'click', function(event) {
