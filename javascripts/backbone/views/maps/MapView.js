@@ -188,7 +188,18 @@ var mapStyles = [
       zoom: 10,
       center: latlng,
       styles: mapStyles,
-      disableDefaultUI: true
+      mapTypeControl: false,
+      panControl: true,
+      panControlOptions: {
+          style: google.maps.ZoomControlStyle.LARGE,
+          position: google.maps.ControlPosition.LEFT_CENTER
+      },
+      zoomControl: true,
+      zoomControlOptions: {
+          style: google.maps.ZoomControlStyle.LARGE,
+          position: google.maps.ControlPosition.LEFT_CENTER
+      }
+      // disableDefaultUI: true
     };
     var map = new google.maps.Map($(".map_display_canvas")[0], mapOptions);
 
