@@ -386,7 +386,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
              // Uncomment below to make the infowindow work again:
       // infowindow.open(map,marker);
     }
-}
+
 
 
 
@@ -438,6 +438,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
         });
     }
 
+}
 
     // Add in a conditional to check if there are pins on the map. If there are, then drop them.
 
