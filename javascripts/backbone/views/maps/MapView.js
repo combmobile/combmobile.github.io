@@ -474,7 +474,17 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
     var mapOptions = {
     zoom: 10,
-    disableDefaultUI: true
+    mapTypeControl: false,
+    panControl: true,
+    panControlOptions: {
+        style: google.maps.ZoomControlStyle.LARGE,
+        position: google.maps.ControlPosition.LEFT_CENTER
+    },
+    zoomControl: true,
+    zoomControlOptions: {
+        style: google.maps.ZoomControlStyle.LARGE,
+        position: google.maps.ControlPosition.LEFT_CENTER
+    }
     };
 
     var mapDetails = { name: this.model.attributes.name, creator_id: this.model.attributes.user_id, user_id: this.model.attributes.user_id, map_lat: '', map_long: '' };
