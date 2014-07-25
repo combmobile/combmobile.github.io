@@ -291,6 +291,12 @@ $(function() {
   $(".back").on( "click", function() {
       $( ".back" ).hide();
       $( ".logo" ).show();
+      $(".map-pin-list").off();
+      $(".map-pin-list").addClass("pin-list")
+      $(".pin-list").removeClass( "map-pin-list" );
+      $(".pin-list").on( "click", function() {
+        console.log("main pin list button working");
+      });
     });
     $(".create-map").on( "click", function() {
       $( ".back" ).hide();
@@ -304,10 +310,19 @@ $(function() {
       $(".main").html("<ul class='map_list_ul welcome-block'></ul>");
       combInitializedData.mapListView.elFunction();
       $(".bottom-nav").show();
+      $(".pin-list").off();
+      $(".pin-list").addClass( "map-pin-list" );
+      $(".map-pin-list").removeClass("pin-list")
+      $(".map-pin-list").on( "click", function() {
+        console.log("map pin list button working");
+       });
     });
     // This is beginning of a click function for the pin list view. First need to investigate creating a pin collection.
+    // $(".map-pin-list").on( "click", function() {
+    //   console.log("map pin list button working");
+    // });
     $(".pin-list").on( "click", function() {
-
+      console.log("main pin list button working");
     });
 
   Backbone.history.start();
