@@ -246,7 +246,7 @@ var mapStyles = [
     }
 
 //*** Remove Marker Function ***
-function remove_marker(Marker)
+function remove_marker(Marker, ib)
 {
 
     /* determine whether marker is draggable
@@ -255,7 +255,8 @@ function remove_marker(Marker)
     {
         // Marker.destroy();
         Marker.setMap(null); //just remove new marker
-        console.log(Marker);
+        window.setTimeout(infoBoxClose, 10);
+        function infoBoxClose() {ib.close();}
 
     }
     else
@@ -409,13 +410,15 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
     // add click listner to remove marker button
     google.maps.event.addDomListener(removeBtn, "click", function(event) {
         //call remove_marker function to remove the marker from the map\
-        console.log("working");
+        console.log("removebtn marker", marker);
         console.log("remove button click marker, this", this);
-        remove_marker(marker);
-        // Will toggle the visibility of the infobox, but it'll still be on the page. Still working on getting the thing to close with Google's in-built .close(); function.
-        $(".marker-info-win").css({"display":"none"});
-        console.log("content string", contentString);
         // ib.close();
+        remove_marker(marker, ib);
+        // Will toggle the visibility of the infobox, but it'll still be on the page. Still working on getting the thing to close with Google's in-built .close(); function.
+        // marker.ib.setMap(null);
+        // $(".marker-info-win").css({"display":"none"});
+        console.log("content string", contentString);
+
     });
 
     if(typeof saveBtn !== 'undefined') //continue only when save button is present

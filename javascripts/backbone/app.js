@@ -305,6 +305,10 @@ $(function() {
       combInitializedData.mapListView.elFunction();
       $(".bottom-nav").show();
     });
+    // This is beginning of a click function for the pin list view. First need to investigate creating a pin collection.
+    $(".pin-list").on( "click", function() {
+
+    });
 
   Backbone.history.start();
 });
