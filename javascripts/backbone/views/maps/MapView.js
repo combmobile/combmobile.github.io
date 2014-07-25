@@ -255,7 +255,7 @@ function remove_marker(Marker, ib)
     {
         // Marker.destroy();
         Marker.setMap(null); //just remove new marker
-        window.setTimeout(infoBoxClose, 10);
+        window.setTimeout(infoBoxClose, 1);
         function infoBoxClose() {ib.close();}
 
     }
