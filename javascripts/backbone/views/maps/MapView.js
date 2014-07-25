@@ -206,23 +206,6 @@ var mapStyles = [
 
     console.log("these are the model's pins where I want to call them", this.model.attributes.pins);
 
-    // Add in a conditional to check if there are pins on the map. If there are, then drop them.
-
-    // Figure out the .each function for the below:
-
-    // this.model.attributes.pins.each(function (pin) {
-
-    // var name = pin.name;
-    // var address = '<p>'+ pin.description +'</p>';
-    // var pinLat = parseFloat(pin.pin_lat);
-    // var pinLong = parseFloat(pin.pin_long);
-    // var point = new google.maps.LatLng(pinLat, pinLong);
-
-    // //call create_marker() function for xml loaded maker
-    // create_marker(point, name, address, false, false, false);
-
-    // });
-
 
     google.maps.event.addListener(map, 'click', function(event) {
 
@@ -242,6 +225,25 @@ var mapStyles = [
             create_marker(event.latLng, 'New Marker', EditForm, true, true, true);
             map.panTo(event.latLng);
         });
+
+        pins = this.model.attributes.pins;
+
+    if  (typeof pins !== 'undefined') {
+
+    $.each(pins, function (i, pin) {
+
+    var name = pin.name;
+    var address = '<p>'+ pin.description +'</p>';
+    var pinLat = parseFloat(pin.pin_lat);
+    var pinLong = parseFloat(pin.pin_long);
+    var point = new google.maps.LatLng(pinLat, pinLong);
+
+    //call create_marker() function for xml loaded maker
+    create_marker(point, name, address, false, false, false);
+
+    });
+
+    }
 
 //*** Remove Marker Function ***
 function remove_marker(Marker)
@@ -326,7 +328,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
         map: map,
         draggable:DragAble,
         animation: google.maps.Animation.DROP,
-        title:"Hello World!",
+        title: MapTitle,
         icon: new google.maps.MarkerImage('images/teal_icon.svg',
         null, null, null, new google.maps.Size(64,64))
     });
@@ -366,6 +368,25 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
   // ib.open(map, marker);
 
   ib.setContent(contentString[0]);
+
+
+
+
+    //add click listner to save marker button
+    google.maps.event.addListener(marker, 'click', function() {
+             ib.open(map, marker);
+             // Uncomment below to make the infowindow work again:
+            // infowindow.open(map,marker); // click on marker opens info window
+            map.panTo(marker.getPosition());
+    });
+
+    if(InfoOpenDefault) //whether info window should be open by default
+    {
+        ib.open(map, marker);
+             // Uncomment below to make the infowindow work again:
+      // infowindow.open(map,marker);
+    }
+}
 
 
 
@@ -418,22 +439,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
     }
 
 
-    //add click listner to save marker button
-    google.maps.event.addListener(marker, 'click', function() {
-             ib.open(map, marker);
-             // Uncomment below to make the infowindow work again:
-            // infowindow.open(map,marker); // click on marker opens info window
-            map.panTo(marker.getPosition());
-    });
-
-    if(InfoOpenDefault) //whether info window should be open by default
-    {
-        ib.open(map, marker);
-             // Uncomment below to make the infowindow work again:
-      // infowindow.open(map,marker);
-    }
-}
-
+    // Add in a conditional to check if there are pins on the map. If there are, then drop them.
 
     /// DROP ZONE
 
