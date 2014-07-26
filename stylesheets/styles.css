@@ -614,12 +614,13 @@ img {
 
 .map-pin-list {
   display: none;
-  z-index: 6;
+  z-index: 2;
   position: absolute;
-  bottom: 10%;
+  bottom: 150px;
   left: 5%;
   /*right: 25%;*/
   width: 20%;
+  min-width: 150px;
   height: auto;
   border-radius: 25px;
   background: RGBA(255, 255, 255, .75);
