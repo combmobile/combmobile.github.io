@@ -532,7 +532,7 @@ img {
 
 .marker-info-win {
   width: 300px;
-  height: 200px;
+  height: auto;
   border-radius: 20px;
   text-align: center;
   border: 5px solid RGBA(30, 187, 166, .5);
