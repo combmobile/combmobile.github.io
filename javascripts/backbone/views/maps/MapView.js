@@ -7,6 +7,7 @@ Comb.Views.MapView = Backbone.View.extend({
   tagName: "li",
   template: _.template( $("#singleMapItemTemplate").html() ),
   singleMapTemplate: _.template( $("#singleMapTemplate").html() ),
+  singlePinTemplate: _.template( $(".singlePinItemTemplate").html() ),
     events: {
       "click .map_name" : "displayMapView",
       // "click .edit_map_name" : "editMapName",
@@ -22,16 +23,57 @@ Comb.Views.MapView = Backbone.View.extend({
       this.$el.html( this.template(this.model.attributes) );
       return this
     },
+  renderPinList: function(){
+    console.log('renderpinlist working');
+    // $(".map-pin-list").show();
+    // $(".map-pin-list").css("display", "block");
+      // Add in a pinListView logic here for now:
+    _.each(this.model.attributes.pins, function(pin){
+      var el = $(".pin-list-ul");
+      console.log("pinview el", el);
+      console.log("pinview pin", pin);
+      // el.append( this.singlePinTemplate( pin ) );
+      el.append( pin.name );
+      // var pinItemView = new Comb.Views.PinView( {model: pin} )
+      // el.prepend( pinItemView.renderPinList().el );
+    });
+  },
   displayMapView: function(){
     var self = this;
     $('.main').empty();
     var canvas = $(".main");
     canvas.html( this.singleMapTemplate( this.model.attributes ) );
-    console.log("this is the model's pins", this.model.attributes.pins[0]);
+    console.log("these are the model's pins", this.model.attributes.pins);
+    console.log("this is the model", this.model);
     var lat = parseFloat(this.model.attributes.map_lat);
     var lng = parseFloat(this.model.attributes.map_long);
     var latlng = new google.maps.LatLng(lat, lng);
-     console.log("these are the coordinates", latlng);
+    console.log("these are the coordinates", latlng);
+
+    $(".map-pin-list-button").on("click", function(){
+      console.log("pins in on click", pins);
+      _.each(pins, function(pin){
+      var el = $(".pin-list-ul");
+      el.empty();
+      console.log("pinview el", el);
+      console.log("pinview pin", pin);
+      var pinLat = pin.pin_lat;
+      var pinLong = pin.pin_long;
+      var pinPoint = new google.maps.LatLng(pinLat, pinLong);
+      var distance = google.maps.geometry.spherical.computeDistanceBetween(latlng, pinPoint, 3963.1905919);
+      var rounded = +distance.toFixed(2);
+      console.log("pin distance", rounded);
+      // el.append( this.singlePinTemplate( pin ) );
+      el.append( "<h4>"+pin.name+"</h4>"+"<p>distance from map center:"+rounded+" miles</p>");
+      // var pinItemView = new Comb.Views.PinView( {model: pin} )
+      // el.prepend( pinItemView.renderPinList().el );
+    });
+      $(".map-pin-list").css("display", "block");
+    });
+
+    $(".map-pin-list-close").on("click", function(){
+      $(".map-pin-list").css("display", "none");
+    });
 
 var mapStyles = [
     {
@@ -443,9 +485,6 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
 }
 
-    // Add in a conditional to check if there are pins on the map. If there are, then drop them.
-
-    /// DROP ZONE
 
   },
    renderCurrentLocation: function(){

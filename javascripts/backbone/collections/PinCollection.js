@@ -1,6 +1,6 @@
-var Haystack = Haystack || {  Models: {}, Collections: {}, Views: {} };
+var Comb = Comb || {  Models: {}, Collections: {}, Views: {} };
 
-Haystack.Collections.PinCollection = Backbone.Collection.extend({
-  model: Haystack.Models.Pin,
+Comb.Collections.PinCollection = Backbone.Collection.extend({
+  model: Comb.Models.Pin,
   url: '/pins'
 });

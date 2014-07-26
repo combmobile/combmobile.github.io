@@ -594,7 +594,7 @@ img {
 }
 
 .single-map-name {
-  z-index: 99;
+  z-index: 6;
   position: absolute;
   top: 15%;
   left: 25%;
@@ -610,4 +610,25 @@ img {
 
 .map-list-ul {
   margin-bottom: 15%;
+}
+
+.map-pin-list {
+  display: none;
+  z-index: 6;
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  /*right: 25%;*/
+  width: 20%;
+  height: auto;
+  border-radius: 25px;
+  background: RGBA(255, 255, 255, .75);
+  color: RGBA(30, 187, 166, 1);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pin-list-ul {
+  list-style: none;
+  margin-left: -20px;
 }

@@ -7,7 +7,16 @@ Comb.initialize = function(userId) {
 
   mapCollection.fetch({ data: { id: userId }, dataType: "jsonp", success: function(){
     console.log("map collection.fetch models", mapCollection.models);
+    _.each(mapCollection.models, function(model){
+      console.log(model.attributes.pins);
+    })
   }});
+
+
+
+  // var pinCollection = new Comb.Collections.PinCollection();
+
+  // pinCollection.set([]);
 
     var mapListView = new Comb.Views.MapListView({
       collection: mapCollection,
@@ -291,10 +300,10 @@ $(function() {
   $(".back").on( "click", function() {
       $( ".back" ).hide();
       $( ".logo" ).show();
-      $(".map-pin-list").off();
-      $(".map-pin-list").addClass("pin-list")
-      $(".pin-list").removeClass( "map-pin-list" );
-      $(".pin-list").on( "click", function() {
+      $(".map-pin-list-button").off();
+      $(".map-pin-list-button").addClass("pin-list-button")
+      $(".pin-list-button").removeClass( "map-pin-list-button" );
+      $(".pin-list-button").on( "click", function() {
         console.log("main pin list button working");
       });
     });
@@ -310,10 +319,10 @@ $(function() {
       $(".main").html("<ul class='map_list_ul welcome-block'></ul>");
       combInitializedData.mapListView.elFunction();
       $(".bottom-nav").show();
-      $(".pin-list").off();
-      $(".pin-list").addClass( "map-pin-list" );
-      $(".map-pin-list").removeClass("pin-list")
-      $(".map-pin-list").on( "click", function() {
+      $(".pin-list-button").off();
+      $(".pin-list-button").addClass( "map-pin-list-button" );
+      $(".map-pin-list-button").removeClass("pin-list-button")
+      $(".map-pin-list-button").on( "click", function() {
         console.log("map pin list button working");
        });
     });
@@ -321,7 +330,7 @@ $(function() {
     // $(".map-pin-list").on( "click", function() {
     //   console.log("map pin list button working");
     // });
-    $(".pin-list").on( "click", function() {
+    $(".pin-list-button").on( "click", function() {
       console.log("main pin list button working");
     });
 

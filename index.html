@@ -13,7 +13,8 @@
 
 
         <!-- Libraries -->
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <!-- // <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script> -->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
     <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
     <script type="text/javascript" src='javascripts/libraries/jquery.js'></script>
     <script type="text/javascript" src='javascripts/libraries/underscore.js'></script>
@@ -76,6 +77,15 @@
             </div>
         </script>
 
+        <script type="text/template" class="singlePinItemTemplate">
+            <div class="pin_list_container">
+                <h2 class="pin_name"><%= name %></h2>
+                <button class="edit_map_name">edit</button>
+                <button class="delete_map" data-id=<%= id %> data-action="destroy" name="delete_map">X</button>
+                <button>Share</button>
+            </div>
+        </script>
+
         <!-- Map Create Template -->
 
         <script type="text/template" id="map_create_template">
@@ -94,6 +104,7 @@
             <div class='map-holder'>
                 <div class="map_display_canvas"></div>
             </div>
+            <div class="map-pin-list"><div class="map-pin-list-close"><h2>X</h2></div><ul class="pin-list-ul"></ul><div>
         </script>
 
         <!-- App -->
@@ -130,7 +141,7 @@
         <div class="bottom-nav">
             <div class="section group center">
                 <div class="col span_4_of_12 test">
-                    <div class="pin-list"><img src="images/pin_group_teal.svg"></div>
+                    <div class="pin-list-button"><img src="images/pin_group_teal.svg"></div>
                 </div>
                 <div class="col span_4_of_12">
                     <div class="create-map"><a href="#/create_map"><img src="images/globe_teal.svg"></div>
