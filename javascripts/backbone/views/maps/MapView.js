@@ -251,7 +251,7 @@ var mapStyles = [
 
     google.maps.event.addListener(map, 'click', function(event) {
 
-
+      console.log("displayMapView click listener on map model", this.model);
             //Edit form to be displayed with new marker
 
             var EditForm = '<p><div class="marker-edit">'+
