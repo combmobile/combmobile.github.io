@@ -355,7 +355,7 @@ function save_marker(Marker, mName, mAddress, mReplace)
             // Marker.setDraggable(false); //set marker to fixed
             // Marker.setIcon('images/pin_bottom_orange.png'); //replace icon
               // currentCollection.create(data);
-        };
+        }
         // error:function (xhr, ajaxOptions, thrownError){
         //     alert(thrownError); //throw any errors
         // }
