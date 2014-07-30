@@ -248,10 +248,10 @@ var mapStyles = [
 
     console.log("these are the model's pins where I want to call them", this.model.attributes.pins);
 
+    var model = this.model;
 
     google.maps.event.addListener(map, 'click', function(event) {
 
-      console.log("displayMapView click listener on map model", this.model);
             //Edit form to be displayed with new marker
 
             var EditForm = '<p><div class="marker-edit">'+
@@ -264,7 +264,7 @@ var mapStyles = [
             '</div>';
 
             //call create_marker() function
-            create_marker(event.latLng, 'New Marker', EditForm, true, true, true);
+            create_marker(model, event.latLng, 'New Marker', EditForm, true, true, true);
             map.panTo(event.latLng);
         });
 
@@ -366,8 +366,9 @@ function save_marker(Marker, mName, mAddress, mReplace)
 }
 
       //Create Marker Function
-function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Removable)
+function create_marker(model, MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Removable)
 {
+    console.log("create marker model", model);
     //new marker
     var marker = new google.maps.Marker({
         position: MapPos,
