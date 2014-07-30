@@ -348,6 +348,7 @@ function save_marker(Marker, mName, mAddress, mReplace)
     $.ajax({
       type: "POST",
       url: '/pins',
+      dataType:"jsonp",
       data: {"pin": myData},
       success:function(data){
         console.log("pin saved", data);
