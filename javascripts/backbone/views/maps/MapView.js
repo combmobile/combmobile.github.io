@@ -264,7 +264,7 @@ var mapStyles = [
             '</div>';
 
             //call create_marker() function
-            create_marker(model, event.latLng, 'New Marker', EditForm, true, true, true);
+            create_marker(event.latLng, 'New Marker', EditForm, true, true, true, model);
             map.panTo(event.latLng);
         });
 
@@ -325,7 +325,7 @@ function remove_marker(Marker, ib)
 }
 
 // Save Marker Function
-function save_marker(Marker, mName, mAddress, mReplace)
+function save_marker(Marker, mName, mAddress, mReplace, model)
 {
 
     var mLatLang = Marker.getPosition().toUrlValue(); //get marker position
@@ -333,7 +333,7 @@ function save_marker(Marker, mName, mAddress, mReplace)
     console.log(mReplace);
     var lat = Marker.position.lat();
     var lng = Marker.position.lng();
-    console.log("attempt to get map attributes", this.model);
+    console.log("attempt to get map attributes", model);
     // var mapId = map;
     console.log("this is the map", map);
     var myData = {name : mName, description : mAddress, pin_lat : lat, pin_long : lng, map_id : mapId}; //post variables
@@ -366,7 +366,7 @@ function save_marker(Marker, mName, mAddress, mReplace)
 }
 
       //Create Marker Function
-function create_marker(model, MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Removable)
+function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Removable, model)
 {
     console.log("create marker model", model);
     //new marker
@@ -482,7 +482,7 @@ function create_marker(model, MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAb
                 alert("Please enter Name and Description!");
             }else{
                 //call save_marker function and save the marker details
-                save_marker(marker, mName, mDesc, mReplace);
+                save_marker(marker, mName, mDesc, mReplace, model);
             }
         });
     }
