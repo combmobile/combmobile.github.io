@@ -333,7 +333,8 @@ function save_marker(Marker, mName, mAddress, mReplace)
     console.log(mReplace);
     var lat = Marker.position.lat();
     var lng = Marker.position.lng();
-    var mapId = map;
+    console.log("attempt to get map attributes", this.model);
+    // var mapId = map;
     console.log("this is the map", map);
     var myData = {name : mName, description : mAddress, pin_lat : lat, pin_long : lng, map_id : mapId}; //post variables
     console.log("this is myData in save_marker", myData);
