@@ -335,7 +335,7 @@ function save_marker(Marker, mName, mAddress, mReplace)
     var lng = Marker.position.lng();
     var mapId = map;
     console.log("this is the map", this.model.attributes.id);
-    var myData = {name : mName, address : mAddress, pin_lat : lat, pin_long : lng, map_id : mapId}; //post variables
+    var myData = {name : mName, description : mAddress, pin_lat : lat, pin_long : lng, map_id : mapId}; //post variables
     console.log("this is myData in save_marker", myData);
     console.log("this is save_marker, and here's mReplace", mReplace)
     var pinModel = new Comb.Models.Pin();
@@ -343,22 +343,23 @@ function save_marker(Marker, mName, mAddress, mReplace)
     newContentString = $(
       '<h1>'+myData.name+'</h1>'
       );
-    mReplace.html(newContentString); //replace info window with new html
-      // Marker.setDraggable(false) );//set marker to fixed)
-    // $.ajax({
-    //   type: "POST",
-    //   url: '/pins',
-    //   data: {"pin": myData},
-    //   success:function(data){
-    //         replaceWin.html(data); //replace info window with new html
-    //         Marker.setDraggable(false); //set marker to fixed
-    //         // Marker.setIcon('images/pin_bottom_orange.png'); //replace icon
+    // mReplace.html(newContentString); //replace info window with new html
+    //   Marker.setDraggable(false) );//set marker to fixed)
+    $.ajax({
+      type: "POST",
+      url: '/pins',
+      data: {"pin": myData},
+      success:function(data){
+        console.log("pin saved", data);
+            // replaceWin.html(data); //replace info window with new html
+            // Marker.setDraggable(false); //set marker to fixed
+            // Marker.setIcon('images/pin_bottom_orange.png'); //replace icon
               // currentCollection.create(data);
-    //     },
-    //     error:function (xhr, ajaxOptions, thrownError){
-    //         alert(thrownError); //throw any errors
-    //     }
-    // });
+        },
+        // error:function (xhr, ajaxOptions, thrownError){
+        //     alert(thrownError); //throw any errors
+        }
+    });
 
 }
 
