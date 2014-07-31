@@ -256,7 +256,7 @@ var mapStyles = [
 
     create_marker(point, name, address, false, false, false, model);
 
-    });
+    };
 
     }
 
