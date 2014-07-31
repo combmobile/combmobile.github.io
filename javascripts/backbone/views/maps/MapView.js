@@ -52,9 +52,9 @@ Comb.Views.MapView = Backbone.View.extend({
 
     $(".map-pin-list-button").on("click", function(){
       console.log("pins in on click", pins);
-      _.each(pins, function(pin){
       var el = $(".pin-list-ul");
-      // el.empty();
+      el.empty();
+      _.each(pins, function(pin){
       console.log("pinview el", el);
       console.log("pinview pin", pin);
       var pinLat = pin.pin_lat;
