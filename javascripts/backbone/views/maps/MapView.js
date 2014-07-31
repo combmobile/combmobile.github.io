@@ -57,14 +57,10 @@ Comb.Views.MapView = Backbone.View.extend({
       var pinLong = pin.pin_long;
       var pinPoint = new google.maps.LatLng(pinLat, pinLong);
 
-              var name = pin.name;
-        var address = '<p>'+ pin.description +'</p>';
+      // var name = pin.name;
+      var address = '<p>'+ pin.description +'</p>';
 
-        console.log("pin iterator point", point);
-
-        create_marker(pinPoint, name, address, false, false, false, model);
-
-
+      create_marker(pinPoint, pin.name, address, false, false, false, model);
 
 
       // The following establishes the distance between the pins and the centerpoint of the current map, with the unit set as miles (the 3963 float is the earth's equatorial radius).
