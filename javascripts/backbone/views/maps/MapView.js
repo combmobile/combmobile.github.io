@@ -288,7 +288,7 @@ function remove_marker(Marker, ib)
         var mLatLang = Marker.getPosition().toUrlValue(); //get marker position
         console.log("removew marker else called (Pin.destroy)");
         // The below backbone code will ultimately remove the pin from the database
-        Marker.destroy();
+        // Marker.destroy();
         // Pin.destroy();
         // var myData = {del : 'true', latlang : mLatLang}; //post variables
         // $.ajax({
