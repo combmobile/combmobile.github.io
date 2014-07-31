@@ -25,6 +25,12 @@ Comb.initialize = function(userId) {
       // el: elFunction();
     });
 
+    var pinCollection = new Comb.Collections.PinCOllection();
+
+    pinCollection.fetch({dataType: "jsonp", success: function(){
+      console.log("pin collection .fetch models", pinCollection.models);
+    }});
+
     // mapListView.render();
     return {
       mapCollection: mapCollection,
