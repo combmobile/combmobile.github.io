@@ -575,8 +575,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
     var self = this;
     console.log(this.model);
     console.log("this is the createMap","name:", this.model.attributes.name, "creator_id:", this.model.attributes.user_id, "user_id:", this.model.attributes.user_id);
-    console.log("createMap currentCollection argument", currentCollection);
-    this.dislpayMapView();
+
     // var mapOptions = {
     // zoom: 10,
     // mapTypeControl: false,
@@ -592,11 +591,11 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
     // }
     // };
 
-    // var mapDetails = { name: this.model.attributes.name, creator_id: this.model.attributes.user_id, user_id: this.model.attributes.user_id, map_lat: '', map_long: '' };
+    var mapDetails = { name: this.model.attributes.name, creator_id: this.model.attributes.user_id, user_id: this.model.attributes.user_id, map_lat: '', map_long: '' };
 
-    // var map = new google.maps.Map(this.el, mapOptions);
+    var map = new google.maps.Map(this.el, mapOptions);
 
-    // console.log("createMap function el", this.el);
+    console.log("createMap function el", this.el);
 
   // Try HTML5 geolocation
 
@@ -616,6 +615,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
         data: {"map": mapDetails},
         success:function (data) {
           currentCollection.create(data);
+          console.log("createMap data", data);
         }
       });
 
