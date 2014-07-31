@@ -281,6 +281,7 @@ var mapStyles = [
     var pinLat = parseFloat(pin.pin_lat);
     var pinLong = parseFloat(pin.pin_long);
     var point = new google.maps.LatLng(pinLat, pinLong);
+    var model = this.model;
     console.log("pin point in pin iterator", point);
 
     //call create_marker() function for xml loaded maker
