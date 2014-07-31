@@ -391,8 +391,6 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
     ,enableEventPropagation: false
   };
 
-
-
     //add click listner to save marker button
     google.maps.event.addListener(marker, 'click', function() {
      self = this;
@@ -402,7 +400,6 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
      ib.open(map, this);
      map.panTo(this.getPosition());
     });
-
 
   }
 
@@ -598,7 +595,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
     var map = new google.maps.Map(this.el, mapOptions);
 
-
+    console.log("createMap function el", this.el);
 
   // Try HTML5 geolocation
 
