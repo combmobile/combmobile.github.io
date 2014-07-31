@@ -336,7 +336,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model)
     console.log("attempt to get map attributes", model);
     // var mapId = map;
     console.log("this is the map", map);
-    var myData = {name : mName, description : mAddress, pin_lat : lat, pin_long : lng, map_id : mapId}; //post variables
+    var myData = {name : mName, description : mAddress, photo_url : '', pin_lat : lat, pin_long : lng, map_id : 8}; //post variables
     console.log("this is myData in save_marker", myData);
     console.log("this is save_marker, and here's mReplace", mReplace)
     var pinModel = new Comb.Models.Pin();
