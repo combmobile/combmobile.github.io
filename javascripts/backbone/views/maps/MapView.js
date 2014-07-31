@@ -353,18 +353,18 @@ function save_marker(Marker, mName, mAddress, mReplace, model)
         console.log("saved pin otherremoveBtn", otherRemoveBtn);
 
 
-    //     google.maps.event.addDomListener(savedRemoveBtn, "click", function(event) {
-    //     //call remove_marker function to remove the marker from the map\
-    //     console.log("removebtn marker", marker);
-    //     console.log("remove button click marker, this", this);
-    //     // ib.close();
-    //     remove_marker(marker, ib);
-    //     // Will toggle the visibility of the infobox, but it'll still be on the page. Still working on getting the thing to close with Google's in-built .close(); function.
-    //     // marker.ib.setMap(null);
-    //     // $(".marker-info-win").css({"display":"none"});
-    //     console.log("content string", contentString);
+        google.maps.event.addDomListener(otherRemoveBtn, "click", function(event) {
+        //call remove_marker function to remove the marker from the map\
+        console.log("removebtn marker", marker);
+        console.log("remove button click marker, this", this);
+        // ib.close();
+        remove_marker(marker, ib);
+        // Will toggle the visibility of the infobox, but it'll still be on the page. Still working on getting the thing to close with Google's in-built .close(); function.
+        // marker.ib.setMap(null);
+        // $(".marker-info-win").css({"display":"none"});
+        console.log("content string", contentString);
 
-    // });
+    });
 
 }
 
