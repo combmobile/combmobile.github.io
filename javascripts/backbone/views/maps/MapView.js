@@ -269,7 +269,7 @@ var mapStyles = [
             map.panTo(event.latLng);
         });
 
-        // pins = this.model.attributes.pins;
+        pins = this.model.attributes.pins;
 
     if  (typeof pins !== 'undefined') {
     _.each(pins, function (pin) {
