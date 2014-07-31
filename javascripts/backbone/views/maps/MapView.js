@@ -322,11 +322,10 @@ function save_marker(Marker, mName, mAddress, mReplace, model)
     console.log("this is save_marker, and here's mReplace", mReplace)
     var pinModel = new Comb.Models.Pin();
     pinModel.save(myData)
-    newContentString = $('<div class="marker-info-win">'+
-    '<div class="marker-inner-win"><span class="info-content">'+
+    newContentString = $(
     '<h2 class="marker-heading">'+myData.name+'</h2>'+
-    myData.description+'</div>'+
-    '</span><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button></div>');
+    '<p class="marker-description">'+myData.description+'</p></div>'+
+    '</span><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>');
     // newContentString = $(
     //   '<h1>'+myData.name+'</h1>'
     //   );
@@ -348,6 +347,20 @@ function save_marker(Marker, mName, mAddress, mReplace, model)
     //     //     alert(thrownError); //throw any errors
     //     // }
     // });
+        var removeBtn = newContentString.find('button.remove-marker')[0];
+
+        google.maps.event.addDomListener(removeBtn, "click", function(event) {
+        //call remove_marker function to remove the marker from the map\
+        console.log("removebtn marker", marker);
+        console.log("remove button click marker, this", this);
+        // ib.close();
+        remove_marker(marker, ib);
+        // Will toggle the visibility of the infobox, but it'll still be on the page. Still working on getting the thing to close with Google's in-built .close(); function.
+        // marker.ib.setMap(null);
+        // $(".marker-info-win").css({"display":"none"});
+        console.log("content string", contentString);
+
+    });
 
 }
 
