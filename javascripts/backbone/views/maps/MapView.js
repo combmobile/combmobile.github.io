@@ -396,13 +396,13 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
 
   ib.setContent(contentString[0]);
 
-    //add click listner to save marker button
-    google.maps.event.addListener(marker, 'click', function() {
-             ib.open(map, marker);
-             // Uncomment below to make the infowindow work again:
-            // infowindow.open(map,marker); // click on marker opens info window
-            map.panTo(marker.getPosition());
-    });
+    // //add click listner to save marker button
+    // google.maps.event.addListener(marker, 'click', function() {
+    //          ib.open(map, marker);
+    //          // Uncomment below to make the infowindow work again:
+    //         // infowindow.open(map,marker); // click on marker opens info window
+    //         map.panTo(marker.getPosition());
+    // });
 
 
   }
@@ -530,23 +530,26 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
     }
 }
 
-      function dropAllMarkers() {
-        var name = pins[i].name;
-        var address = '<p>'+ pins[i].description +'</p>';
-        var pinLat = parseFloat(pins[i].pin_lat);
-        var pinLong = parseFloat(pins[i].pin_long);
-        var point = new google.maps.LatLng(pinLat, pinLong);
-        console.log("pin iterator point", point);
+      // function dropAllMarkers() {
+      //   var name = pins[i].name;
+      //   var address = '<p>'+ pins[i].description +'</p>';
+      //   var pinLat = parseFloat(pins[i].pin_lat);
+      //   var pinLong = parseFloat(pins[i].pin_long);
+      //   var point = new google.maps.LatLng(pinLat, pinLong);
+      //   console.log("pin iterator point", point);
 
-        drop_marker(point, name, address, false, false, false, model);
-      };
+      //   drop_marker(point, name, address, false, false, false, model);
+      // };
 
-      for (var i = 0; i < pins.length; i++) {
-      // _.each(pins, function(pin) {
-      // self = this;
-      console.log("pin iterator pins", pins);
-      console.log("pin iterator this", this);
-      dropAllMarkers();
+    for (var i = 0; i < pins.length; i++) {
+      var name = pins[i].name;
+      var address = '<p>'+ pins[i].description +'</p>';
+      var pinLat = parseFloat(pins[i].pin_lat);
+      var pinLong = parseFloat(pins[i].pin_long);
+      var point = new google.maps.LatLng(pinLat, pinLong);
+      console.log("pin iterator point", point);
+
+      drop_marker(point, name, address, false, false, false, model);
     };
 
   },
