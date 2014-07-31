@@ -400,8 +400,8 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
     google.maps.event.addListener(marker, 'click', function() {
      self = this;
      console.log("inside the click listener for marker, and here's this", this, "and self", self);
-     ib.open(map, marker);
-     map.panTo(marker.getPosition());
+     this.ib.open(map, marker);
+     map.panTo(this.marker.getPosition());
     });
 
 
