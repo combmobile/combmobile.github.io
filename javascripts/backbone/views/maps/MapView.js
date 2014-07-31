@@ -254,7 +254,9 @@ var mapStyles = [
     var pinLong = parseFloat(pins[i].pin_long);
     var point = new google.maps.LatLng(pinLat, pinLong);
 
-    create_marker(point, name, address, false, false, false, model);
+    var eachMarker = create_marker(point, name, address, false, false, false, model);
+
+    eachMarker();
 
     };
 
