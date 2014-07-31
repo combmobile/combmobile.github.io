@@ -248,10 +248,10 @@ var mapStyles = [
       // self = this;
       console.log("pin iterator pins", pins);
       console.log("pin iterator this", this);
-    var name = pin.name;
-    var address = '<p>'+ pin.description +'</p>';
-    var pinLat = parseFloat(pin.pin_lat);
-    var pinLong = parseFloat(pin.pin_long);
+    var name = pins[i].name;
+    var address = '<p>'+ pins[i].description +'</p>';
+    var pinLat = parseFloat(pins[i].pin_lat);
+    var pinLong = parseFloat(pins[i].pin_long);
     var point = new google.maps.LatLng(pinLat, pinLong);
 
     create_marker(point, name, address, false, false, false, model);
