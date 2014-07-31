@@ -254,7 +254,7 @@ var mapStyles = [
     var pinLong = parseFloat(pins[i].pin_long);
     var point = new google.maps.LatLng(pinLat, pinLong);
 
-    var eachMarker = create_marker(point, name, address, false, false, false, model, map);
+    var eachMarker = create_marker(point, name, address, false, false, false, model);
 
     eachMarker();
 
@@ -361,9 +361,9 @@ function save_marker(Marker, mName, mAddress, mReplace, model)
 }
 
       //Create Marker Function
-function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Removable, model, map)
+function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Removable, model)
 {
-    console.log("create marker model", model);
+    console.log("create marker arguments", "mapPos",mapPos,"MapTitle", MapTitle,"MapDesc", MapDesc,"model", model);
     //new marker
     var marker = new google.maps.Marker({
         position: MapPos,
