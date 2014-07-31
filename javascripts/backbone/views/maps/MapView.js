@@ -57,12 +57,6 @@ Comb.Views.MapView = Backbone.View.extend({
       var pinLong = pin.pin_long;
       var pinPoint = new google.maps.LatLng(pinLat, pinLong);
 
-      // var name = pin.name;
-      var address = '<p>'+ pin.description +'</p>';
-
-      drop_marker(pinPoint, pin.name, address, false, false, false, model);
-
-
       // The following establishes the distance between the pins and the centerpoint of the current map, with the unit set as miles (the 3963 float is the earth's equatorial radius).
       var distance = google.maps.geometry.spherical.computeDistanceBetween(latlng, pinPoint, 3963.1905919);
       var rounded = +distance.toFixed(2);
@@ -536,24 +530,24 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
     }
 }
 
-    //   function dropAllMarkers() {
-    //     var name = pins[i].name;
-    //     var address = '<p>'+ pins[i].description +'</p>';
-    //     var pinLat = parseFloat(pins[i].pin_lat);
-    //     var pinLong = parseFloat(pins[i].pin_long);
-    //     var point = new google.maps.LatLng(pinLat, pinLong);
-    //     console.log("pin iterator point", point);
+      function dropAllMarkers() {
+        var name = pins[i].name;
+        var address = '<p>'+ pins[i].description +'</p>';
+        var pinLat = parseFloat(pins[i].pin_lat);
+        var pinLong = parseFloat(pins[i].pin_long);
+        var point = new google.maps.LatLng(pinLat, pinLong);
+        console.log("pin iterator point", point);
 
-    //     create_marker(point, name, address, false, false, false, model);
-    //   }
+        drop_marker(point, name, address, false, false, false, model);
+      };
 
-    //   for (var i = 0; i < pins.length; i++) {
-    //   // _.each(pins, function(pin) {
-    //   // self = this;
-    //   console.log("pin iterator pins", pins);
-    //   console.log("pin iterator this", this);
-    //   dropAllMarkers();
-    // };
+      for (var i = 0; i < pins.length; i++) {
+      // _.each(pins, function(pin) {
+      // self = this;
+      console.log("pin iterator pins", pins);
+      console.log("pin iterator this", this);
+      dropAllMarkers();
+    };
 
   },
    renderCurrentLocation: function(){
