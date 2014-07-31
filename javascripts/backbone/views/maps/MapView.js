@@ -465,8 +465,9 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
             }
         });
     }
+}
 
-        for (var i = 0; i < pins.length; i++) {
+      for (var i = 0; i < pins.length; i++) {
       // _.each(pins, function(pin) {
       // self = this;
       console.log("pin iterator pins", pins);
@@ -483,9 +484,6 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
     eachMarker();
 
     };
-
-}
-
 
   },
    renderCurrentLocation: function(){
