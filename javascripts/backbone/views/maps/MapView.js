@@ -396,13 +396,13 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
 
   ib.setContent(contentString[0]);
 
-    // //add click listner to save marker button
-    // google.maps.event.addListener(marker, 'click', function() {
-    //          ib.open(map, marker);
-    //          // Uncomment below to make the infowindow work again:
-    //         // infowindow.open(map,marker); // click on marker opens info window
-    //         map.panTo(marker.getPosition());
-    // });
+    //add click listner to save marker button
+    google.maps.event.addListener(marker, 'click', function() {
+     self = this;
+     console.log("inside the click listener for marker, and here's this", this, "and self", self);
+     ib.open(map, marker);
+     map.panTo(marker.getPosition());
+    });
 
 
   }
