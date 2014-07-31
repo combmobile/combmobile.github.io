@@ -229,7 +229,8 @@ $(function() {
       });
 
       mapCreateView.createMap(combInitializedData.mapCollection);
-      router.navigate('maps', {trigger: true});
+
+      window.setTimeout(router.navigate('maps', {trigger: true}), 5);
       return false;
     }
   });
