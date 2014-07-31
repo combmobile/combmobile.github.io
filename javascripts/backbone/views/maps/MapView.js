@@ -17,7 +17,6 @@ Comb.Views.MapView = Backbone.View.extend({
       console.log("dis works");
       e.preventDefault();
       this.model.destroy();
-      this.renderMapList();
       return this
   },
   renderMapList: function(){
@@ -577,6 +576,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
     console.log(this.model);
     console.log("this is the createMap","name:", this.model.attributes.name, "creator_id:", this.model.attributes.user_id, "user_id:", this.model.attributes.user_id);
     console.log("createMap currentCollection argument", currentCollection);
+    this.dislpayMapView();
     // var mapOptions = {
     // zoom: 10,
     // mapTypeControl: false,
