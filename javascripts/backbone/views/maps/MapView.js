@@ -399,8 +399,8 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
      var ib = new InfoBox(myOptions);
      ib.setContent(contentString[0]);
      console.log("inside the click listener for marker, and here's this", this, "and self", self);
-     ib.open(map, marker);
-     map.panTo(this.marker.getPosition());
+     ib.open(map, this);
+     map.panTo(this.getPosition());
     });
 
 
