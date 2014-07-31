@@ -60,10 +60,9 @@ Comb.Views.MapView = Backbone.View.extend({
               var name = pin.name;
         var address = '<p>'+ pin.description +'</p>';
 
-        var point = new google.maps.LatLng(pinLat, pinLong);
         console.log("pin iterator point", point);
 
-        create_marker(point, name, address, false, false, false, model);
+        create_marker(pinPoint, name, address, false, false, false, model);
 
 
 
