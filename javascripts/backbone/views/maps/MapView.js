@@ -348,7 +348,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model)
       //Create Marker Function
 function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Removable, model)
 {
-    console.log("create marker arguments", "mapPos",mapPos,"MapTitle", MapTitle,"MapDesc", MapDesc,"model", model);
+    console.log("create marker arguments", "mapPos", MapPos,"MapTitle", MapTitle,"MapDesc", MapDesc,"model", model);
     //new marker
     var marker = new google.maps.Marker({
         position: MapPos,
