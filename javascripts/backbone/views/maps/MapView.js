@@ -291,8 +291,6 @@ var mapStyles = [
 
     });
 
-    }
-  }
 
 //*** Remove Marker Function ***
 function remove_marker(Marker, ib)
