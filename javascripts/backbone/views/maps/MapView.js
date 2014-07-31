@@ -420,6 +420,8 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
       // infowindow.open(map,marker);
     }
 
+  }
+
 
       //Create Marker Function
 function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Removable, model)
