@@ -243,8 +243,9 @@ var mapStyles = [
     var map = new google.maps.Map($(".map_display_canvas")[0], mapOptions);
 
         if  (typeof pins !== 'undefined') {
-    _.each(pins, function(pin) {
-      self = this;
+    for (var i = 0; i < pins.length; i++) {
+      // _.each(pins, function(pin) {
+      // self = this;
       console.log("pin iterator pins", pins);
       console.log("pin iterator this", this);
     var name = pin.name;
@@ -440,7 +441,6 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
     //Find remove button in infoBox
     var removeBtn = contentString.find('button.remove-marker')[0];
-    console.log(removeBtn);
 
    //Find save button in infoBox
    var saveBtn = contentString.find('button.save-marker')[0];
