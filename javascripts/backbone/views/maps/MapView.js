@@ -273,7 +273,7 @@ var mapStyles = [
         });
 
 
-    // if  (typeof pins !== 'undefined') {
+    if  (typeof pins !== 'undefined') {
     _.each(pins, function (pin) {
       self = this;
       console.log("pin iterator pins", pins);
@@ -291,6 +291,7 @@ var mapStyles = [
 
     });
 
+    }
 
 //*** Remove Marker Function ***
 function remove_marker(Marker, ib)
