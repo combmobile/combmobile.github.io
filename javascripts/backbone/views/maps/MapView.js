@@ -306,7 +306,7 @@ function remove_marker(Marker, ib)
 }
 
 // Save Marker Function
-function save_marker(Marker, mName, mAddress, mReplace, model)
+function save_marker(Marker, mName, mAddress, mReplace, model, ib)
 {
 
     var mLatLang = Marker.getPosition().toUrlValue(); //get marker position
@@ -542,7 +542,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
                 alert("Please enter Name and Description!");
             }else{
                 //call save_marker function and save the marker details
-                save_marker(marker, mName, mDesc, mReplace, model);
+                save_marker(marker, mName, mDesc, mReplace, model, ib);
             }
         });
     }
