@@ -242,7 +242,7 @@ var mapStyles = [
     };
     var map = new google.maps.Map($(".map_display_canvas")[0], mapOptions);
 
-        if  (typeof pins !== 'undefined') {
+        // if  (typeof pins !== 'undefined') {
     for (var i = 0; i < pins.length; i++) {
       // _.each(pins, function(pin) {
       // self = this;
@@ -260,7 +260,7 @@ var mapStyles = [
 
     };
 
-    }
+    // }
 
     console.log("these are the model's pins where I want to call them", this.model.attributes.pins);
 
