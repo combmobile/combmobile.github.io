@@ -274,11 +274,11 @@ var mapStyles = [
     if  (typeof pins !== 'undefined') {
     _.each(pins, function (pin) {
       console.log("pin iterator pins", pins);
-    var name = pin.name;
-    var address = '<p>'+ pin.description +'</p>';
-    var pinLat = parseFloat(pin.pin_lat);
-    var pinLong = parseFloat(pin.pin_long);
-    var point = new google.maps.LatLng(pinLat, pinLong);
+     name = pin.name;
+     address = '<p>'+ pin.description +'</p>';
+     pinLat = parseFloat(pin.pin_lat);
+     pinLong = parseFloat(pin.pin_long);
+     point = new google.maps.LatLng(pinLat, pinLong);
 
     //call create_marker() function for xml loaded maker
     create_marker(point, name, address, false, false, false, model);
