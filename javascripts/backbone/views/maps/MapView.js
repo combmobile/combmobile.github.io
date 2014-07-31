@@ -249,7 +249,7 @@ var mapStyles = [
 
     console.log("these are the model's pins where I want to call them", this.model.attributes.pins);
 
-    var model = this.model;
+    // var model = this.model;
 
     google.maps.event.addListener(map, 'click', function(event) {
 
@@ -269,7 +269,7 @@ var mapStyles = [
             map.panTo(event.latLng);
         });
 
-        pins = this.model.attributes.pins;
+    var pins = this.model.attributes.pins;
 
     if  (typeof pins !== 'undefined') {
     _.each(pins, function (pin) {
