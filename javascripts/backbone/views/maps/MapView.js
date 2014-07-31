@@ -43,30 +43,22 @@ Comb.Views.MapView = Backbone.View.extend({
     $('.main').empty();
     var canvas = $(".main");
     canvas.html( this.singleMapTemplate( this.model.attributes ) );
-    console.log("these are the model's pins", this.model.attributes.pins);
-    console.log("this is the model", this.model);
     var lat = parseFloat(this.model.attributes.map_lat);
     var lng = parseFloat(this.model.attributes.map_long);
     var latlng = new google.maps.LatLng(lat, lng);
-    console.log("these are the coordinates", latlng);
-
     var pins = this.model.attributes.pins;
     var model = this.model;
 
     $(".map-pin-list-button").on("click", function(){
-      console.log("pins in on click", pins);
       var el = $(".pin-list-ul");
       el.empty();
       _.each(pins, function(pin){
-      console.log("pinview el", el);
-      console.log("pinview pin", pin);
       var pinLat = pin.pin_lat;
       var pinLong = pin.pin_long;
       var pinPoint = new google.maps.LatLng(pinLat, pinLong);
       // The following establishes the distance between the pins and the centerpoint of the current map, with the unit set as miles (the 3963 float is the earth's equatorial radius).
       var distance = google.maps.geometry.spherical.computeDistanceBetween(latlng, pinPoint, 3963.1905919);
       var rounded = +distance.toFixed(2);
-      console.log("pin distance", rounded);
       // el.append( this.singlePinTemplate( pin ) );
       el.append( "<h4>"+pin.name+"</h4>"+"<p>distance from map center:"+rounded+" miles</p>");
       // var pinItemView = new Comb.Views.PinView( {model: pin} )
@@ -252,8 +244,6 @@ var mapStyles = [
 
     console.log("these are the model's pins where I want to call them", this.model.attributes.pins);
 
-    // var model = this.model;
-
     google.maps.event.addListener(map, 'click', function(event) {
 
             //Edit form to be displayed with new marker
@@ -267,7 +257,6 @@ var mapStyles = [
               '</span><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>'+
             '</div>';
 
-            //call create_marker() function
             create_marker(event.latLng, 'New Marker', EditForm, true, true, true, model);
             map.panTo(event.latLng);
         });
@@ -283,10 +272,7 @@ var mapStyles = [
     var pinLat = parseFloat(pin.pin_lat);
     var pinLong = parseFloat(pin.pin_long);
     var point = new google.maps.LatLng(pinLat, pinLong);
-    // var model = this.model;
-    console.log("pin point in pin iterator", point);
 
-    //call create_marker() function for xml loaded maker
     create_marker(point, name, address, false, false, false, model);
 
     });
