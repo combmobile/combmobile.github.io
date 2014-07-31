@@ -60,7 +60,7 @@ Comb.Views.MapView = Backbone.View.extend({
       // var name = pin.name;
       var address = '<p>'+ pin.description +'</p>';
 
-      create_marker(pinPoint, pin.name, address, false, false, false, model);
+      drop_marker(pinPoint, pin.name, address, false, false, false, model);
 
 
       // The following establishes the distance between the pins and the centerpoint of the current map, with the unit set as miles (the 3963 float is the earth's equatorial radius).
@@ -351,6 +351,75 @@ function save_marker(Marker, mName, mAddress, mReplace, model)
     // });
 
 }
+
+function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Removable, model)
+{
+    console.log("create marker arguments", "mapPos", MapPos,"MapTitle", MapTitle,"MapDesc", MapDesc,"model", model);
+    //new marker
+    marker = new google.maps.Marker({
+        position: MapPos,
+        map: map,
+        draggable:DragAble,
+        animation: google.maps.Animation.DROP,
+        title: MapTitle,
+        icon: new google.maps.MarkerImage('images/teal_icon.svg',
+        null, null, null, new google.maps.Size(64,64))
+    });
+
+
+    //Content structure of info Window for the Markers
+    var contentString = $('<div class="marker-info-win">'+
+    '<div class="marker-inner-win"><span class="info-content">'+
+    '<h2 class="marker-heading">'+MapTitle+'</h2>'+
+    MapDesc+'</div></div>');
+
+    // var boxText = document.createElement('div');
+    // The following controls the css for the contentString. Investigate integrating this into styles.css
+    // boxText.style.cssText = "width: 300px; height: 200px; border: 5px solid RGBA(30, 187, 166, .5); border-radius: 20px; margin-top: 8px; background: RGBA(255, 255, 255, 1); color: RGBA(30, 187, 166, 1); font-family: 'apercuregular'; padding: 0;";
+    // boxText.innerHTML = contentString;
+    console.log("create marker map title", MapTitle, "create marker map description", MapDesc);
+  var myOptions = {
+    disableAutoPan: false
+    ,maxWidth: 0
+    ,pixelOffset: new google.maps.Size(-140, 0)
+    ,zIndex: null
+    ,boxStyle: {
+      background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat"
+      // The following opacity setting controls the background box opacity
+      ,opacity: 1
+      ,width: "290px"
+     }
+    ,closeBoxMargin: "10px 2px 2px 2px"
+    ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+    ,infoBoxClearance: new google.maps.Size(1, 1)
+    ,isHidden: false
+    ,pane: "floatPane"
+    ,enableEventPropagation: false
+  };
+
+  var ib = new InfoBox(myOptions);
+  // ib.open(map, marker);
+
+  ib.setContent(contentString[0]);
+
+}
+
+
+    //add click listner to save marker button
+    google.maps.event.addListener(marker, 'click', function() {
+             ib.open(map, marker);
+             // Uncomment below to make the infowindow work again:
+            // infowindow.open(map,marker); // click on marker opens info window
+            map.panTo(marker.getPosition());
+    });
+
+    if(InfoOpenDefault) //whether info window should be open by default
+    {
+        ib.open(map, marker);
+             // Uncomment below to make the infowindow work again:
+      // infowindow.open(map,marker);
+    }
+
 
       //Create Marker Function
 function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Removable, model)
