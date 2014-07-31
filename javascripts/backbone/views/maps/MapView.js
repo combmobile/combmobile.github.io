@@ -60,6 +60,7 @@ Comb.Views.MapView = Backbone.View.extend({
       var pinLat = pin.pin_lat;
       var pinLong = pin.pin_long;
       var pinPoint = new google.maps.LatLng(pinLat, pinLong);
+      // The following establishes the distance between the pins and the centerpoint of the current map, with the unit set as miles (the 3963 float is the earth's equatorial radius).
       var distance = google.maps.geometry.spherical.computeDistanceBetween(latlng, pinPoint, 3963.1905919);
       var rounded = +distance.toFixed(2);
       console.log("pin distance", rounded);
@@ -272,7 +273,7 @@ var mapStyles = [
 
     if  (typeof pins !== 'undefined') {
 
-    $.each(pins, function (i, pin) {
+    _.each(pins, function (pin) {
 
     var name = pin.name;
     var address = '<p>'+ pin.description +'</p>';
