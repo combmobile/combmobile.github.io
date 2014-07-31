@@ -1128,6 +1128,7 @@ var mapStyles = [
         success:function (data) {
           console.log("createMap data", data);
           currentCollection.create(data);
+          console.log("displayNewMapView in success", this.displayNewMapView);
           this.displayNewMapView(data);
         }
       });
