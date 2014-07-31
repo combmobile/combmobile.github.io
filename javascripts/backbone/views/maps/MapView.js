@@ -402,9 +402,6 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
 
   ib.setContent(contentString[0]);
 
-}
-
-
     //add click listner to save marker button
     google.maps.event.addListener(marker, 'click', function() {
              ib.open(map, marker);
@@ -413,12 +410,6 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
             map.panTo(marker.getPosition());
     });
 
-    if(InfoOpenDefault) //whether info window should be open by default
-    {
-        ib.open(map, marker);
-             // Uncomment below to make the infowindow work again:
-      // infowindow.open(map,marker);
-    }
 
   }
 
