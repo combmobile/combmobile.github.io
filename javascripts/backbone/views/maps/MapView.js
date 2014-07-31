@@ -604,7 +604,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
       //                                  position.coords.longitude);
       // map.setCenter(pos);
 
-      console.log("mapcreate geolocate latitude:", pos.lat() );
+      console.log("mapcreate geolocate latitude:", position.coords.latitude() );
 
       mapDetails['map_lat'] = position.coords.latitude();
       mapDetails['map_long'] = position.coords.longitude();
