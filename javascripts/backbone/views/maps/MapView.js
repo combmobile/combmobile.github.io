@@ -242,6 +242,23 @@ var mapStyles = [
     };
     var map = new google.maps.Map($(".map_display_canvas")[0], mapOptions);
 
+        if  (typeof pins !== 'undefined') {
+    _.each(pins, function(pin) {
+      self = this;
+      console.log("pin iterator pins", pins);
+      console.log("pin iterator this", this);
+    var name = pin.name;
+    var address = '<p>'+ pin.description +'</p>';
+    var pinLat = parseFloat(pin.pin_lat);
+    var pinLong = parseFloat(pin.pin_long);
+    var point = new google.maps.LatLng(pinLat, pinLong);
+
+    create_marker(point, name, address, false, false, false, model);
+
+    });
+
+    }
+
     console.log("these are the model's pins where I want to call them", this.model.attributes.pins);
 
     google.maps.event.addListener(map, 'click', function(event) {
@@ -261,23 +278,6 @@ var mapStyles = [
             map.panTo(event.latLng);
         });
 
-
-    if  (typeof pins !== 'undefined') {
-    _.each(pins, function(pin) {
-      self = this;
-      console.log("pin iterator pins", pins);
-      console.log("pin iterator this", this);
-    var name = pin.name;
-    var address = '<p>'+ pin.description +'</p>';
-    var pinLat = parseFloat(pin.pin_lat);
-    var pinLong = parseFloat(pin.pin_long);
-    var point = new google.maps.LatLng(pinLat, pinLong);
-
-    create_marker(point, name, address, false, false, false, model);
-
-    });
-
-    }
 
 //*** Remove Marker Function ***
 function remove_marker(Marker, ib)
