@@ -271,20 +271,20 @@ var mapStyles = [
 
         pins = this.model.attributes.pins;
 
-    // if  (typeof pins !== 'undefined') {
+    if  (typeof pins !== 'undefined') {
 
-    // _.each(pins, function (pin) {
-    //   console.log("pin iterator pin", pin);
-    // var name = pin.name;
-    // var address = '<p>'+ pin.description +'</p>';
-    // var pinLat = parseFloat(pin.pin_lat);
-    // var pinLong = parseFloat(pin.pin_long);
-    // var point = new google.maps.LatLng(pinLat, pinLong);
+    _.each(pins, function (pin) {
+      console.log("pin iterator pin", pin);
+    var name = pin.name;
+    var address = '<p>'+ pin.description +'</p>';
+    var pinLat = parseFloat(pin.pin_lat);
+    var pinLong = parseFloat(pin.pin_long);
+    var point = new google.maps.LatLng(pinLat, pinLong);
 
-    // //call create_marker() function for xml loaded maker
-    // create_marker(point, name, address, false, false, false, model);
+    //call create_marker() function for xml loaded maker
+    create_marker(point, name, address, false, false, false, model);
 
-    // });
+    });
 
     }
 
