@@ -614,8 +614,8 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
         dataType:"jsonp",
         data: {"map": mapDetails},
         success:function (data) {
-          currentCollection.create(data);
           console.log("createMap data", data);
+          currentCollection.create(data);
         }
       });
 
