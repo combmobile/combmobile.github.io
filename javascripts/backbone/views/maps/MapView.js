@@ -593,21 +593,21 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
     var mapDetails = { name: this.model.attributes.name, creator_id: this.model.attributes.user_id, user_id: this.model.attributes.user_id, map_lat: '', map_long: '' };
 
-    var map = new google.maps.Map(this.el, mapOptions);
+    // var map = new google.maps.Map(this.el, mapOptions);
 
     console.log("createMap function el", this.el);
 
   // Try HTML5 geolocation
 
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
-      map.setCenter(pos);
+      // var pos = new google.maps.LatLng(position.coords.latitude,
+      //                                  position.coords.longitude);
+      // map.setCenter(pos);
 
       console.log("mapcreate geolocate latitude:", pos.lat() );
 
-      mapDetails['map_lat'] = pos.lat();
-      mapDetails['map_long'] = pos.lng();
+      mapDetails['map_lat'] = position.coords.latitude();
+      mapDetails['map_long'] = position.coords.longitude();
       $.ajax({
         url:'/maps',
         type:'POST',
