@@ -230,7 +230,7 @@ $(function() {
 
       mapCreateView.createMap(combInitializedData.mapCollection);
 
-      window.setTimeout(router.navigate('maps', {trigger: true}), 5);
+      window.setTimeout(router.navigate('maps', {trigger: true}), 1000);
       return false;
     }
   });
