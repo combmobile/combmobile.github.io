@@ -349,22 +349,22 @@ function save_marker(Marker, mName, mAddress, mReplace, model)
       );
     // mReplace.html(newContentString); //replace info window with new html
     //   Marker.setDraggable(false) );//set marker to fixed)
-    $.ajax({
-      type: "POST",
-      url: '/pins',
-      dataType:"jsonp",
-      data: {"pin": myData},
-      success:function(data){
-        console.log("pin saved", data);
-            // replaceWin.html(data); //replace info window with new html
-            // Marker.setDraggable(false); //set marker to fixed
-            // Marker.setIcon('images/pin_bottom_orange.png'); //replace icon
-              // currentCollection.create(data);
-        }
-        // error:function (xhr, ajaxOptions, thrownError){
-        //     alert(thrownError); //throw any errors
-        // }
-    });
+    // $.ajax({
+    //   type: "POST",
+    //   url: '/pins',
+    //   dataType:"jsonp",
+    //   data: {"pin": myData},
+    //   success:function(data){
+    //     console.log("pin saved", data);
+    //         // replaceWin.html(data); //replace info window with new html
+    //         // Marker.setDraggable(false); //set marker to fixed
+    //         // Marker.setIcon('images/pin_bottom_orange.png'); //replace icon
+    //           // currentCollection.create(data);
+    //     }
+    //     // error:function (xhr, ajaxOptions, thrownError){
+    //     //     alert(thrownError); //throw any errors
+    //     // }
+    // });
 
 }
 
