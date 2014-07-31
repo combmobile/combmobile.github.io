@@ -1127,7 +1127,6 @@ var mapStyles = [
         data: {"map": mapDetails},
         success:function (data) {
           console.log("createMap data", data);
-          console.log("createMap this.model", this.model);
           currentCollection.create(data);
           this.displayNewMapView(data);
         }
