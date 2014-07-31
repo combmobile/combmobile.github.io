@@ -28,7 +28,7 @@ Comb.Views.MapView = Backbone.View.extend({
     // $(".map-pin-list").show();
     // $(".map-pin-list").css("display", "block");
       // Add in a pinListView logic here for now:
-    _.each(this.model.attributes.pins, function(pin){
+    $.each(this.model.attributes.pins, function(i, pin){
       var el = $(".pin-list-ul");
       console.log("pinview el", el);
       console.log("pinview pin", pin);
