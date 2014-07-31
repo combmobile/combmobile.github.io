@@ -272,7 +272,7 @@ var mapStyles = [
         pins = this.model.attributes.pins;
 
     if  (typeof pins !== 'undefined') {
-
+      console.log("pins for pin iterator", pins);
     _.each(pins, function (pin) {
       console.log("pin iterator pin", pin);
     var name = pin.name;
