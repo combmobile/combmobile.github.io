@@ -25,7 +25,7 @@ Comb.initialize = function(userId) {
       // el: elFunction();
     });
 
-    var pinCollection = new Comb.Collections.PinCOllection();
+    var pinCollection = new Comb.Collections.PinCollection();
 
     pinCollection.fetch({dataType: "jsonp", success: function(){
       console.log("pin collection .fetch models", pinCollection.models);
