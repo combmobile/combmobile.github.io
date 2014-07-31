@@ -50,6 +50,9 @@ Comb.Views.MapView = Backbone.View.extend({
     var latlng = new google.maps.LatLng(lat, lng);
     console.log("these are the coordinates", latlng);
 
+    var pins = this.model.attributes.pins;
+    var model = this.model;
+
     $(".map-pin-list-button").on("click", function(){
       console.log("pins in on click", pins);
       var el = $(".pin-list-ul");
@@ -269,7 +272,6 @@ var mapStyles = [
             map.panTo(event.latLng);
         });
 
-    // var pins = this.model.attributes.pins;
 
     if  (typeof pins !== 'undefined') {
     _.each(pins, function (pin) {
@@ -281,7 +283,7 @@ var mapStyles = [
     var pinLat = parseFloat(pin.pin_lat);
     var pinLong = parseFloat(pin.pin_long);
     var point = new google.maps.LatLng(pinLat, pinLong);
-    var model = this.model;
+    // var model = this.model;
     console.log("pin point in pin iterator", point);
 
     //call create_marker() function for xml loaded maker
