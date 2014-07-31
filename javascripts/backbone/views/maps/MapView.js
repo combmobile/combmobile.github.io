@@ -322,9 +322,14 @@ function save_marker(Marker, mName, mAddress, mReplace, model)
     console.log("this is save_marker, and here's mReplace", mReplace)
     var pinModel = new Comb.Models.Pin();
     pinModel.save(myData)
-    newContentString = $(
-      '<h1>'+myData.name+'</h1>'
-      );
+    newContentString = $('<div class="marker-info-win">'+
+    '<div class="marker-inner-win"><span class="info-content">'+
+    '<h2 class="marker-heading">'+myData.name+'</h2>'+
+    myData.description+'</div>'+
+    '</span><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button></div>');
+    // newContentString = $(
+    //   '<h1>'+myData.name+'</h1>'
+    //   );
     mReplace.html(newContentString); //replace info window with new html
     Marker.setDraggable(false);//set marker to fixed)
     // $.ajax({
