@@ -348,7 +348,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model)
       '<h1>'+myData.name+'</h1>'
       );
     mReplace.html(newContentString); //replace info window with new html
-    Marker.setDraggable(false) );//set marker to fixed)
+    Marker.setDraggable(false);//set marker to fixed)
     // $.ajax({
     //   type: "POST",
     //   url: '/pins',
