@@ -347,9 +347,9 @@ function save_marker(Marker, mName, mAddress, mReplace, model)
     //     //     alert(thrownError); //throw any errors
     //     // }
     // });
-        var removeBtn = newContentString.find('button.remove-marker')[0];
+        var savedRemoveBtn = newContentString.find('button.remove-marker')[0];
 
-        google.maps.event.addDomListener(removeBtn, "click", function(event) {
+        google.maps.event.addDomListener(savedRemoveBtn, "click", function(event) {
         //call remove_marker function to remove the marker from the map\
         console.log("removebtn marker", marker);
         console.log("remove button click marker, this", this);
