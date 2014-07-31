@@ -229,6 +229,7 @@ $(function() {
       });
 
       mapCreateView.createMap(combInitializedData.mapCollection);
+      router.navigate('maps', {trigger: true});
       return false;
     }
   });
