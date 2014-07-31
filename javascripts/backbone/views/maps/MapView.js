@@ -243,22 +243,7 @@ var mapStyles = [
     var map = new google.maps.Map($(".map_display_canvas")[0], mapOptions);
 
         // if  (typeof pins !== 'undefined') {
-    for (var i = 0; i < pins.length; i++) {
-      // _.each(pins, function(pin) {
-      // self = this;
-      console.log("pin iterator pins", pins);
-      console.log("pin iterator this", this);
-    var name = pins[i].name;
-    var address = '<p>'+ pins[i].description +'</p>';
-    var pinLat = parseFloat(pins[i].pin_lat);
-    var pinLong = parseFloat(pins[i].pin_long);
-    var point = new google.maps.LatLng(pinLat, pinLong);
 
-    var eachMarker = create_marker(point, name, address, false, false, false, model);
-
-    eachMarker();
-
-    };
 
     // }
 
@@ -480,6 +465,24 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
             }
         });
     }
+
+        for (var i = 0; i < pins.length; i++) {
+      // _.each(pins, function(pin) {
+      // self = this;
+      console.log("pin iterator pins", pins);
+      console.log("pin iterator this", this);
+    var name = pins[i].name;
+    var address = '<p>'+ pins[i].description +'</p>';
+    var pinLat = parseFloat(pins[i].pin_lat);
+    var pinLong = parseFloat(pins[i].pin_long);
+    var point = new google.maps.LatLng(pinLat, pinLong);
+    console.log("pin iterator point", point);
+
+    var eachMarker = create_marker(point, name, address, false, false, false, model);
+
+    eachMarker();
+
+    };
 
 }
 
