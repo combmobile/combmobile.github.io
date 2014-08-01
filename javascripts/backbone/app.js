@@ -351,7 +351,7 @@ $(function() {
       $(".main-pin-list").css("display", "block");
     });
     $(".main-pin-list-close").on("click", function(){
-      $(".map-pin-list").css("display", "none");
+      $(".main-pin-list").css("display", "none");
     });
 
   Backbone.history.start();
