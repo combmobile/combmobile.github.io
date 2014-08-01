@@ -627,13 +627,18 @@ img {
   color: RGBA(30, 187, 166, 1);
   margin: 0 auto;
   text-align: center;
-  overflow: auto;
+  overflow-y: scroll;
 }
 
 .pin-list-ul {
   list-style: none;
   margin-left: -20px;
-  overflow: auto;
+}
+
+.main-pin-list-close {
+    position: fixed;
+    top: auto !important;
+    margin-left: 112px;
 }
 
 .main-pin-list {
@@ -657,5 +662,4 @@ img {
 .main-pin-list-ul {
   list-style: none;
   margin-left: -20px;
-/*  overflow: scroll;*/
 }
