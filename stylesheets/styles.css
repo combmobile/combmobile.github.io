@@ -639,23 +639,23 @@ img {
 .main-pin-list {
   /*display: none;*/
   z-index: 2;
-  position: absolute;
+  position: relative;
   bottom: 150px;
   left: 5%;
   /*right: 25%;*/
   width: 20%;
   min-width: 150px;
-  height: auto;
+  height: 300px;
   border-radius: 25px;
   background: RGBA(255, 255, 255, .75);
   color: RGBA(30, 187, 166, 1);
   margin: 0 auto;
   text-align: center;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .main-pin-list-ul {
   list-style: none;
   margin-left: -20px;
-  overflow: scroll;
+/*  overflow: scroll;*/
 }
