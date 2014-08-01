@@ -639,7 +639,7 @@ img {
 .main-pin-list {
   /*display: none;*/
   z-index: 2;
-  position: relative;
+  position: absolute;
   bottom: 150px;
   left: 5%;
   /*right: 25%;*/
