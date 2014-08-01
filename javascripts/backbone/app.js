@@ -31,7 +31,10 @@ Comb.initialize = function(userId) {
       console.log("pin collection .fetch models", pinCollection.models);
     }});
 
-    pinListView = new Comb.Collections.PinListView();
+    pinListView = new Comb.Collections.PinListView({
+      collection: pinCollection,
+      el: $('.main-pin-list-ul')
+    });
 
     // mapListView.render();
     return {
