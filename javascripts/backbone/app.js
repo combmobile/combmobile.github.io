@@ -31,10 +31,14 @@ Comb.initialize = function(userId) {
       console.log("pin collection .fetch models", pinCollection.models);
     }});
 
+    pinListView = new Comb.Collections.PinListView();
+
     // mapListView.render();
     return {
       mapCollection: mapCollection,
       mapListView: mapListView
+      pinCollection : pinCollection,
+      pinListView : pinListView
     }
     // return {
     //   mapCollection: mapCollection
@@ -340,6 +344,7 @@ $(function() {
     // });
     $(".pin-list-button").on( "click", function() {
       console.log("main pin list button working");
+      combInitializedData.pinListView.render();
     });
 
   Backbone.history.start();

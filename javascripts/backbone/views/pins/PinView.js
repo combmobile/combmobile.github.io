@@ -8,7 +8,7 @@ Comb.Views.PinView = Backbone.View.extend({
   template: _.template( $(".singlePinItemTemplate").html() ),
   events: {
     },
-    renderPinList: function(){
+    render: function(){
       this.$el.html( this.template(this.model.attributes) );
       return this
     }
