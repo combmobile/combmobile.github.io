@@ -320,6 +320,8 @@ $(function() {
       $(".pin-list-button").removeClass( "map-pin-list-button" );
       $(".pin-list-button").on( "click", function() {
         console.log("main pin list button working");
+        combInitializedData.pinListView.render();
+        $(".main-pin-list").css("display", "block");
       });
     });
     $(".create-map").on( "click", function() {
