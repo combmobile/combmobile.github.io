@@ -641,6 +641,12 @@ img {
     margin-left: 112px;
 }
 
+.map-pin-list-close {
+    position: fixed;
+    top: auto !important;
+    margin-left: 112px;
+}
+
 .main-pin-list {
   /*display: none;*/
   z-index: 2;
