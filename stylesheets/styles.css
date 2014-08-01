@@ -627,6 +627,7 @@ img {
   color: RGBA(30, 187, 166, 1);
   margin: 0 auto;
   text-align: center;
+  overflow: auto;
 }
 
 .pin-list-ul {
@@ -649,6 +650,7 @@ img {
   color: RGBA(30, 187, 166, 1);
   margin: 0 auto;
   text-align: center;
+  overflow: auto;
 }
 
 .main-pin-list-ul {
