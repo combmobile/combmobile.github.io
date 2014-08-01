@@ -635,7 +635,7 @@ img {
 }
 
 .main-pin-list {
-  display: none;
+  /*display: none;*/
   z-index: 2;
   position: absolute;
   bottom: 150px;
