@@ -348,6 +348,10 @@ $(function() {
     $(".pin-list-button").on( "click", function() {
       console.log("main pin list button working");
       combInitializedData.pinListView.render();
+      $(".main-pin-list").css("display", "block");
+    });
+    $(".main-pin-list-close").on("click", function(){
+      $(".map-pin-list").css("display", "none");
     });
 
   Backbone.history.start();
