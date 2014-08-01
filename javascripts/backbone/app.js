@@ -36,7 +36,7 @@ Comb.initialize = function(userId) {
     // mapListView.render();
     return {
       mapCollection: mapCollection,
-      mapListView: mapListView
+      mapListView: mapListView,
       pinCollection : pinCollection,
       pinListView : pinListView
     }
