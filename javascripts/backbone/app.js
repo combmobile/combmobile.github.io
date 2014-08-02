@@ -244,6 +244,7 @@ $(function() {
       mapCreateView.createMap(combInitializedData.mapCollection);
 
       router.navigate('maps', {trigger: true});
+      $('.map_list_ul').empty();
       return false;
     }
   });
