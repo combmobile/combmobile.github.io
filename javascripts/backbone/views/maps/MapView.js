@@ -329,15 +329,15 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
           console.log("pinmodel create data", data)
           pinData = data;
           var newContentString = $(
-          '<h2 class="marker-heading">'+pinData.name+'</h2>'+
-          '<p class="marker-description">'+pinData.description+'</p></div>'+
-          '</span><button data-id='+pinData.id+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>'
+          '<h2 class="marker-heading">'+pinData.attributes.name+'</h2>'+
+          '<p class="marker-description">'+pinData.attributes.description+'</p></div>'+
+          '</span><button data-id='+pinData.attributes.id+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>'
           );
           mReplace.html(newContentString);
         }
         });
     Marker.setDraggable(false);//set marker to fixed)
-        var savedRemoveBtn = newContentString.find('button.remove-marker')[0];
+        var savedRemoveBtn = $('button.remove-marker')[0];
         var otherRemoveBtn = $('.remove-marker')[0];
         console.log("saved pin removeBtn", savedRemoveBtn);
         console.log("saved pin otherremoveBtn", otherRemoveBtn);
