@@ -344,23 +344,6 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
         });
     Marker.setDraggable(false);//set marker to fixed)
 
-        // $('.remove-marker').on('click', function(){
-        //   console.log("remove marker clicked");
-        // })
-
-        google.maps.event.addDomListener(otherRemoveBtn, "click", function(event) {
-        //call remove_marker function to remove the marker from the map\
-        console.log("removebtn marker", pinData);
-        console.log("remove button click marker, this", this);
-        // ib.close();
-        remove_marker(marker, ib);
-        // Will toggle the visibility of the infobox, but it'll still be on the page. Still working on getting the thing to close with Google's in-built .close(); function.
-        // marker.ib.setMap(null);
-        // $(".marker-info-win").css({"display":"none"});
-        console.log("content string", contentString);
-
-        });
-
 }
 
 function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Removable, model)
