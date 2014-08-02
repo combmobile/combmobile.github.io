@@ -365,7 +365,7 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
     var contentString = $('<div class="marker-info-win">'+
     '<div class="marker-inner-win"><span class="info-content">'+
     '<h2 class="marker-heading">'+MapTitle+'</h2>'+
-    MapDesc+'</div></div>''</span><button name="remove-marker"
+    MapDesc+'</div></div></span><button name="remove-marker"
     class="remove-marker" title="Remove Marker">Remove Marker</button>');
 
     // var boxText = document.createElement('div');
