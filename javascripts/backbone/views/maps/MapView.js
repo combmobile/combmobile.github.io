@@ -274,36 +274,36 @@ function remove_marker(Marker, ib)
 
     /* determine whether marker is draggable
     new markers are draggable and saved markers are fixed */
-    if(Marker.getDraggable())
-    {
+    // if(Marker.getDraggable())
+    // {
         // Marker.destroy();
         Marker.setMap(null); //just remove new marker
         window.setTimeout(infoBoxClose, 1);
         function infoBoxClose() {ib.close();}
 
-    }
-    else
-    {
-        //Remove saved marker from DB and map using jQuery Ajax
-        var mLatLang = Marker.getPosition().toUrlValue(); //get marker position
-        console.log("removew marker else called (Pin.destroy)");
-        // The below backbone code will ultimately remove the pin from the database
-        Marker.destroy();
-        // Pin.destroy();
-        // var myData = {del : 'true', latlang : mLatLang}; //post variables
-        // $.ajax({
-        //   type: "POST",
-        //   url: "map_process",
-        //   data: myData,
-        //   success:function(data){
-        //         Marker.setMap(null);
-        //         alert(data);
-        //     },
-        //     error:function (xhr, ajaxOptions, thrownError){
-        //         alert(thrownError); //throw any errors
-        //     }
-        // });
-    }
+    // }
+    // else
+    // {
+    //     //Remove saved marker from DB and map using jQuery Ajax
+    //     var mLatLang = Marker.getPosition().toUrlValue(); //get marker position
+    //     console.log("removew marker else called (Pin.destroy)");
+    //     // The below backbone code will ultimately remove the pin from the database
+    //     Marker.destroy();
+    //     // Pin.destroy();
+    //     // var myData = {del : 'true', latlang : mLatLang}; //post variables
+    //     // $.ajax({
+    //     //   type: "POST",
+    //     //   url: "map_process",
+    //     //   data: myData,
+    //     //   success:function(data){
+    //     //         Marker.setMap(null);
+    //     //         alert(data);
+    //     //     },
+    //     //     error:function (xhr, ajaxOptions, thrownError){
+    //     //         alert(thrownError); //throw any errors
+    //     //     }
+    //     // });
+    // }
 }
 
 // Save Marker Function
@@ -342,6 +342,9 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
         console.log("saved pin removeBtn", savedRemoveBtn);
         console.log("saved pin otherremoveBtn", otherRemoveBtn);
 
+        $('.remove-marker').on('click', function(){
+          console.log("remove marker clicked");
+        })
 
         google.maps.event.addDomListener(otherRemoveBtn, "click", function(event) {
         //call remove_marker function to remove the marker from the map\
