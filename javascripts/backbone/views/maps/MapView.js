@@ -324,7 +324,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
     var pinModel = new Comb.Models.Pin();
     pinModel.create(myData, { success: function() {
       console.log("pinmodel create data", data)
-    } });
+    });
     newContentString = $(
     '<h2 class="marker-heading">'+myData.name+'</h2>'+
     '<p class="marker-description">'+myData.description+'</p></div>'+
