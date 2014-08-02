@@ -342,9 +342,9 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
         console.log("saved pin removeBtn", savedRemoveBtn);
         console.log("saved pin otherremoveBtn", otherRemoveBtn);
 
-        $('.remove-marker')[0].on('click', function(){
-          console.log("remove marker clicked");
-        })
+        // $('.remove-marker').on('click', function(){
+        //   console.log("remove marker clicked");
+        // })
 
         google.maps.event.addDomListener(otherRemoveBtn, "click", function(event) {
         //call remove_marker function to remove the marker from the map\
