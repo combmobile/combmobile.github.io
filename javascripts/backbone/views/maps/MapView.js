@@ -288,7 +288,7 @@ function remove_marker(Marker, ib)
         var mLatLang = Marker.getPosition().toUrlValue(); //get marker position
         console.log("removew marker else called (Pin.destroy)");
         // The below backbone code will ultimately remove the pin from the database
-        // Marker.destroy();
+        Marker.destroy();
         // Pin.destroy();
         // var myData = {del : 'true', latlang : mLatLang}; //post variables
         // $.ajax({
@@ -326,7 +326,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
     newContentString = $(
     '<h2 class="marker-heading">'+myData.name+'</h2>'+
     '<p class="marker-description">'+myData.description+'</p></div>'+
-    '</span><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>');
+    '</span><button data-id='+myData.id+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>');
     // newContentString = $(
     //   '<h1>'+myData.name+'</h1>'
     //   );
