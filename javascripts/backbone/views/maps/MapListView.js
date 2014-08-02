@@ -5,7 +5,7 @@ Comb.Views.MapListView = Backbone.View.extend({
 
     //this.listenTo(this.collection, "change", this.elFunction);
     //this.listenTo(this.collection, "all", this.elFunction);
-    //this.listenTo(this.collection, "add", this.elFunction);
+    this.listenTo(this.collection, "add", this.elFunction);
     this.listenTo(this.collection, "remove", this.elFunction);
 
   },
