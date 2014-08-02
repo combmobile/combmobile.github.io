@@ -322,33 +322,15 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
     console.log("this is myData in save_marker", myData);
     console.log("this is save_marker, and here's mReplace", mReplace)
     var pinModel = new Comb.Models.Pin();
-    pinModel.save(myData)
-    console.log("save_marker myData", myData);
+    pinModel.create(myData, { success: function() {
+      console.log("pinmodel create data", data)
+    } });
     newContentString = $(
     '<h2 class="marker-heading">'+myData.name+'</h2>'+
     '<p class="marker-description">'+myData.description+'</p></div>'+
     '</span><button data-id='+myData+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>');
-    // newContentString = $(
-    //   '<h1>'+myData.name+'</h1>'
-    //   );
     mReplace.html(newContentString); //replace info window with new html
     Marker.setDraggable(false);//set marker to fixed)
-    // $.ajax({
-    //   type: "POST",
-    //   url: '/pins',
-    //   dataType:"jsonp",
-    //   data: {"pin": myData},
-    //   success:function(data){
-    //     console.log("pin saved", data);
-    //         // replaceWin.html(data); //replace info window with new html
-    //         // Marker.setDraggable(false); //set marker to fixed
-    //         // Marker.setIcon('images/pin_bottom_orange.png'); //replace icon
-    //           // currentCollection.create(data);
-    //     }
-    //     // error:function (xhr, ajaxOptions, thrownError){
-    //     //     alert(thrownError); //throw any errors
-    //     // }
-    // });
         var savedRemoveBtn = newContentString.find('button.remove-marker')[0];
         var otherRemoveBtn = $('.remove-marker')[0];
         console.log("saved pin removeBtn", savedRemoveBtn);
