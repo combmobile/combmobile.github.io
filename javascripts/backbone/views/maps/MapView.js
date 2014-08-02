@@ -337,7 +337,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
           var otherRemoveBtn = $('button.remove-marker')[0];
           google.maps.event.addDomListener(otherRemoveBtn, "click", function(event) {
           remove_marker(marker, ib);
-          console.log("pins in success", self.model.attributes.pins);
+          console.log("self in success", self );
           // this.model.attributes.pins[0].push([data]);
 
           });
