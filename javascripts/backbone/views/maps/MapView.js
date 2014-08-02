@@ -334,7 +334,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
           '</span><button data-id='+pinData.attributes.id+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>'
           );
           mReplace.html(newContentString);
-          var otherRemoveBtn = contentString.find('button.remove-marker')[0];
+          var otherRemoveBtn = newContentString.find('button.remove-marker')[0];
           google.maps.event.addDomListener(otherRemoveBtn, "click", function(event) {
           //call remove_marker function to remove the marker from the map\
           console.log("removebtn marker", pinData);
