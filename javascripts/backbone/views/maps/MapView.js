@@ -16,7 +16,14 @@ Comb.Views.MapView = Backbone.View.extend({
   removeMap: function(e){
       console.log("dis works");
       e.preventDefault();
-      this.model.destroy();
+
+      currentCollection = this.model.collection;
+      // console.log("currentCollection:", currentCollection);
+      currentCollection.remove(this.model.id);
+      // currentCollection.render();
+      this.model.destroy({ silent: true });
+      // console.log("this.model.collection:", this.model.collection);
+      // console.log("this.model.id:", this.model.id);
       return this
   },
   renderMapList: function(){
