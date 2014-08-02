@@ -2,7 +2,7 @@ var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
 Comb.Views.PinListView = Backbone.View.extend({
   initialize: function(){
-    // this.listenTo(this.collection, "all", this.render)
+    this.listenTo(this.collection, "change" "destroy" "add", this.render)
     console.log("you've created a pinListView")
   },
   render: function(){
