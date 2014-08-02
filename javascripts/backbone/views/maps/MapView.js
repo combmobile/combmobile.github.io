@@ -321,11 +321,12 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
     console.log("this is save_marker, and here's mReplace", mReplace)
     var pinModel = new Comb.Models.Pin();
     var pinData;
+    var self = this;
     pinModel.save({
           name : mName, description : mAddress, photo_url : '', pin_lat : lat, pin_long : lng, map_id : model.id},
        {
         success: function(data) {
-          var self = this;
+
           console.log("pinmodel create data", data)
           pinData = data;
           var newContentString = $(
