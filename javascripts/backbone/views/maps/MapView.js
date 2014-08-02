@@ -324,7 +324,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
     pinModel.save({
           name : mName, description : mAddress, photo_url : '', pin_lat : lat, pin_long : lng, map_id : model.id},
        {
-        success: function() {
+        success: function(data) {
           console.log("pinmodel create data", data)
         }
         });
