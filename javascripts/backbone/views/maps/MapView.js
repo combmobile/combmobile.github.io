@@ -326,7 +326,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
     newContentString = $(
     '<h2 class="marker-heading">'+myData.name+'</h2>'+
     '<p class="marker-description">'+myData.description+'</p></div>'+
-    '</span><button data-id='+myData.id+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>');
+    '</span><button data-id='+myData+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>');
     // newContentString = $(
     //   '<h1>'+myData.name+'</h1>'
     //   );
