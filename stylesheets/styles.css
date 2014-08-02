@@ -667,7 +667,7 @@ img {
   border-radius: 25px;
   background: RGBA(255, 255, 255, .75);
   color: RGBA(30, 187, 166, 1);
-  margin-top: 0 auto;
+  margin: 0 auto;
   text-align: center;
   overflow-y: scroll;
 }
@@ -675,5 +675,5 @@ img {
 .main-pin-list-ul {
   list-style: none;
   margin-left: -20px;
-  margin-bottom: 20%;
+  margin-bottom: 10%;
 }
