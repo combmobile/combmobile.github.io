@@ -321,7 +321,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
     console.log("this is save_marker, and here's mReplace", mReplace)
     var pinModel = new Comb.Models.Pin();
     var pinData;
-    var self = this;
+    var thisModel= this.model.attributes;
     pinModel.save({
           name : mName, description : mAddress, photo_url : '', pin_lat : lat, pin_long : lng, map_id : model.id},
        {
@@ -338,7 +338,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
           var otherRemoveBtn = $('button.remove-marker')[0];
           google.maps.event.addDomListener(otherRemoveBtn, "click", function(event) {
           remove_marker(marker, ib);
-          console.log("self in success", self );
+          console.log("thisModel: ", thisModel );
           // this.model.attributes.pins[0].push([data]);
 
           });
