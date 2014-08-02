@@ -15,6 +15,7 @@ Comb.Views.MapView = Backbone.View.extend({
     },
   removeMap: function(e){
       console.log("dis works");
+      $('.map_list_ul').empty();
       e.preventDefault();
 
       currentCollection = this.model.collection;

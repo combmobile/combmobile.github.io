@@ -221,6 +221,7 @@ $(function() {
     },
     createMap: function(ev){
       var mapInput = $(ev.currentTarget).serializeObject();
+      $(ev.currentTarget).val('');
       var mapName = mapInput.map_name;
       console.log("createMap name:", mapName);
       var Map = new Comb.Models.Map({
@@ -232,7 +233,6 @@ $(function() {
         map_long:'',
         pins:''
       });
-      console.log("map data", Map);
 
       mapCreateView = new Comb.Views.MapView({
         el: $('#map-canvas')[0],
@@ -243,7 +243,7 @@ $(function() {
 
       mapCreateView.createMap(combInitializedData.mapCollection);
 
-      window.setTimeout(router.navigate('maps', {trigger: true}), 1000);
+      router.navigate('maps', {trigger: true});
       return false;
     }
   });
@@ -293,6 +293,7 @@ $(function() {
 
   router.on('route:maps', function() {
     console.log("you are on maps");
+    this.$el.empty();
     $('body').css("background","white");
     $(".main").empty();
     $(".main").html("<ul class='map_list_ul welcome-block'></ul>");
