@@ -321,17 +321,19 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
     var myData = {name : mName, description : mAddress, photo_url : '', pin_lat : lat, pin_long : lng, map_id : model.id}; //post variables
     console.log("this is save_marker, and here's mReplace", mReplace)
     var pinModel = new Comb.Models.Pin();
+    var pinData;
     pinModel.save({
           name : mName, description : mAddress, photo_url : '', pin_lat : lat, pin_long : lng, map_id : model.id},
        {
         success: function(data) {
           console.log("pinmodel create data", data)
+          pinData = data;
         }
         });
-    newContentString = $(
-    '<h2 class="marker-heading">'+myData.name+'</h2>'+
-    '<p class="marker-description">'+myData.description+'</p></div>'+
-    '</span><button data-id='+myData+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>');
+    var newContentString = $(
+    '<h2 class="marker-heading">'+pinData.name+'</h2>'+
+    '<p class="marker-description">'+pinData.description+'</p></div>'+
+    '</span><button data-id='+pinData.id+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>');
     mReplace.html(newContentString); //replace info window with new html
     Marker.setDraggable(false);//set marker to fixed)
         var savedRemoveBtn = newContentString.find('button.remove-marker')[0];
@@ -342,7 +344,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
 
         google.maps.event.addDomListener(otherRemoveBtn, "click", function(event) {
         //call remove_marker function to remove the marker from the map\
-        console.log("removebtn marker", marker);
+        console.log("removebtn marker", pinData);
         console.log("remove button click marker, this", this);
         // ib.close();
         remove_marker(marker, ib);
