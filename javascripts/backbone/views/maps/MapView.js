@@ -318,13 +318,17 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
     console.log("attempt to get map attributes", model);
     // var mapId = map;
     console.log("this is the map", map);
-    var myData = {name : mName, description : mAddress, photo_url : '', pin_lat : lat, pin_long : lng, map_id : model.id}; //post variables
+    // var myData = {name : mName, description : mAddress, photo_url : '', pin_lat : lat, pin_long : lng, map_id : model.id}; //post variables
     console.log("this is myData in save_marker", myData);
     console.log("this is save_marker, and here's mReplace", mReplace)
     var pinModel = new Comb.Models.Pin();
-    pinModel.create(myData, { success: function() {
-      console.log("pinmodel create data", data)
-    });
+    pinModel.create({
+          name : mName, description : mAddress, photo_url : '', pin_lat : lat, pin_long : lng, map_id : model.id},
+       {
+        success: function() {
+          console.log("pinmodel create data", data)
+        }
+        });
     newContentString = $(
     '<h2 class="marker-heading">'+myData.name+'</h2>'+
     '<p class="marker-description">'+myData.description+'</p></div>'+
