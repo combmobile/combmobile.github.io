@@ -331,7 +331,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
           var newContentString = $(
           '<h2 class="marker-heading">'+pinData.attributes.name+'</h2>'+
           '<p class="marker-description">'+pinData.attributes.description+'</p></div>'+
-          '</span><button data-id='+pinData.attributes.id+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>'
+          '<button data-id='+pinData.attributes.id+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>'
           );
           mReplace.html(newContentString);
           var otherRemoveBtn = $('button.remove-marker')[0];
@@ -365,8 +365,7 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
     var contentString = $('<div class="marker-info-win">'+
     '<div class="marker-inner-win"><span class="info-content">'+
     '<h2 class="marker-heading">'+MapTitle+'</h2>'+
-    MapDesc+'</div></div></span><button name="remove-marker"
-    class="remove-marker" title="Remove Marker">Remove Marker</button>');
+    MapDesc+'</div></div><button name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>');
 
     // var boxText = document.createElement('div');
     // The following controls the css for the contentString. Investigate integrating this into styles.css
@@ -400,11 +399,6 @@ function drop_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Remov
      console.log("inside the click listener for marker, and here's this", this, "and self", self);
      ib.open(map, this);
      map.panTo(this.getPosition());
-    });
-
-    var otherRemoveBtn = $('button.remove-marker')[0];
-    google.maps.event.addDomListener(otherRemoveBtn, "click", function(event) {
-      remove_marker(marker, ib);
     });
 
   }
