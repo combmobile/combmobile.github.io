@@ -342,7 +342,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
         console.log("saved pin removeBtn", savedRemoveBtn);
         console.log("saved pin otherremoveBtn", otherRemoveBtn);
 
-        $('.remove-marker').on('click', function(){
+        $('.remove-marker')[0].on('click', function(){
           console.log("remove marker clicked");
         })
 
