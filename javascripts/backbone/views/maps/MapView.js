@@ -321,7 +321,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
     var myData = {name : mName, description : mAddress, photo_url : '', pin_lat : lat, pin_long : lng, map_id : model.id}; //post variables
     console.log("this is save_marker, and here's mReplace", mReplace)
     var pinModel = new Comb.Models.Pin();
-    var pinData
+    var pinData;
     pinModel.save({
           name : mName, description : mAddress, photo_url : '', pin_lat : lat, pin_long : lng, map_id : model.id},
        {
@@ -334,11 +334,23 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
           '</span><button data-id='+pinData.attributes.id+'name="remove-marker" class="remove-marker" title="Remove Marker">Remove Marker</button>'
           );
           mReplace.html(newContentString);
+          var otherRemoveBtn = contentString.find('button.remove-marker')[0];
+          google.maps.event.addDomListener(otherRemoveBtn, "click", function(event) {
+          //call remove_marker function to remove the marker from the map\
+          console.log("removebtn marker", pinData);
+          // ib.close();
+          remove_marker(marker, ib);
+          // Will toggle the visibility of the infobox, but it'll still be on the page. Still working on getting the thing to close with Google's in-built .close(); function.
+          // marker.ib.setMap(null);
+          // $(".marker-info-win").css({"display":"none"});
+          console.log("content string", contentString);
+
+          });
         }
         });
     Marker.setDraggable(false);//set marker to fixed)
         var savedRemoveBtn = $('button.remove-marker')[0];
-        var otherRemoveBtn = $('.remove-marker')[0];
+        var otherRemoveBtn = contentString.find('button.remove-marker')[0];
         console.log("saved pin removeBtn", savedRemoveBtn);
         console.log("saved pin otherremoveBtn", otherRemoveBtn);
 
@@ -357,7 +369,7 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
         // $(".marker-info-win").css({"display":"none"});
         console.log("content string", contentString);
 
-    });
+        });
 
 }
 
