@@ -293,7 +293,7 @@ $(function() {
 
   router.on('route:maps', function() {
     console.log("you are on maps");
-    this.$el.empty();
+    $('.map_list_ul').empty();
     $('body').css("background","white");
     $(".main").empty();
     $(".main").html("<ul class='map_list_ul welcome-block'></ul>");
