@@ -349,10 +349,6 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
         }
         });
     Marker.setDraggable(false);//set marker to fixed)
-        var savedRemoveBtn = $('button.remove-marker')[0];
-        var otherRemoveBtn = contentString.find('button.remove-marker')[0];
-        console.log("saved pin removeBtn", savedRemoveBtn);
-        console.log("saved pin otherremoveBtn", otherRemoveBtn);
 
         // $('.remove-marker').on('click', function(){
         //   console.log("remove marker clicked");
