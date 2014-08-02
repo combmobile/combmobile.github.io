@@ -274,8 +274,7 @@ function remove_marker(Marker, ib)
 
     /* determine whether marker is draggable
     new markers are draggable and saved markers are fixed */
-    // if(Marker.getDraggable())
-    // {
+
         // Marker.destroy();
         Marker.setMap(null); //just remove new marker
         window.setTimeout(infoBoxClose, 1);
@@ -284,25 +283,25 @@ function remove_marker(Marker, ib)
     // }
     // else
     // {
-    //     //Remove saved marker from DB and map using jQuery Ajax
-    //     var mLatLang = Marker.getPosition().toUrlValue(); //get marker position
-    //     console.log("removew marker else called (Pin.destroy)");
-    //     // The below backbone code will ultimately remove the pin from the database
-    //     Marker.destroy();
-    //     // Pin.destroy();
-    //     // var myData = {del : 'true', latlang : mLatLang}; //post variables
-    //     // $.ajax({
-    //     //   type: "POST",
-    //     //   url: "map_process",
-    //     //   data: myData,
-    //     //   success:function(data){
-    //     //         Marker.setMap(null);
-    //     //         alert(data);
-    //     //     },
-    //     //     error:function (xhr, ajaxOptions, thrownError){
-    //     //         alert(thrownError); //throw any errors
-    //     //     }
-    //     // });
+    // //     //Remove saved marker from DB and map using jQuery Ajax
+    // //     var mLatLang = Marker.getPosition().toUrlValue(); //get marker position
+    // //     console.log("removew marker else called (Pin.destroy)");
+    // //     // The below backbone code will ultimately remove the pin from the database
+    // //     Marker.destroy();
+    // //     // Pin.destroy();
+    // //     // var myData = {del : 'true', latlang : mLatLang}; //post variables
+    // //     // $.ajax({
+    // //     //   type: "POST",
+    // //     //   url: "map_process",
+    // //     //   data: myData,
+    // //     //   success:function(data){
+    // //     //         Marker.setMap(null);
+    // //     //         alert(data);
+    // //     //     },
+    // //     //     error:function (xhr, ajaxOptions, thrownError){
+    // //     //         alert(thrownError); //throw any errors
+    // //     //     }
+    // //     // });
     // }
 }
 
@@ -336,14 +335,8 @@ function save_marker(Marker, mName, mAddress, mReplace, model, ib)
           mReplace.html(newContentString);
           var otherRemoveBtn = $('button.remove-marker')[0];
           google.maps.event.addDomListener(otherRemoveBtn, "click", function(event) {
-          //call remove_marker function to remove the marker from the map\
-          console.log("removebtn marker", pinData);
-          // ib.close();
           remove_marker(marker, ib);
-          // Will toggle the visibility of the infobox, but it'll still be on the page. Still working on getting the thing to close with Google's in-built .close(); function.
-          // marker.ib.setMap(null);
-          // $(".marker-info-win").css({"display":"none"});
-          console.log("content string", contentString);
+
 
           });
         }
