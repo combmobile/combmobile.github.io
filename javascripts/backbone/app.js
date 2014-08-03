@@ -99,6 +99,7 @@ var Router = Backbone.Router.extend({
         $('.map_list_ul').html(this.currentView.el);
         this.currentView.elFunction();
       } else {
+        $('.main').html(this.currentView.el);
         this.currentView.render();
       }
     }
