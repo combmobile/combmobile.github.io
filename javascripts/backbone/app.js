@@ -237,8 +237,8 @@ $(function() {
       mapCreateView = new Comb.Views.MapView({
         el: $('#map-canvas')[0],
         model: Map
-        // user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
-        // map_name: mapName
+        user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
+        map_name: mapName
       });
 
       mapCreateView.createMap(combInitializedData.mapCollection);
