@@ -250,7 +250,7 @@ $(function() {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
 
-        combInitializedData.mapCollection.create( {name: mapName, creator_id: responseUserId, user_id: responseUserId, map_lat: latitude, map_long: longitude, id:''});
+        combInitializedData.mapCollection.create( {name: mapName, creator_id: responseUserId, user_id: responseUserId, map_lat: latitude, map_long: longitude, id: undefined});
 
       });
 
