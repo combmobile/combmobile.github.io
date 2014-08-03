@@ -263,9 +263,6 @@ $(function() {
       router.navigate('maps', {trigger: true});
       $('.map_list_ul').empty();
       return false;
-    },
-      close: function(){
-      this.unbind();
     }
   });
 
@@ -321,8 +318,8 @@ $(function() {
     $(".bottom-nav").show();
     $( ".logo" ).hide();
     $( ".back" ).show();
-    appController.showView(combInitializedData.mapListView);
-    //combInitializedData.mapListView.elFunction();
+    //appController.showView(combInitializedData.mapListView);
+    combInitializedData.mapListView.elFunction();
   });
 
 
@@ -330,8 +327,7 @@ $(function() {
     console.log("you are on maps create");
     $('body').css("background","#bdc3c7");
     var createMap = new createMapView();
-    appController.showView(createMap);
-    //createMap.render();
+    createMap.render();
     $(".bottom-nav").show();
   });
 
