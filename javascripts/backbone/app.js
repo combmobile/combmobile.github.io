@@ -217,9 +217,9 @@ $(function() {
       this.$el.append(template);
       },
     events: {
-      'submit .map_create_form' : 'createMap'
+      'submit .map_create_form' : 'newMap'
     },
-    createMap: function(ev){
+    newMap: function(ev){
       var mapInput = $(ev.currentTarget).serializeObject();
       $(ev.currentTarget).val('');
       var mapName = mapInput.map_name;
