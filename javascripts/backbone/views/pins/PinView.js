@@ -11,10 +11,6 @@ Comb.Views.PinView = Backbone.View.extend({
     render: function(){
       this.$el.html( this.template(this.model.attributes) );
       return this
-    },
-    close: function(){
-      this.remove();
-      this.unbind();
-      this.model.unbind("change", this.modelChanged);
     }
+
   });

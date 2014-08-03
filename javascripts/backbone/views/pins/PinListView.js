@@ -14,12 +14,7 @@ Comb.Views.PinListView = Backbone.View.extend({
     var pinView = new Comb.Views.PinView( {model: pin} )
     self.$el.prepend( pinView.render().el );
     })
-   },
-   close: function(){
-      this.remove();
-      this.unbind();
-      this.model.unbind("change", this.modelChanged);
-    }
+   }
 })
 
 

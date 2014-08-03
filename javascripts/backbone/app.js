@@ -263,6 +263,11 @@ $(function() {
       router.navigate('maps', {trigger: true});
       $('.map_list_ul').empty();
       return false;
+    },
+      close: function(){
+      this.remove();
+      this.unbind();
+      this.model.unbind("change", this.modelChanged);
     }
   });
 
