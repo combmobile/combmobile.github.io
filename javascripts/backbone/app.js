@@ -89,14 +89,6 @@ var Router = Backbone.Router.extend({
 
 
 
-// var combInitializedData;
-
-$(function() {
-  // This will make the initialize available as a variable within the document ready. You can then access all of the initialized attributes.
-  var combInitializedData;
-  var responseUserId;
-  var currentPosition;
-
   function AppView(){
 
      this.showView = function(view) {
@@ -110,6 +102,17 @@ $(function() {
       $('.map_list_ul').html(this.currentView.el);
     }
   };
+
+// var combInitializedData;
+
+$(function() {
+  // This will make the initialize available as a variable within the document ready. You can then access all of the initialized attributes.
+  var combInitializedData;
+  var responseUserId;
+  var currentPosition;
+
+  this.appView = options.appView;
+
 
 
   $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
