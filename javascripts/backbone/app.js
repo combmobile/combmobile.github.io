@@ -108,8 +108,8 @@ $(function() {
       this.currentView.render();
 
       $('.map_list_ul').html(this.currentView.el);
-
-  }
+    }
+  };
 
 
   $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
