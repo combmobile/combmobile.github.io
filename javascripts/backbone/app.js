@@ -223,12 +223,13 @@ $(function() {
       var mapInput = $(ev.currentTarget).serializeObject();
       $(ev.currentTarget).val('');
       var mapName = mapInput.map_name;
+      console.log("responseUserId", responseUserId);
       // console.log("createMap name:", mapName);
 
       // mapCreateView = new Comb.Views.MapView({
       //   el: $('#map-canvas')[0],
       //   model: Map
-      //   // user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
+      //user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
       //   // map_name: mapName
       // });
 
