@@ -627,6 +627,11 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
     return this;
 
+    },
+    close: function(){
+      this.remove();
+      this.unbind();
+      this.model.unbind("change", this.modelChanged);
     }
 });
 
