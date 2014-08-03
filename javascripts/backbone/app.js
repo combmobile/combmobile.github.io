@@ -241,7 +241,7 @@ $(function() {
         // map_name: mapName
       });
 
-      mapCreateView.createMap(combInitializedData.mapCollection);
+      //mapCreateView.createMap(combInitializedData.mapCollection);
 
 
 
@@ -250,7 +250,7 @@ $(function() {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
 
-        combInitializedData.mapCollection.add( {name: mapName, creator_id: responseUserId, user_id: responseUserId , map_lat: latitude, map_long: longitude});
+        combInitializedData.mapCollection.create( {name: mapName, creator_id: responseUserId, user_id: responseUserId, map_lat: latitude, map_long: longitude});
 
       });
 
