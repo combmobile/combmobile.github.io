@@ -24,6 +24,5 @@ Comb.Views.MapListView = Backbone.View.extend({
   close: function(){
       this.remove();
       this.unbind();
-      this.model.unbind("change", this.modelChanged);
     }
 })

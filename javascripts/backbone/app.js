@@ -265,7 +265,6 @@ $(function() {
       return false;
     },
       close: function(){
-      this.remove();
       this.unbind();
     }
   });
