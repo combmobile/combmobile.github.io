@@ -89,7 +89,20 @@ var Router = Backbone.Router.extend({
 
 
 
-
+  function AppController(){
+    this.showView = function (view){
+      if (this.currentView){
+        this.currentView.close();
+      }
+      this.currentView = view;
+      if(this.currentView.elFunction){
+        $('.map_list_ul').html(this.currentView.el);
+        this.currentView.elFunction();
+      } else {
+        this.currentView.render();
+      }
+    }
+  }
 
 
 // var combInitializedData;
@@ -99,6 +112,10 @@ $(function() {
   var combInitializedData;
   var responseUserId;
   var currentPosition;
+
+  appController = new AppController();
+
+
 
   $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
     options.url = 'https://serene-dawn-6520.herokuapp.com' + options.url;
@@ -300,7 +317,8 @@ $(function() {
     $(".bottom-nav").show();
     $( ".logo" ).hide();
     $( ".back" ).show();
-    combInitializedData.mapListView.elFunction();
+    appController.showView(combInitializedData.mapListView);
+    //combInitializedData.mapListView.elFunction();
   });
 
 
@@ -308,7 +326,8 @@ $(function() {
     console.log("you are on maps create");
     $('body').css("background","#bdc3c7");
     var createMap = new createMapView();
-    createMap.render();
+    appController.showView(createMap);
+    //createMap.render();
     $(".bottom-nav").show();
   });
 
