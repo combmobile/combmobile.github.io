@@ -224,24 +224,35 @@ $(function() {
       $(ev.currentTarget).val('');
       var mapName = mapInput.map_name;
       console.log("createMap name:", mapName);
-      var Map = new Comb.Models.Map({
-      // var Map = ({
-        name: mapName,
-        creator_id: responseUserId,
-        user_id: responseUserId,
-        map_lat:'',
-        map_long:'',
-        pins:''
-      });
+      // var Map = new Comb.Models.Map({
+      // // var Map = ({
+      //   name: mapName,
+      //   creator_id: responseUserId,
+      //   user_id: responseUserId,
+      //   map_lat:'',
+      //   map_long:'',
+      //   pins:''
+      // });
 
-      mapCreateView = new Comb.Views.MapView({
-        el: $('#map-canvas')[0],
-        model: Map
-        // user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
-        // map_name: mapName
-      });
+      // mapCreateView = new Comb.Views.MapView({
+      //   el: $('#map-canvas')[0],
+      //   model: Map
+      //   // user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
+      //   // map_name: mapName
+      // });
 
       mapCreateView.createMap(combInitializedData.mapCollection);
+
+
+
+      navigator.geolocation.getCurrentPosition(function(position) {
+
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+
+        combInitializedData.mapCollection.add( name: mapName, creator_id: responseUserId, user_id: mapName, map_lat: latitude, map_long: longitude)
+
+      });
 
       router.navigate('maps', {trigger: true});
       $('.map_list_ul').empty();

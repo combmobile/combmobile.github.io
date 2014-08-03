@@ -620,11 +620,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
         url:'/maps',
         type:'POST',
         dataType:"jsonp",
-        data: {"map": mapDetails},
-        success:function (data) {
-          console.log("createMap data", data);
-          currentCollection.add(data);
-        }
+        data: {"map": mapDetails}
       });
 
     });
