@@ -99,7 +99,7 @@ $(function() {
 
   function AppView(){
 
-     this.showView(view) {
+     this.showView = function(view) {
       if (this.currentView){
         this.currentView.close();
       }
