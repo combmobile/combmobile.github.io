@@ -97,19 +97,20 @@ $(function() {
   var responseUserId;
   var currentPosition;
 
-  // function getCoordinates() {
+  function AppView(){
 
-  //   var promise = new core.event.Promise();
+     this.showView(view) {
+      if (this.currentView){
+        this.currentView.close();
+      }
 
-  //   navigator.geolocation.getCurrentPosition(function(position) {
-  //           currentPosition = position.coords;
-  //           console.log("this is position",position.coords);
-  //           promise.fulfill(currentPosition);
-  //   });
+      this.currentView = view;
+      this.currentView.render();
 
-  //   return promise;
+      $('.map_list_ul').html(this.currentView.el);
+    }
 
-  // };
+  }
 
 
   $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
@@ -313,13 +314,16 @@ $(function() {
     $( ".logo" ).hide();
     $( ".back" ).show();
     combInitializedData.mapListView.elFunction();
+    this.appView.showView(createMap);
   });
 
-  var createMap = new createMapView();
+
   router.on('route:create_map', function() {
     console.log("you are on maps create");
     $('body').css("background","#bdc3c7");
-    createMap.render();
+    var createMap = new createMapView();
+    this.appView.showView(createMap);
+    //createMap.render();
     $(".bottom-nav").show();
   });
 
