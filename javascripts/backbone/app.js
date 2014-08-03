@@ -314,7 +314,7 @@ $(function() {
     $( ".logo" ).hide();
     $( ".back" ).show();
     combInitializedData.mapListView.elFunction();
-    appController.showView(createMap);
+    //appController.showView(createMap);
   });
 
 
