@@ -237,8 +237,8 @@ $(function() {
       mapCreateView = new Comb.Views.MapView({
         el: $('#map-canvas')[0],
         model: Map
-        user_id: responseUserId,
-        map_name: mapName
+        // user_id: responseUserId,
+        // map_name: mapName
       });
 
       mapCreateView.createMap(combInitializedData.mapCollection);
@@ -250,7 +250,7 @@ $(function() {
         latitude = position.coords.latitude;
         longitude = position.coords.longitude;
 
-        combInitializedData.mapCollection.add( {name: mapName, creator_id: responseUserId, user_id: mapName, map_lat: latitude, map_long: longitude});
+        combInitializedData.mapCollection.add( {name: mapName, creator_id: responseUserId, user_id: responseUserId , map_lat: latitude, map_long: longitude});
 
       });
 
