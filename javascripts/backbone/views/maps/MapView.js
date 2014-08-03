@@ -623,8 +623,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
         data: {"map": mapDetails},
         success:function (data) {
           console.log("createMap data", data);
-          currentCollection.create(data);
-          $('.map_list_ul').empty();
+          currentCollection.create(data, {silent: true});
         }
       });
 
