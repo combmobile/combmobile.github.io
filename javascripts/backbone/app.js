@@ -267,7 +267,6 @@ $(function() {
       close: function(){
       this.remove();
       this.unbind();
-      this.model.unbind("change", this.modelChanged);
     }
   });
 
