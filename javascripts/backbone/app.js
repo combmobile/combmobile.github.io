@@ -89,19 +89,17 @@ var Router = Backbone.Router.extend({
 
 
 
-  function AppView(){
-
-     this.showView = function(view) {
+  function AppController(){
+    this.showView = function (view){
       if (this.currentView){
         this.currentView.close();
       }
-
       this.currentView = view;
       this.currentView.render();
-
       $('.map_list_ul').html(this.currentView.el);
     }
-  };
+  }
+
 
 // var combInitializedData;
 
@@ -111,7 +109,7 @@ $(function() {
   var responseUserId;
   var currentPosition;
 
-  this.appView = options.appView;
+  appController = new AppController();
 
 
 
@@ -316,7 +314,7 @@ $(function() {
     $( ".logo" ).hide();
     $( ".back" ).show();
     combInitializedData.mapListView.elFunction();
-    this.appView.showView(createMap);
+    appController.showView(createMap);
   });
 
 
@@ -324,7 +322,7 @@ $(function() {
     console.log("you are on maps create");
     $('body').css("background","#bdc3c7");
     var createMap = new createMapView();
-    this.appView.showView(createMap);
+    appController.showView(createMap);
     //createMap.render();
     $(".bottom-nav").show();
   });
