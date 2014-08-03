@@ -308,7 +308,7 @@ $(function() {
     console.log("you are on maps create");
     $('body').css("background","#bdc3c7");
     var createMap = new createMapView();
-    //createMap.render();
+    createMap.render();
     $(".bottom-nav").show();
   });
 
