@@ -223,30 +223,38 @@ $(function() {
       var mapInput = $(ev.currentTarget).serializeObject();
       $(ev.currentTarget).val('');
       var mapName = mapInput.map_name;
-      console.log("createMap name:", mapName);
-      var Map = new Comb.Models.Map({
-      // var Map = ({
-        name: mapName,
-        creator_id: responseUserId,
-        user_id: responseUserId,
-        map_lat:'',
-        map_long:'',
-        pins:''
+      // console.log("createMap name:", mapName);
+
+      // mapCreateView = new Comb.Views.MapView({
+      //   el: $('#map-canvas')[0],
+      //   model: Map
+      //   // user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
+      //   // map_name: mapName
+      // });
+
+      // mapCreateView.createMap(combInitializedData.mapCollection);
+
+
+      // NEW STUFF
+      navigator.geolocation.getCurrentPosition(function(position) {
+
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        combInitializedData.mapCollection.create({name:mapName, creator_id: responseUserId, user_id: responseUserId, map_lat: latitude, map_long: longitude});
+
       });
 
-      mapCreateView = new Comb.Views.MapView({
-        el: $('#map-canvas')[0],
-        model: Map
-        // user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
-        // map_name: mapName
-      });
-
-      mapCreateView.createMap(combInitializedData.mapCollection);
+      // END NEW STUFF
 
       router.navigate('maps', {trigger: true});
       $('.map_list_ul').empty();
+
+
       return false;
     }
+
+
   });
 
 
