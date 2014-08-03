@@ -309,16 +309,16 @@ $(function() {
     $('body').css("background","white");
     $(".main").empty();
     $(".main").html("<ul class='map_list_ul welcome-block'></ul>");
-    combInitializedData.mapListView.elFunction();
     $(".bottom-nav").show();
     $( ".logo" ).hide();
     $( ".back" ).show();
+    combInitializedData.mapListView.elFunction();
   });
 
+  var createMap = new createMapView();
   router.on('route:create_map', function() {
     console.log("you are on maps create");
     $('body').css("background","#bdc3c7");
-    var createMap = new createMapView();
     createMap.render();
     $(".bottom-nav").show();
   });
