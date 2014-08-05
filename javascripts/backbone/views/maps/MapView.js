@@ -15,8 +15,16 @@ Comb.Views.MapView = Backbone.View.extend({
     },
   removeMap: function(e){
       console.log("dis works");
+      $('.map_list_ul').empty();
       e.preventDefault();
-      this.model.destroy();
+
+      currentCollection = this.model.collection;
+      // console.log("currentCollection:", currentCollection);
+      currentCollection.remove(this.model.id);
+      // currentCollection.render();
+      this.model.destroy({ silent: true });
+      // console.log("this.model.collection:", this.model.collection);
+      // console.log("this.model.id:", this.model.id);
       return this
   },
   renderMapList: function(){
@@ -612,11 +620,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
         url:'/maps',
         type:'POST',
         dataType:"jsonp",
-        data: {"map": mapDetails},
-        success:function (data) {
-          console.log("createMap data", data);
-          currentCollection.create(data);
-        }
+        data: {"map": mapDetails}
       });
 
     });

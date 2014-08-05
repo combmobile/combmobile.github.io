@@ -89,6 +89,23 @@ var Router = Backbone.Router.extend({
 
 
 
+  function AppController(){
+    this.showView = function (view){
+      if (this.currentView){
+        this.currentView.close();
+      }
+      this.currentView = view;
+      if(this.currentView.elFunction){
+        $('.map_list_ul').html(this.currentView.el);
+        this.currentView.elFunction();
+      } else {
+        $('.main').html(this.currentView.el);
+        this.currentView.render();
+      }
+    }
+  }
+
+
 // var combInitializedData;
 
 $(function() {
@@ -98,19 +115,8 @@ $(function() {
   var currentPosition;
 
 
-  // function getCoordinates() {
+  appController = new AppController();
 
-  //   var promise = new core.event.Promise();
-
-  //   navigator.geolocation.getCurrentPosition(function(position) {
-  //           currentPosition = position.coords;
-  //           console.log("this is position",position.coords);
-  //           promise.fulfill(currentPosition);
-  //   });
-
-  //   return promise;
-
-  // };
 
 
   $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
@@ -218,10 +224,11 @@ $(function() {
       this.$el.append(template);
       },
     events: {
-      'submit .map_create_form' : 'createMap'
+      'submit .map_create_form' : 'newMap'
     },
-    createMap: function(ev){
+    newMap: function(ev){
       var mapInput = $(ev.currentTarget).serializeObject();
+      $(ev.currentTarget).val('');
       var mapName = mapInput.map_name;
       console.log("createMap name:", mapName);
       var Map = new Comb.Models.Map({
@@ -233,18 +240,29 @@ $(function() {
         map_long:'',
         pins:''
       });
-      console.log("map data", Map);
 
       mapCreateView = new Comb.Views.MapView({
         el: $('#map-canvas')[0],
         model: Map
-        // user_id: combInitializedData.mapCollection.models[0].attributes.user_id,
+        // user_id: responseUserId,
         // map_name: mapName
       });
 
-      mapCreateView.createMap(combInitializedData.mapCollection);
+      //mapCreateView.createMap(combInitializedData.mapCollection);
 
-      window.setTimeout(router.navigate('maps', {trigger: true}), 1000);
+
+
+      navigator.geolocation.getCurrentPosition(function(position) {
+
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+
+        combInitializedData.mapCollection.create( {name: mapName, creator_id: responseUserId, user_id: responseUserId, map_lat: latitude, map_long: longitude, id: undefined});
+
+      });
+
+      router.navigate('maps', {trigger: true});
+      $('.map_list_ul').empty();
       return false;
     }
   });
@@ -294,14 +312,17 @@ $(function() {
 
   router.on('route:maps', function() {
     console.log("you are on maps");
+    $('.map_list_ul').empty();
     $('body').css("background","white");
     $(".main").empty();
     $(".main").html("<ul class='map_list_ul welcome-block'></ul>");
-    combInitializedData.mapListView.elFunction();
     $(".bottom-nav").show();
     $( ".logo" ).hide();
     $( ".back" ).show();
+    //appController.showView(combInitializedData.mapListView);
+    combInitializedData.mapListView.elFunction();
   });
+
 
   router.on('route:create_map', function() {
     console.log("you are on maps create");
