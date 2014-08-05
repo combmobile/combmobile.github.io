@@ -97,6 +97,7 @@ $(function() {
   var responseUserId;
   var currentPosition;
 
+
   // function getCoordinates() {
 
   //   var promise = new core.event.Promise();
@@ -322,6 +323,10 @@ $(function() {
         console.log("main pin list button working");
         combInitializedData.pinListView.render();
         $(".main-pin-list").css("display", "block");
+        $(".main-pin-list-close-button").on("click", function(){
+        console.log("main pin list close button clicked");
+        $(".main-pin-list").css("display", "none");
+        });
       });
     });
     $(".create-map").on( "click", function() {
@@ -351,9 +356,10 @@ $(function() {
       console.log("main pin list button working");
       combInitializedData.pinListView.render();
       $(".main-pin-list").css("display", "block");
-    });
-    $(".main-pin-list-close").on("click", function(){
-      $(".main-pin-list").css("display", "none");
+        $(".main-pin-list-close-button").on("click", function(){
+        console.log("main pin list close button clicked");
+        $(".main-pin-list").css("display", "none");
+        });
     });
 
   Backbone.history.start();
