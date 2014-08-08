@@ -55,7 +55,7 @@ Comb.Views.MapView = Backbone.View.extend({
         // The following establishes the distance between the pins and the centerpoint of the current map, with the unit set as miles (the 3963 float is the earth's equatorial radius).
         var distance = google.maps.geometry.spherical.computeDistanceBetween(latlng, pinPoint, 3963.1905919);
         var rounded = +distance.toFixed(2);
-        el.append( "<h3>"+pin.name+"</h3>"+"<p>Distance from current location: "+" "+rounded+" miles</p>");
+        el.append( "<h3>"+pin.name+"</h3>"+"<h4>"+pin.description+"</h4>"+"<p>Distance from current location: "+" "+rounded+" miles</p>");
       });
         $(".map-pin-list").css("display", "block");
     });
