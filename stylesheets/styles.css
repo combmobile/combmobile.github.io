@@ -568,24 +568,6 @@ img {
 .map-list-ul {
 }
 
-.map-pin-list {
-  display: none;
-  z-index: 2;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  /*right: 25%;*/
-  width: 33%;
-  min-width: 150px;
-  height: 100%;
-  border-radius: 25px;
-  background: RGBA(255, 255, 255, .75);
-  color: RGBA(30, 187, 166, 1);
-  margin: 0 auto;
-  text-align: center;
-  overflow-y: scroll;
-}
-
 .pin-list-ul {
   list-style: none;
   margin-left: -20px;
@@ -611,7 +593,8 @@ img {
 
 }
 
-.main-pin-list {
+.main-pin-list,
+.map-pin-list {
   display: none;
   z-index: 2;
   position: absolute;
@@ -639,7 +622,8 @@ img {
 
 @media only screen and (max-width: 768px) {
 
-.main-pin-list {
+.main-pin-list,
+.map-pin-list {
   display: none;
   z-index: 2;
   position: absolute;
@@ -661,23 +645,6 @@ img {
   margin-left: -30px;
   margin-bottom: 35%;
   margin-top: 35%;
-}
-
-.map-pin-list {
-  display: none;
-  z-index: 2;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  min-width: 150px;
-  height: 100%;
-  border-radius: 25px;
-  background: RGBA(255, 255, 255, .75);
-  color: RGBA(30, 187, 166, 1);
-  margin: 0 auto 15% auto;
-  text-align: center;
-  overflow-y: scroll;
 }
 
 .map-pin-list-close {
