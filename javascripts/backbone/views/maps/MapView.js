@@ -186,7 +186,7 @@ Comb.Views.MapView = Backbone.View.extend({
         }
       ];
       return this
-  }
+  },
   displayMapView: function(){
     var self = this;
     $('.main').empty();
