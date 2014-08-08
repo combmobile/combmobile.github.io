@@ -568,11 +568,6 @@ img {
 .map-list-ul {
 }
 
-.pin-list-ul {
-  list-style: none;
-  margin-left: -20px;
-}
-
 /*.main-pin-list-close-div {
     position: fixed;
     top: auto !important;
@@ -622,13 +617,13 @@ img {
   overflow-y: scroll;
 }
 
-.main-pin-list-ul {
+.main-pin-list-ul,
+.pin-list-ul {
   list-style: none;
   margin-left: -30px;
   margin-bottom: 35%;
   margin-top: 35%;
 }
-
 
 @media only screen and (max-width: 768px) {
 
