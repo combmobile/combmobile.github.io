@@ -499,7 +499,8 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
     var mapOptions = {
     zoom: 10,
-    disableDefaultUI: true
+    disableDefaultUI: true,
+    styles: this.mapStyles()
     };
 
     var map = new google.maps.Map(this.el, mapOptions);
