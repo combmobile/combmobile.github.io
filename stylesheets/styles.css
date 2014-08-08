@@ -686,9 +686,10 @@ img {
 .map-pin-list-close {
     position: fixed;
     top: auto !important;
-    margin-left: 30%;
-    margin-right: 0;
-    margin-top: 100px;
+    right: 0;
+    /*margin-left: 30%;*/
+    margin-right: 5%;
+    margin-top: 10%;
 }
 
 .pin-list-ul {
