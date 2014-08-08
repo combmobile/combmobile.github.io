@@ -594,8 +594,8 @@ img {
  {
     position: fixed;
     top: auto !important;
-    right: 0;
-    margin-right: 10%;
+    /*right: 0;*/
+    margin-left: 30%;
     margin-top: 90px;
 }
 
