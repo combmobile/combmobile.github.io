@@ -468,21 +468,9 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
                 //call save_marker function and save the marker details
                 save_marker(marker, mName, mDesc, mReplace, model, ib);
             }
-        });
+            });
+        }
     }
-}
-
-      // function dropAllMarkers() {
-      //   var name = pins[i].name;
-      //   var address = '<p>'+ pins[i].description +'</p>';
-      //   var pinLat = parseFloat(pins[i].pin_lat);
-      //   var pinLong = parseFloat(pins[i].pin_long);
-      //   var point = new google.maps.LatLng(pinLat, pinLong);
-      //   console.log("pin iterator point", point);
-
-      //   drop_marker(point, name, address, false, false, false, model);
-      // };
-
     for (var i = 0; i < pins.length; i++) {
       var name = pins[i].name;
       var address = '<p>'+ pins[i].description +'</p>';
@@ -499,8 +487,8 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
     var mapOptions = {
     zoom: 10,
-    disableDefaultUI: true,
     styles: this.mapStyles()
+    disableDefaultUI: true
     };
 
     var map = new google.maps.Map(this.el, mapOptions);
