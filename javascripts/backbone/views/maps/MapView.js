@@ -487,8 +487,6 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
       var pinLat = parseFloat(pins[i].pin_lat);
       var pinLong = parseFloat(pins[i].pin_long);
       var point = new google.maps.LatLng(pinLat, pinLong);
-      console.log("pin iterator point", point);
-
       drop_marker(point, name, address, false, false, false, model);
     };
 
