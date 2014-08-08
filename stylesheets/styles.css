@@ -561,7 +561,7 @@ img {
 /*  border-radius: 50px;
   background: RGBA(255, 255, 255, .75);*/
   color: RGBA(30, 187, 166, 1);
-  margin: 0 auto;
+  margin: 0 auto 1% auto;
   text-align: center;
 }
 
