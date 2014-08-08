@@ -557,9 +557,10 @@ img {
   right: 25%;
   width: 30%;
   height: auto;
+  /*color: #1EBBA6;*/
 /*  border-radius: 50px;
-  background: RGBA(255, 255, 255, .75);
-  color: RGBA(30, 187, 166, 1);*/
+  background: RGBA(255, 255, 255, .75);*/
+  color: RGBA(30, 187, 166, 1);
   margin: 0 auto;
   text-align: center;
 }
