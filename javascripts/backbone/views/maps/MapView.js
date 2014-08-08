@@ -487,7 +487,7 @@ function create_marker(MapPos, MapTitle, MapDesc, InfoOpenDefault, DragAble, Rem
 
     var mapOptions = {
     zoom: 10,
-    styles: this.mapStyles()
+    styles: this.mapStyles(),
     disableDefaultUI: true
     };
 
