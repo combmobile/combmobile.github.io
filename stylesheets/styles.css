@@ -573,7 +573,7 @@ img {
   margin-left: -20px;
 }
 
-.main-pin-list-close-div {
+/*.main-pin-list-close-div {
     position: fixed;
     top: auto !important;
     margin-left: 30%;
@@ -587,6 +587,16 @@ img {
     margin-left: auto;
     margin-right: 0;
     margin-top: 80px;
+}*/
+
+.map-pin-list-close,
+.main-pin-list-close-div
+ {
+    position: fixed;
+    top: auto !important;
+    right: 0;
+    margin-right: 10%;
+    margin-top: 90px;
 }
 
 .main-pin-list-close-button {
