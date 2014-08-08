@@ -2,21 +2,13 @@ var Comb = Comb || { Models: {}, Collections: {}, Views: {} };
 
 Comb.initialize = function(userId) {
 
-  // var self = this;
   var mapCollection = new Comb.Collections.MapCollection();
 
   mapCollection.fetch({ data: { id: userId }, dataType: "jsonp", success: function(){
-    console.log("map collection.fetch models", mapCollection.models);
     _.each(mapCollection.models, function(model){
-      console.log(model.attributes.pins);
     })
+
   }});
-
-
-
-  // var pinCollection = new Comb.Collections.PinCollection();
-
-  // pinCollection.set([]);
 
     var mapListView = new Comb.Views.MapListView({
       collection: mapCollection,
@@ -25,67 +17,34 @@ Comb.initialize = function(userId) {
       // el: elFunction();
     });
 
-    var pinCollection = new Comb.Collections.PinCollection();
+  var pinCollection = new Comb.Collections.PinCollection();
 
-    pinCollection.fetch({dataType: "jsonp", success: function(){
-      console.log("pin collection .fetch models", pinCollection.models);
-    }});
+  pinCollection.fetch({dataType: "jsonp", success: function(){
+  }});
 
-    pinListView = new Comb.Views.PinListView({
-      collection: pinCollection,
-      el: $('.main-pin-list-ul')
-    });
+  pinListView = new Comb.Views.PinListView({
+    collection: pinCollection,
+    el: $('.main-pin-list-ul')
+  });
 
-    // mapListView.render();
-    return {
-      mapCollection: mapCollection,
-      mapListView: mapListView,
-      pinCollection : pinCollection,
-      pinListView : pinListView
-    }
-    // return {
-    //   mapCollection: mapCollection
-    // }
-
-//   var listView = new Comb.Views.MapListView({
-//     collection: collection,
-//     el: $('.map_list_ul')
-//   });
-
-// // $(".new_map_form").on("submit", function(e){
-// //   e.preventDefault();
-// //   var map_name= $(".new_map_form").find('input').val();
-// //   console.log(map_name);
+  return {
+    mapCollection: mapCollection,
+    mapListView: mapListView,
+    pinCollection : pinCollection,
+    pinListView : pinListView
+  }
 
 }
 
-// Comb.collectionInitialize = function(userId){
-
-
-// }
-
-/* SANDBOX DEFAULT CODE */
-// var map;
-// function initialize() {
-//   var mapOptions = {
-//     zoom: 8,
-//     center: new google.maps.LatLng(-34.397, 150.644)
-//   };
-//   map = new google.maps.Map(document.getElementById('map-canvas'),
-//       mapOptions);
-// }
-
-
-
-var Router = Backbone.Router.extend({
-      routes:{
-        '' : 'home',
-        'sign_up' : 'sign_up',
-        'main': 'main',
-        'maps': 'maps',
-        'create_map': 'create_map'
-      }
-    });
+  var Router = Backbone.Router.extend({
+    routes:{
+      '' : 'home',
+      'sign_up' : 'sign_up',
+      'main': 'main',
+      'maps': 'maps',
+      'create_map': 'create_map'
+    }
+  });
 
 
 
@@ -138,15 +97,12 @@ $(function() {
     },
     attemptLogin: function(ev){
       var userCredentials = $(ev.currentTarget).serializeObject();
-      console.log(userCredentials);
       $.ajax({
         url:'/sessions',
         type:'POST',
         dataType:"jsonp",
         data: userCredentials,
         success:function (data) {
-          console.log(data);
-          console.log("yay");
           responseUserId = data["user_id"];
           router.navigate('main', {trigger: true});
           combInitializedData = Comb.initialize(responseUserId);
@@ -178,14 +134,12 @@ $(function() {
     },
     attemptSignUp: function(ev){
       var newUserCredentials = $(ev.currentTarget).serializeObject();
-      console.log(newUserCredentials);
       $.ajax({
         url:'/users',
         type:'POST',
         dataType:"jsonp",
         data: {"user": newUserCredentials},
         success:function (data) {
-          console.log(data);
           responseUserId = data["id"];
           router.navigate('main', {trigger: true});
         }
@@ -200,9 +154,6 @@ $(function() {
     el: '.main',
     render: function(){
       this.$el.empty();
-      // mapView = new Comb.Views.MapView({
-      //   el: $('.map-canvas')[0]
-      // });
       var template = _.template($('#mapTemplate').html());
       this.$el.append(template);
       mapView = new Comb.Views.MapView({
@@ -230,7 +181,6 @@ $(function() {
       var mapInput = $(ev.currentTarget).serializeObject();
       $(ev.currentTarget).val('');
       var mapName = mapInput.map_name;
-      console.log("createMap name:", mapName);
       var Map = new Comb.Models.Map({
       // var Map = ({
         name: mapName,
@@ -244,13 +194,7 @@ $(function() {
       mapCreateView = new Comb.Views.MapView({
         el: $('#map-canvas')[0],
         model: Map
-        // user_id: responseUserId,
-        // map_name: mapName
       });
-
-      //mapCreateView.createMap(combInitializedData.mapCollection);
-
-
 
       navigator.geolocation.getCurrentPosition(function(position) {
 
@@ -290,28 +234,24 @@ $(function() {
   var router = new Router();
 
   router.on('route:home', function() {
-    console.log("you are home!");
     var logIn = new logInView();
     logIn.render();
     $(".bottom-nav").hide();
   });
 
   router.on('route:sign_up', function() {
-    console.log("you are at sign up!");
     var signUp = new signUpView();
     signUp.render();
     $(".bottom-nav").hide();
   });
 
   router.on('route:main', function() {
-    console.log("you are at the main page");
     var mainPage = new mainPageView();
     mainPage.render();
     $(".bottom-nav").show();
   });
 
   router.on('route:maps', function() {
-    console.log("you are on maps");
     $('.map_list_ul').empty();
     $('body').css("background","white");
     $(".main").empty();
@@ -325,7 +265,6 @@ $(function() {
 
 
   router.on('route:create_map', function() {
-    console.log("you are on maps create");
     $('body').css("background","#bdc3c7");
     var createMap = new createMapView();
     createMap.render();
@@ -341,11 +280,9 @@ $(function() {
       $(".map-pin-list-button").addClass("pin-list-button")
       $(".pin-list-button").removeClass( "map-pin-list-button" );
       $(".pin-list-button").on( "click", function() {
-        console.log("main pin list button working");
         combInitializedData.pinListView.render();
         $(".main-pin-list").css("display", "block");
         $(".main-pin-list-close-button").on("click", function(){
-        console.log("main pin list close button clicked");
         $(".main-pin-list").css("display", "none");
         });
       });
@@ -366,19 +303,12 @@ $(function() {
       $(".pin-list-button").addClass( "map-pin-list-button" );
       $(".map-pin-list-button").removeClass("pin-list-button")
       $(".map-pin-list-button").on( "click", function() {
-        console.log("map pin list button working");
        });
     });
-    // This is beginning of a click function for the pin list view. First need to investigate creating a pin collection.
-    // $(".map-pin-list").on( "click", function() {
-    //   console.log("map pin list button working");
-    // });
     $(".pin-list-button").on( "click", function() {
-      console.log("main pin list button working");
       combInitializedData.pinListView.render();
       $(".main-pin-list").css("display", "block");
         $(".main-pin-list-close-button").on("click", function(){
-        console.log("main pin list close button clicked");
         $(".main-pin-list").css("display", "none");
         });
     });
