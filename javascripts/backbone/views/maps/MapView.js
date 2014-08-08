@@ -33,37 +33,7 @@ Comb.Views.MapView = Backbone.View.extend({
       el.append( pin.name );
     });
   },
-  displayMapView: function(){
-    var self = this;
-    $('.main').empty();
-    var canvas = $(".main");
-    canvas.html( this.singleMapTemplate( this.model.attributes ) );
-    var lat = parseFloat(this.model.attributes.map_lat);
-    var lng = parseFloat(this.model.attributes.map_long);
-    var latlng = new google.maps.LatLng(lat, lng);
-    var pins = this.model.attributes.pins;
-    var model = this.model;
-
-    $(".map-pin-list-button").on("click", function(){
-      var el = $(".pin-list-ul");
-      el.empty();
-      _.each(pins, function(pin){
-        var pinLat = pin.pin_lat;
-        var pinLong = pin.pin_long;
-        var pinPoint = new google.maps.LatLng(pinLat, pinLong);
-
-        // The following establishes the distance between the pins and the centerpoint of the current map, with the unit set as miles (the 3963 float is the earth's equatorial radius).
-        var distance = google.maps.geometry.spherical.computeDistanceBetween(latlng, pinPoint, 3963.1905919);
-        var rounded = +distance.toFixed(2);
-        el.append( "<h3>"+pin.name+"</h3>"+"<h4>"+pin.description+"</h4>"+"<p>Distance from current location: "+" "+rounded+" miles</p>");
-      });
-        $(".map-pin-list").css("display", "block");
-    });
-
-    $(".map-pin-list-close").on("click", function(){
-      $(".map-pin-list").css("display", "none");
-    });
-
+  mapStyles: function(){
     var mapStyles = [
         {
           "featureType": "landscape.man_made",
@@ -215,11 +185,43 @@ Comb.Views.MapView = Backbone.View.extend({
           ]
         }
       ];
+      return this
+  }
+  displayMapView: function(){
+    var self = this;
+    $('.main').empty();
+    var canvas = $(".main");
+    canvas.html( this.singleMapTemplate( this.model.attributes ) );
+    var lat = parseFloat(this.model.attributes.map_lat);
+    var lng = parseFloat(this.model.attributes.map_long);
+    var latlng = new google.maps.LatLng(lat, lng);
+    var pins = this.model.attributes.pins;
+    var model = this.model;
+
+    $(".map-pin-list-button").on("click", function(){
+      var el = $(".pin-list-ul");
+      el.empty();
+      _.each(pins, function(pin){
+        var pinLat = pin.pin_lat;
+        var pinLong = pin.pin_long;
+        var pinPoint = new google.maps.LatLng(pinLat, pinLong);
+
+        // The following establishes the distance between the pins and the centerpoint of the current map, with the unit set as miles (the 3963 float is the earth's equatorial radius).
+        var distance = google.maps.geometry.spherical.computeDistanceBetween(latlng, pinPoint, 3963.1905919);
+        var rounded = +distance.toFixed(2);
+        el.append( "<h3>"+pin.name+"</h3>"+"<h4>"+pin.description+"</h4>"+"<p>Distance from current location: "+" "+rounded+" miles</p>");
+      });
+        $(".map-pin-list").css("display", "block");
+    });
+
+    $(".map-pin-list-close").on("click", function(){
+      $(".map-pin-list").css("display", "none");
+    });
 
     var mapOptions = {
       zoom: 10,
       center: latlng,
-      styles: mapStyles,
+      styles: this.mapStyles(),
       mapTypeControl: false,
       panControl: true,
       panControlOptions: {
