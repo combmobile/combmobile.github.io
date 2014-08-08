@@ -552,7 +552,7 @@ img {
 .single-map-name {
   z-index: 6;
   position: absolute;
-  top: 0.5%;
+  top: 0.3%;
   left: 25%;
   right: 25%;
   width: 30%;
@@ -561,7 +561,7 @@ img {
 /*  border-radius: 50px;
   background: RGBA(255, 255, 255, .75);*/
   color: RGBA(30, 187, 166, 1);
-  margin: 0 auto 1% auto;
+  margin: 0 auto;
   text-align: center;
 }
 
